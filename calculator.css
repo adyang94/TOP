@@ -1,0 +1,62 @@
+html {
+    background-color: black;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+
+}
+.container {
+    display: flex;
+    flex-direction: column;   
+}
+.titleContainer {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    color: gray;
+}
+.calcDisplay {
+    display: grid;
+    color: white;
+    border: grey solid;
+    border-width: 1px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    background: rgb(76, 72, 72);
+}
+.calcSubDisplay {
+    background: black;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    color: white;
+    border: grey solid;
+    border-width: 1px;
+
+}
+.calc-container {
+    display: flex;
+    justify-content: center;
+}
+.calc {
+    display: grid;
+    grid-template-columns: repeat(4, 0.1fr);
+    grid-template-rows: 1fr 0.5fr repeat(5, 1fr);
+    
+}
+button {
+    justify-self: center;
+    min-height: 5em;
+    min-width: 5em;
+    background-color: black;
+    border: 1px solid;
+    border-color: grey;
+    color: white;
+}
+#reset {
+    color: tomato;
+}
+#divide, #multiply, #subtract, #add, #equals {
+    color: rgb(67, 196, 201);
+}
