@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>ETCH-A-SKETCH</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- Link stylesheet in head -->
+        <meta charset="UTF-8"> 
+        <!-- Meta charset UTF-8 specifies the coding in the HTML document to unicode. -->
+    </head>
+    
+    <div class="header"><h1>ETCH-A-SKETCH</h1></div>
+    
+    <body>
+        <form class ="getInput" id="getInput">
+            <lable>Number of Squares Per Side:</lable>
+            <input type="text" id="numberofSquares" value="">
+            <br>
+            <input type="submit" value="Submit" class="submit">
+            <button class="reset">Reset</button>
+        </form>
+        
+        <div class="container">
+            <div class='grid'></div>
+        </div>
+    </body>
+    <script src="etch-a-sketch.js"></script>
+</html>
