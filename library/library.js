@@ -17,7 +17,7 @@ function removeBook () {
 
 };
 function changeReadStatus () {
-
+    //Needs to be able to toggle the book's read status on the book's prototype instance
 };
 //SCRIPT---------------------------------------------------------
     //New book button
