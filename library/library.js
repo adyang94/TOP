@@ -15,12 +15,15 @@ function book(author, numberOfPages, read) {
     this.read = read;
 };
 function addBookToLibrary () {
-    
+    //May not be needed.
 };
 function displayBooks () {
     //Will need some example books to display.
 };
 function addNewBook () {
+    //Get info from input and send to book constructor.
+    //Send book constructor and library array to displayBooks function
+
     //author, title, number of pages, whether it's been read.
     console.log('FUNCTION CALLED: addNewBook');
 
