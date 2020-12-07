@@ -24,5 +24,6 @@ function changeReadStatus () {
 };
 //SCRIPT---------------------------------------------------------
     //New book button
+    
     //Remove book button
     //Change read status button
