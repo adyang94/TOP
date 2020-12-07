@@ -7,16 +7,12 @@ const authorInput = document.querySelector('#author');
 const numberOfPagesInput = document.querySelector('#numberOfPages');
 const readButton = document.querySelector('#read');
 
-//SCRIPT---------------------------------------------------------
-    //New book button
-    newBookButton.addEventListener('click', addNewBook);
-    readButton.addEventListener('click', changeReadStatus);
-    //Remove book button
-    //Change read status button
-
 //FUNCTIONS------------------------------------------------------
-function book() {
-
+function book(author, numberOfPages, read) {
+    //the object constructor
+    this.author = author;
+    this.numberOfPages = numberOfPages;
+    this.read = read;
 };
 function addBookToLibrary () {
     
@@ -37,3 +33,10 @@ function changeReadStatus () {
     console.log('FUNCTION CALLED: changeReadStatus');
 
 };
+
+//SCRIPT---------------------------------------------------------
+//New book button
+newBookButton.addEventListener('click', addNewBook);
+readButton.addEventListener('click', changeReadStatus);
+//Remove book button
+//Change read status button
