@@ -2,7 +2,18 @@
 let myLibrary = [];
 
 const bookCards = document.querySelector('.cards');
-const newBookButton = document.querySelector('#newBookButton')
+const newBookButton = document.querySelector('#newBookButton');
+const authorInput = document.querySelector('#author');
+const numberOfPagesInput = document.querySelector('#numberOfPages');
+const readButton = document.querySelector('#read');
+
+//SCRIPT---------------------------------------------------------
+    //New book button
+    newBookButton.addEventListener('click', addNewBook);
+    readButton.addEventListener('click', changeReadStatus);
+    //Remove book button
+    //Change read status button
+
 //FUNCTIONS------------------------------------------------------
 function book() {
 
@@ -15,15 +26,14 @@ function displayBooks () {
 };
 function addNewBook () {
     //author, title, number of pages, whether it's been read.
+    console.log('FUNCTION CALLED: addNewBook');
+
 };
 function removeBook () {
 
 };
 function changeReadStatus () {
     //Needs to be able to toggle the book's read status on the book's prototype instance
+    console.log('FUNCTION CALLED: changeReadStatus');
+
 };
-//SCRIPT---------------------------------------------------------
-    //New book button
-    newBookButton.addEventListener('click', console.log('HELLO'));
-    //Remove book button
-    //Change read status button

@@ -8,11 +8,21 @@
         <div class="container">
             <div class="title">Library Project</div>
             <div class="mainDisplayContainer">
-                <div class="newBook">
-                    <button id="newBookButton">New Book</button>
-                    
+
+                <div class="form">
+                    <div class="textInput">
+                        <p><input id="author" type = "text" placeholder = "Type author here"></p>
+                        
+                        <p><input id="numberOfPages" type = "text" placeholder = "Type number of pages here"></p>
+
+                        <p><button id="read">Uncomplete</button></p>
+                    </div>
+                    <div class="newBook">
+                        <button id="newBookButton">New Book</button>
+                    </div>
                 </div>
-                <div class="grid">
+                <div class="libraryGrid">
+                    <!-- This is where the cards for new books are going to go.  It will have a class = "cards" -->
                     <div class="cards"></div>
                 </div>
             </div>
