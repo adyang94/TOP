@@ -1,5 +1,8 @@
 //CONSTANTS AND VARIABLES----------------------------------------
 let myLibrary = [];
+
+const bookCards = document.querySelector('.cards');
+const newBookButton = document.querySelector('#newBookButton')
 //FUNCTIONS------------------------------------------------------
 function book() {
 
