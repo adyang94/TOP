@@ -24,6 +24,6 @@ function changeReadStatus () {
 };
 //SCRIPT---------------------------------------------------------
     //New book button
-    
+    newBookButton.addEventListener('click', console.log('HELLO'));
     //Remove book button
     //Change read status button
