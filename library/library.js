@@ -5,7 +5,6 @@ const bookCards = document.querySelector('.cards');
 const newBookButton = document.querySelector('#newBookButton');
 const authorInput = document.querySelector('#author');
 const numberOfPagesInput = document.querySelector('#numberOfPages');
-const readButton = document.querySelector('#read');
 
 //FUNCTIONS------------------------------------------------------
 function book(title, author, numberOfPages, read) {
@@ -26,12 +25,25 @@ function displayBooks () {
     books.forEach(book => displayBooks.removeChild(book));
 
     for(i=0; i < myLibrary.length; i++) {
-
+        //create elements for the card
+        const library = document.querySelector('.libraryContainer');
+        const bookDiv = document.createElement('div');
+        const titleDiv = document.createElement('div');
+        const authorDiv = document.createElement('div');
+        const numberOfPagesDiv = document.createElement('div');
+        const readButton = document.createElement('button');
+        //append elements for the card to library container
+        library.appendChild(bookDiv);
+        bookDiv.appendChild(titleDiv)
+        bookDiv.appendChild(authorDiv);
+        bookDiv.appendChild(numberOfPagesDiv);
+        bookDiv.appendChild(readButton)
     }
 };
 function addNewBook () {
     //Get info from input and send to book constructor.
-    let newBook = new book(author, )
+    let newBook = new book(title, author, numberOfPages, read);
+    myLibrary.push(newBook);
     //Send book constructor and library array to displayBooks function
 
     //author, title, number of pages, whether it's been read.
