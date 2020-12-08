@@ -6,24 +6,26 @@
     </header>
     <body>
         <div class="container">
-            <div class="title">Library Project</div>
+            <div class="projectTitle">Library Project</div>
             <div class="mainDisplayContainer">
 
                 <div class="form">
                     <div class="textInput">
-                        <p><input id="author" type = "text" placeholder = "Type author here"></p>
-                        
-                        <p><input id="numberOfPages" type = "text" placeholder = "Type number of pages here"></p>
+                        <p><input id="formTitle" type="text" placeholder="Type title here"></p>
 
-                        <p><input type="checkbox" id="read">Read?</button></p>
+                        <p><input id="formAuthor" type = "text" placeholder = "Type author here"></p>
+                        
+                        <p><input id="formNumberOfPages" type = "text" placeholder = "Type number of pages here"></p>
+
+                        <p><div><input id="formCheckbox" type="checkbox">Read?</div></p>
                     </div>
                     <div class="newBook">
                         <button id="newBookButton">Add New Book</button>
                     </div>
                 </div>
                 <div class="library">
-                    <!-- This is where the cards for new books are going to go.  It will have a class = "cards" -->
-                    <div class="cards"></div>
+                    
+                    <div class="cards"></div>  <!-- This is where the cards for new books are going to go.  It will have a class = "cards" -->
                 </div>
             </div>
         </div>
