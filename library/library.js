@@ -31,23 +31,23 @@ function displayBooks () {
         const titleDiv = document.createElement('div');
         const authorDiv = document.createElement('div');
         const numberOfPagesDiv = document.createElement('div');
-        const readButton = document.createElement('button');
+        const cardCheckbox = document.createElement('button');
         //append elements for the card to library container.
         library.appendChild(bookDiv);
         bookDiv.appendChild(titleDiv)
         bookDiv.appendChild(authorDiv);
         bookDiv.appendChild(numberOfPagesDiv);
-        bookDiv.appendChild(readButton)
+        bookDiv.appendChild(cardCheckbox)
         //add information/text to appropriate areas.
         titleDiv.textContent = myLibrary[i].title;
         authorDiv.textContent = myLibrary[i].author;
         numberOfPagesDiv.textContent = myLibrary[i].numberOfPages;
-        //read button toggle
         //add classes to book cards for CSS
         titleDiv.classList.add('title');
         authorDiv.classList.add('author');
         numberOfPagesDiv.classList.add('numberOfPages');
-        readButton.classList.add('readButton');
+        cardCheckbox.classList.add('cardCheckbox');
+        //read button toggle
 
     }
 };
