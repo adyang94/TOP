@@ -5,6 +5,8 @@ let myLibrary = [
     }
 ];
 
+let newBook;
+
 const bookCards = document.querySelector('.cards');
 const newBookButton = document.querySelector('#newBookButton');
 const formAuthor = document.querySelector('#formAuthor');
@@ -14,8 +16,8 @@ const formTitle = document.querySelector('#formTitle');
 //FUNCTIONS------------------------------------------------------
 function book(title, author, numberOfPages) {
     //the object constructor
-    this.title = title;
-    this.author = author;
+    this.title = form.title.value;
+    this.author = formauthor;
     this.numberOfPages = numberOfPages;
     //send info to the displayBooks function to be displayed.
 };
@@ -40,7 +42,8 @@ function displayBooks () {
         const removeButton = document.createElement('button');
         const checkboxDiv = document.createElement('div');
         const cardCheckbox = document.createElement('input');
-            cardCheckbox.setAttribute("type", "checkbox")
+            cardCheckbox.setAttribute("type", "checkbox");
+        const cardCheckboxLabel = document.createElement('label');
         //append elements to library.
         library.appendChild(bookDiv);
         bookDiv.appendChild(titleDiv)
@@ -50,13 +53,14 @@ function displayBooks () {
         
         bookDiv.appendChild(checkboxDiv);
         checkboxDiv.appendChild(cardCheckbox);
+        checkboxDiv.appendChild(cardCheckboxLabel);
 
         //add information/text
         titleDiv.textContent = myLibrary[i].title;
         authorDiv.textContent = myLibrary[i].author;
         numberOfPagesDiv.textContent = myLibrary[i].numberOfPages;
         removeButton.textContent = "Remove";
-        checkboxDiv.textContent = "Read??"
+        cardCheckboxLabel.textContent = "Read??"
         //add classes to card divs for CSS
         bookDiv.classList.add('bookDiv');
         titleDiv.classList.add('title');
@@ -68,7 +72,7 @@ function displayBooks () {
 };
 function addNewBook () {
     //Get info from input and send to book constructor.
-    let newBook = new book(title, author, numberOfPages, read);
+    newBook = new book(title, author, numberOfPages, read);
     myLibrary.push(newBook);
     //Send book constructor and library array to displayBooks function
 
@@ -89,5 +93,6 @@ function changeReadStatus () {
 //New book button
 newBookButton.addEventListener('click', addNewBook);
 displayBooks();
+
 //Remove book button
 //Change read status button
