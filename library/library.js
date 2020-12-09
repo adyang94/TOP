@@ -14,15 +14,37 @@ const formNumberOfPages = document.querySelector('#formNumberOfPages');
 const formTitle = document.querySelector('#formTitle');
 
 //FUNCTIONS------------------------------------------------------
-function book(title, author, numberOfPages) {
+// class book {
+//     constructor (title, author, numberOfPages) {
+//         this.title = form.formTitle.value;
+//         this.author = form.formAuthor.value;
+//         this.numberOfPages = numberOfPages;
+//         console.log(`this.title: ${this.title}`);
+//     }
+// }
+function book (title, author, numberOfPages) {
     //the object constructor
-    this.title = form.title.value;
-    this.author = formauthor;
-    this.numberOfPages = numberOfPages;
+    this.title = title.value;
+    this.author = author.value;
+    this.numberOfPages = numberOfPages.value;
+    
     //send info to the displayBooks function to be displayed.
 };
 function addBookToLibrary () {
     //May not be needed.
+};
+function addNewBook () {
+    //Get info from input and send to book constructor.
+    newBook = new book(formTitle, formAuthor, formNumberOfPages);
+    myLibrary.push(newBook);
+    //Send book constructor and library array to displayBooks function
+
+    //author, title, number of pages, whether it's been read.
+    console.log('FUNCTION CALLED: addNewBook');
+    console.log(`this.title: ${myLibrary[1].title}`);
+    console.log(`this.author: ${myLibrary[1].author}`);
+    console.log(`this.numberOfPages: ${myLibrary[1].numberOfPages}`);
+
 };
 function displayBooks () {
     //Will need some example books to display.
@@ -69,16 +91,6 @@ function displayBooks () {
         cardCheckbox.classList.add('cardCheckbox');
         removeButton.classList.add('removeButton');
     }
-};
-function addNewBook () {
-    //Get info from input and send to book constructor.
-    newBook = new book(title, author, numberOfPages, read);
-    myLibrary.push(newBook);
-    //Send book constructor and library array to displayBooks function
-
-    //author, title, number of pages, whether it's been read.
-    console.log('FUNCTION CALLED: addNewBook');
-
 };
 function removeBook () {
 

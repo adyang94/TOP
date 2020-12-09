@@ -11,20 +11,19 @@
 
                 <div class="sidenav">
                     <div class="textInput">
-                        <form id="form" action="./library.js">
-                            <p><input id="formTitle" type="text" placeholder="Type title here"></p>
+                        <form id="form">
+                            Title:<input id="formTitle" type="text" placeholder="Type title here"><br>
 
-                            <p><input id="formAuthor" type = "text" placeholder = "Type author here"></p>
-                            
-                            <p><input id="formNumberOfPages" type = "text" placeholder = "Type number of pages here"></p>
+                            Author:<input id="formAuthor" type = "text" placeholder = "Type author here"><br>
 
-                            <p><div>
+                            Number of Pages:<input id="formNumberOfPages" type = "text" placeholder = "Type number of pages here"><br>
+                            <div>
                                 <input id="formCheckbox" type="checkbox" name="formCheckbox">
                                 <label for="formCheckbox">Read?</label>
-                            </div></p>
+                            </div>
+                            <div class="newBook">
+                                <button id="newBookButton" type="submit" form="form" >Add New Book</button>
                         </form>
-                        <div class="newBook">
-                            <button id="newBookButton" type="submit" form="form" >Add New Book</button>
                         </div>
                     </div>
                 </div>

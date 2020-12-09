@@ -8,20 +8,20 @@
 .projectTitle {
     display: flex;
     font-size: 3rem;
-    color: blue;
+    color: #3B7391;
     justify-self: center;
     align-self: center;
-    border-bottom: black solid;
+    border-bottom: #3b7391 solid;
     /* padding and margin??? */
 }
 .sidenav {
     height: auto;
-    width: 160px;
+    width: 10rem;
     position: fixed;
     z-index: 1;
     top: 25%;
     left: 0;
-    background-color: burlywood
+    background-color: burlywood;
     overflow: hidden;
     padding-top: 20px;
 }
