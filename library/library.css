@@ -11,7 +11,19 @@
     color: blue;
     justify-self: center;
     align-self: center;
+    border-bottom: black solid;
     /* padding and margin??? */
+}
+.sidenav {
+    height: auto;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 25%;
+    left: 0;
+    background-color: burlywood
+    overflow: hidden;
+    padding-top: 20px;
 }
 .library {
     display: flex;
