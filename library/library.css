@@ -15,16 +15,36 @@
     /* padding and margin??? */
 }
 .sidenav {
-    height: auto;
+    /* auto height adapts height to given space */
+    height: auto;  
+    /* set the width of the side bar */
     width: 10rem;
+    /* fixed sidebar (stay in place on scroll */
     position: fixed;
+    /* stop on top of other elements */
     z-index: 1;
+    /* how far from the top */
     top: 25%;
     left: 0;
     background-color: burlywood;
+    /* disable horizontal scroll bar */
     overflow: hidden;
-    padding-top: 20px;
+    border-right: #3B7391 solid;
+    padding-right: 1rem;
+    margin-right: 1rem;
+}
+#form {
+    color: #3B7391;
 }
 .library {
     display: flex;
+    height: auto;
+    position: fixed
+    top: 25%;
+    padding-left: 11rem;
+}
+.cards {
+    color: #3B7391;
+    border: #91724a solid;
+    
 }

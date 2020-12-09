@@ -13,15 +13,6 @@ const formAuthor = document.querySelector('#formAuthor');
 const formNumberOfPages = document.querySelector('#formNumberOfPages');
 const formTitle = document.querySelector('#formTitle');
 
-//FUNCTIONS------------------------------------------------------
-// class book {
-//     constructor (title, author, numberOfPages) {
-//         this.title = form.formTitle.value;
-//         this.author = form.formAuthor.value;
-//         this.numberOfPages = numberOfPages;
-//         console.log(`this.title: ${this.title}`);
-//     }
-// }
 function book (title, author, numberOfPages) {
     //the object constructor
     this.title = title.value;
@@ -44,7 +35,6 @@ function addNewBook () {
     console.log(`this.title: ${myLibrary[1].title}`);
     console.log(`this.author: ${myLibrary[1].author}`);
     console.log(`this.numberOfPages: ${myLibrary[1].numberOfPages}`);
-
 };
 function displayBooks () {
     //Will need some example books to display.
@@ -53,7 +43,7 @@ function displayBooks () {
     // Remove old cards
     books.forEach(book => displayBooks.removeChild(book));
     console.log(`Library Length: ${myLibrary.length}`);
-    //Create new cards
+    //Create new cards loop
     for(i=0; i < myLibrary.length; i++) {
         //create elements for the card.
         const library = document.querySelector('.library');
@@ -84,7 +74,7 @@ function displayBooks () {
         removeButton.textContent = "Remove";
         cardCheckboxLabel.textContent = "Read??"
         //add classes to card divs for CSS
-        bookDiv.classList.add('bookDiv');
+        bookDiv.classList.add('cards');
         titleDiv.classList.add('title');
         authorDiv.classList.add('author');
         numberOfPagesDiv.classList.add('numberOfPages');
