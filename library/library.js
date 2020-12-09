@@ -13,6 +13,7 @@ const formAuthor = document.querySelector('#formAuthor');
 const formNumberOfPages = document.querySelector('#formNumberOfPages');
 const formTitle = document.querySelector('#formTitle');
 
+//FUNCTIONS-------------------------------------------------------
 function book (title, author, numberOfPages) {
     //the object constructor
     this.title = title.value;
@@ -25,6 +26,7 @@ function addBookToLibrary () {
     //May not be needed.
 };
 function addNewBook () {
+    event.preventDefault();
     //Get info from input and send to book constructor.
     newBook = new book(formTitle, formAuthor, formNumberOfPages);
     myLibrary.push(newBook);
@@ -35,13 +37,16 @@ function addNewBook () {
     console.log(`this.title: ${myLibrary[1].title}`);
     console.log(`this.author: ${myLibrary[1].author}`);
     console.log(`this.numberOfPages: ${myLibrary[1].numberOfPages}`);
+
+    displayBooks();
 };
 function displayBooks () {
     //Will need some example books to display.
     //displayBooks iterates through every single book to display it.
-    const books = document.querySelectorAll('.book');
+    const books = document.querySelectorAll('.cards');
+    const library = document.querySelector('.library')
     // Remove old cards
-    books.forEach(book => displayBooks.removeChild(book));
+    books.forEach(book => library.removeChild(book));
     console.log(`Library Length: ${myLibrary.length}`);
     //Create new cards loop
     for(i=0; i < myLibrary.length; i++) {
@@ -54,7 +59,7 @@ function displayBooks () {
         const removeButton = document.createElement('button');
         const checkboxDiv = document.createElement('div');
         const cardCheckbox = document.createElement('input');
-            cardCheckbox.setAttribute("type", "checkbox");
+              cardCheckbox.setAttribute("type", "checkbox");
         const cardCheckboxLabel = document.createElement('label');
         //append elements to library.
         library.appendChild(bookDiv);
@@ -66,7 +71,6 @@ function displayBooks () {
         bookDiv.appendChild(checkboxDiv);
         checkboxDiv.appendChild(cardCheckbox);
         checkboxDiv.appendChild(cardCheckboxLabel);
-
         //add information/text
         titleDiv.textContent = myLibrary[i].title;
         authorDiv.textContent = myLibrary[i].author;
@@ -80,11 +84,22 @@ function displayBooks () {
         numberOfPagesDiv.classList.add('numberOfPages');
         cardCheckbox.classList.add('cardCheckbox');
         removeButton.classList.add('removeButton');
+        //counter for array reference to remove
+        removeButton.setAttribute('id', `${i}`);
+        //remove button
+        removeButton.addEventListener('click', () => {
+            //array method
+            console.log(`remove button clicked. ${event.srcElement.id}`);
+            document.getElementsByClassName("cards)")
+            myLibrary.splice(event.srcElement.id, 1);
+            
+            displayBooks();
+        });
     }
 };
-function removeBook () {
-
-};
+function setData() {
+    localStorage.setItem(`myLibrary`, JSON.stringify(myLibrary));
+}
 function changeReadStatus () {
     //Needs to be able to toggle the book's read status on the book's prototype instance
     console.log('FUNCTION CALLED: changeReadStatus');

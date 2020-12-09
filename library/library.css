@@ -39,12 +39,15 @@
 .library {
     display: flex;
     height: auto;
-    position: fixed
+    position: fixed;
     top: 25%;
     padding-left: 11rem;
+    
+    flex-wrap: wrap;
 }
 .cards {
     color: #3B7391;
     border: #91724a solid;
-    
+    padding: 0.5rem;
+    margin: 0.1rem;
 }
