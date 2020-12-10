@@ -1,0 +1,53 @@
+:root {
+    background-color: burlywood;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.projectTitle {
+    display: flex;
+    font-size: 3rem;
+    color: #3B7391;
+    justify-self: center;
+    align-self: center;
+    border-bottom: #3b7391 solid;
+    /* padding and margin??? */
+}
+.sidenav {
+    /* auto height adapts height to given space */
+    height: auto;  
+    /* set the width of the side bar */
+    width: 10rem;
+    /* fixed sidebar (stay in place on scroll */
+    position: fixed;
+    /* stop on top of other elements */
+    z-index: 1;
+    /* how far from the top */
+    top: 25%;
+    left: 0;
+    background-color: burlywood;
+    /* disable horizontal scroll bar */
+    overflow: hidden;
+    border-right: #3B7391 solid;
+    padding-right: 1rem;
+    margin-right: 1rem;
+}
+#form {
+    color: #3B7391;
+}
+.library {
+    display: flex;
+    height: auto;
+    position: fixed;
+    top: 25%;
+    padding-left: 11rem;
+    
+    flex-wrap: wrap;
+}
+.cards {
+    color: #3B7391;
+    border: #d8d8c0 solid;
+    padding: 0.5rem;
+    margin: 0.1rem;
+}
