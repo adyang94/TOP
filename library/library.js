@@ -4,7 +4,6 @@ let myLibrary = [
         title: "Hello World", //example
     }
 ];
-
 let newBook;
 
 const bookCards = document.querySelector('.cards');
@@ -21,9 +20,6 @@ function book (title, author, numberOfPages) {
     this.numberOfPages = numberOfPages.value;
     
     //send info to the displayBooks function to be displayed.
-};
-function addBookToLibrary () {
-    //May not be needed.
 };
 function addNewBook () {
     event.preventDefault();
@@ -87,12 +83,11 @@ function displayBooks () {
         //counter for array reference to remove
         removeButton.setAttribute('id', `${i}`);
         //remove button
-        removeButton.addEventListener('click', () => {
+        removeButton.addEventListener('click', (event) => {
             //array method
             console.log(`remove button clicked. ${event.srcElement.id}`);
             document.getElementsByClassName("cards)")
             myLibrary.splice(event.srcElement.id, 1);
-            
             displayBooks();
         });
     }
@@ -110,6 +105,4 @@ function changeReadStatus () {
 //New book button
 newBookButton.addEventListener('click', addNewBook);
 displayBooks();
-
-//Remove book button
 //Change read status button
