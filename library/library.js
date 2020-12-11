@@ -40,7 +40,7 @@ function displayBooks () {
     //Will need some example books to display.
     //displayBooks iterates through every single book to display it.
     const books = document.querySelectorAll('.cards');
-    const library = document.querySelector('.library')
+    const library = document.querySelector('.library');
     // Remove old cards
     books.forEach(book => library.removeChild(book));
     console.log(`Library Length: ${myLibrary.length}`);
