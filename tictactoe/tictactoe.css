@@ -9,3 +9,8 @@
     align-self: center;
     align-content: center;
 }
+.gridCell {
+    min-height: 10px;
+    background-color: teal;
+    border: tomato solid;
+}
