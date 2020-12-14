@@ -4,16 +4,29 @@ const grid = document.querySelector('.grid');
 const resetBtn = document.querySelector('#reset');
 
 //FUNCTIONS-------------------------------------------
-const checkwinner = (() => {
-    //check column
-    for(i = 0; i < 3; i++) {
-        if(/* DATA SET NEEDED*/) {
+const misc = (() => {
+    const checkwinner = () => {
+        let winner = '';
+        //check column
 
+        for(i = 0; i < 3; i++) {
+            if((board[i].dataset.player === board[i+3].dataset.player)
+                && (board[i].dataset.player === board[i+6].dataset.player)){
+                return {winner = board[i].dataset.player};
+            }
         }
-    }
-    // check rows
+        // check rows
+        for(i=0; i < 9; i = i + 3) {
+            if ((board[i].dataset.player === board[i+1].dataset.player) &&
+               (board[i+1].dataset.player === board[i+2].dataset.player)) {
+               return {winner = board[i].dataset.player};
+            }
+        }
 
-    // check diagonals
+        // check diagonals
+    }
+    
+    return {checkwinner};
 })();
 
 const game = (() => {
@@ -33,6 +46,9 @@ const game = (() => {
             // next line allows us to store extra data in the HTML file.
             //We are saying that the player data set for each div is undefined;
             gridCell.dataset.player = '';
+
+            //push gridCells into board.  This is important to allow us to scan through the board array for a winner.
+            board.push(gridCell);
         }
         return {turn, setupDone, round, board};
     }
@@ -46,13 +62,13 @@ const game = (() => {
                     
                     //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
                     e.target.dataset.player = 1;
-                    checkwinner();
+                    checkWinner();
                     break;
                 case 2:
                     turn = 1;
                     round++;
                     e.target.dataset.player = 2;
-                    checkwinner();
+                    checkWinner();
                     break;
             }
         }
