@@ -5,28 +5,38 @@ const resetBtn = document.querySelector('#reset');
 
 //FUNCTIONS-------------------------------------------
 const misc = (() => {
+    let winner = '';
     const checkwinner = () => {
-        let winner = '';
         //check column
-
         for(i = 0; i < 3; i++) {
             if((board[i].dataset.player === board[i+3].dataset.player)
                 && (board[i].dataset.player === board[i+6].dataset.player)){
-                return {winner = board[i].dataset.player};
+                    winner = board[i].dataset.player;
+                    return {winner};
             }
         }
         // check rows
         for(i=0; i < 9; i = i + 3) {
             if ((board[i].dataset.player === board[i+1].dataset.player) &&
                (board[i+1].dataset.player === board[i+2].dataset.player)) {
-               return {winner = board[i].dataset.player};
+                winner = board[i].dataset.player;
+                return {winner};
             }
         }
-
         // check diagonals
+        if((board[0].dataset.player === board[4].dataset.player) && 
+           (board[4].dataset.player === board[8].dataset.player)){
+            winner = board[0].dataset.player;
+            return winner;
+           }
+        if((board[2].dataset.player === board[4].dataset.player) && 
+           (board[4].dataset.player === board[6].dataset.player)){
+            winner = board[4].dataset.player;
+            return winner;
+        }
+        return {winner};
     }
-    
-    return {checkwinner};
+    return {checkwinner, winner};
 })();
 
 const game = (() => {
@@ -62,13 +72,13 @@ const game = (() => {
                     
                     //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
                     e.target.dataset.player = 1;
-                    checkWinner();
+                    misc.checkWinner();
                     break;
                 case 2:
                     turn = 1;
                     round++;
                     e.target.dataset.player = 2;
-                    checkWinner();
+                    misc.checkWinner();
                     break;
             }
         }
