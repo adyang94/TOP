@@ -2,6 +2,7 @@
 
 const grid = document.querySelector('.grid');
 const resetBtn = document.querySelector('#reset');
+let board = [];
 
 //FUNCTIONS-------------------------------------------
 const misc = (() => {
@@ -36,12 +37,16 @@ const misc = (() => {
         }
         return {winner};
     }
-    return {checkwinner, winner};
+
+    const resetBoard = () => {
+        grid.forEach(gridCell => grid.removeChild(gridCell))
+        return;
+    }
+    return {checkwinner, winner, resetBoard};
 })();
 
 const game = (() => {
     const setup = function () {
-        let board = [];
         let round = 0;
         let turn = 1;
         let setupDone = true;
