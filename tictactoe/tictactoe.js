@@ -4,6 +4,17 @@ const grid = document.querySelector('.grid');
 const resetBtn = document.querySelector('#reset');
 
 //FUNCTIONS-------------------------------------------
+const checkwinner = (() => {
+    //check column
+    for(i = 0; i < 3; i++) {
+        if(/* DATA SET NEEDED*/) {
+
+        }
+    }
+    // check rows
+
+    // check diagonals
+})();
 
 const game = (() => {
     const setup = function () {
@@ -17,27 +28,37 @@ const game = (() => {
             gridCell.classList.add('gridCell');
             gridCell.id = `${i}`;
             console.log(`${gridCell.id}`);
+            gridCell.addEventListener('click', game.play);
+
+            // next line allows us to store extra data in the HTML file.
+            //We are saying that the player data set for each div is undefined;
+            gridCell.dataset.player = '';
         }
         return {turn, setupDone, round, board};
     }
-    const play = () => {
+    const play = (setupDone, turn, round) => {
+        console.log('play is running');
         if(setupDone){
             switch(turn) {
                 case 1:
                     turn = 2;
                     round++;
-                    //checkwinner function
+                    
+                    //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
+                    e.target.dataset.player = 1;
+                    checkwinner();
                     break;
                 case 2:
                     turn = 1;
                     round++;
-                    //checkwinner function
+                    e.target.dataset.player = 2;
+                    checkwinner();
                     break;
-            
             }
         }
         return;
     }
+
     return {
         setup,
         play
