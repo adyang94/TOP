@@ -1,6 +1,7 @@
 //CONST AND VARIABLES--------------------------------------------
 
 const grid = document.querySelector('.grid');
+
 let board = [];
 
 //FUNCTIONS-------------------------------------------
@@ -38,7 +39,8 @@ const misc = (() => {
     }
 
     const resetBoard = function () {
-        grid.forEach(gridCell => {grid.removeChild(gridCell)});
+        let gridCell = document.querySelectorAll('.gridCell');
+        gridCell.forEach(cell => grid.removeChild(cell));
         return;
     }
     
@@ -100,7 +102,7 @@ const game = (() => {
 const test = (() => {
     game.setup();
     const resetBtn = document.querySelector('#resetBtn');
-    resetBtn.addEventListener('click', misc.resetBoard());
+    resetBtn.addEventListener('click', misc.resetBoard);
     
 })();
 
