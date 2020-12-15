@@ -92,7 +92,6 @@ const game = (() => {
         }
         return;
     }
-
     return {
         setup,
         play
@@ -105,5 +104,3 @@ const test = (() => {
     resetBtn.addEventListener('click', misc.resetBoard);
     
 })();
-
-//SCRIPT----------------------------------------------------
