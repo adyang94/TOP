@@ -11,10 +11,14 @@
 }
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 0.1fr);
-    grid-template-rows: repeat(3, 0.1fr);
-    align-self: start;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 1rem;
+    padding: 3rem;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
 }
 .gridCell {
     align-items: center;
