@@ -44,8 +44,6 @@ const misc = (() => {
         gridCell.forEach(cell => grid.removeChild(cell));
         return;
     }
-    
-
     return {checkwinner, winner, resetBoard, resetBtn};
 })();
 
