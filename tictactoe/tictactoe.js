@@ -39,6 +39,7 @@ const misc = (() => {
     }
 
     const resetBoard = function () {
+        console.log('RESET BOARD CALLED');
         let gridCell = document.querySelectorAll('.gridCell');
         gridCell.forEach(cell => grid.removeChild(cell));
         return;
