@@ -39,6 +39,7 @@ const misc = (() => {
     }
 
     const resetBoard = function () {
+        
         console.log('RESET BOARD CALLED');
         let gridCell = document.querySelectorAll('.gridCell');
         gridCell.forEach(cell => grid.removeChild(cell));
@@ -48,10 +49,12 @@ const misc = (() => {
 })();
 
 const game = (() => {
+    let round = 0;
+    let turn = 1;
+    let setupDone;
+    
     const setup = function () {
-        let round = 0;
-        let turn = 1;
-        let setupDone = true;
+        setupDone = true;
         for(i=0; i < 9; i++) {
             let gridCell = document.createElement('div');
             grid.appendChild(gridCell);
@@ -67,10 +70,13 @@ const game = (() => {
             //push gridCells into board.  This is important to allow us to scan through the board array for a winner.
             board.push(gridCell);
         }
-        return {turn, setupDone, round, board};
+        return {turn, board};
     }
-    const play = (setupDone, turn, round) => {
+    const play = () => {
+        console.log('NEXT ROUND-----------------');
         console.log('play is running');
+        console.log(`ROUND IS: ${round}`);
+        console.log(`TURN: ${turn}`);
         if(setupDone){
             switch(turn) {
                 case 1:
@@ -78,20 +84,22 @@ const game = (() => {
                     round++;
                     
                     //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
-                    e.target.dataset.player = 1;
-                    misc.checkWinner();
+                    event.target.dataset.player = 1;
+                    misc.checkWinner;
                     break;
                 case 2:
                     turn = 1;
                     round++;
-                    e.target.dataset.player = 2;
-                    misc.checkWinner();
+                    event.target.dataset.player = 2;
+                    misc.checkWinner;
                     break;
             }
         }
         return;
     }
+    
     return {
+        round,
         setup,
         play
     }
