@@ -72,7 +72,7 @@ const game = (() => {
         }
         return {turn, board};
     }
-    const play = () => {
+    const play = (event) => {
         console.log('NEXT ROUND-----------------');
         console.log('play is running');
         console.log(`ROUND IS: ${round}`);
@@ -82,7 +82,6 @@ const game = (() => {
                 case 1:
                     turn = 2;
                     round++;
-                    
                     //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
                     event.target.dataset.player = 1;
                     misc.checkWinner;
@@ -94,7 +93,9 @@ const game = (() => {
                     misc.checkWinner;
                     break;
             }
+            console.log(`Event.target.dataset.player: ${event.target.dataset.player}`);
         }
+
         return;
     }
     
