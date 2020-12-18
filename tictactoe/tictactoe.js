@@ -57,7 +57,9 @@ const game = (() => {
         setupDone = true;
         for(i=0; i < 9; i++) {
             let gridCell = document.createElement('div');
+        
             grid.appendChild(gridCell);
+
             gridCell.classList.add('gridCell');
             gridCell.id = `${i}`;
             console.log(`${gridCell.id}`);
@@ -80,21 +82,23 @@ const game = (() => {
         if(setupDone){
             switch(turn) {
                 case 1:
-                    if(event.target.dataset === '') {
+                    if(event.target.dataset !== 1 || 2) {
                         turn = 2;
                         round++;
                         //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
                         event.target.dataset.player = 1;
-                        event.target.classList.add('grid-player-1');
+                        
                         misc.checkWinner;
                     }
                     break;
                 case 2:
-                    turn = 1;
-                    round++;
-                    event.target.dataset.player = 2;
-                    event.target.classList.add('grid-player-2');
-                    misc.checkWinner;
+                    if(event.target.dataset !== 1 || 2) {
+                        turn = 1;
+                        round++;
+                        event.target.dataset.player = 2;
+                        
+                        misc.checkWinner;
+                    }
                     break;
             }
             console.log(`Event.target.dataset.player: ${event.target.dataset.player}`);

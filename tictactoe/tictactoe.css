@@ -28,3 +28,6 @@
     background-color: teal;
     border: tomato solid;
 }
+[data-player = "1"] {
+    background-color: yellowgreen;
+}
