@@ -82,7 +82,7 @@ const game = (() => {
         if(setupDone){
             switch(turn) {
                 case 1:
-                    if(event.target.dataset !== 1 || 2) {
+                    if(event.target.dataset.player !== '1' && event.target.dataset.player !== '2') {
                         turn = 2;
                         round++;
                         //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
@@ -92,7 +92,7 @@ const game = (() => {
                     }
                     break;
                 case 2:
-                    if(event.target.dataset !== 1 || 2) {
+                    if(event.target.dataset.player != 1 && event.target.dataset.player != 2) {
                         turn = 1;
                         round++;
                         event.target.dataset.player = 2;
