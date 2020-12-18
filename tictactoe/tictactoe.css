@@ -1,5 +1,7 @@
 :root {
     display: flex;
+    background-color: black;
+    color: white
 }
 .title {
     display: flex;
@@ -8,6 +10,7 @@
     justify-content: center;
     align-self: center;
     align-content: center;
+    color: white;
 }
 .grid {
     display: grid;
@@ -30,4 +33,7 @@
 }
 [data-player = "1"] {
     background-color: yellowgreen;
+}
+[data-player = "2"]{
+    background-color: violet;
 }

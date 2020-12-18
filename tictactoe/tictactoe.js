@@ -57,7 +57,9 @@ const game = (() => {
         setupDone = true;
         for(i=0; i < 9; i++) {
             let gridCell = document.createElement('div');
-        
+            let img = document.createElement('img');
+
+            gridCell.appendChild(img);
             grid.appendChild(gridCell);
 
             gridCell.classList.add('gridCell');
