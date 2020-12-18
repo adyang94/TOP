@@ -8,6 +8,7 @@ let board = [];
 const misc = (() => {
     let winner = '';
     const checkwinner = () => {
+        console.log('Checkwinner running');
         //check column
         for(i = 0; i < 3; i++) {
             if((board[i].dataset.player === board[i+3].dataset.player)
@@ -76,7 +77,7 @@ const game = (() => {
         }
         return {turn, board};
     }
-    const play = (event) => {
+    const play = (event, checkWinner) => {
         console.log('NEXT ROUND-----------------');
         console.log('play is running');
         console.log(`ROUND IS: ${round}`);
@@ -89,7 +90,7 @@ const game = (() => {
                         round++;
                         //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
                         event.target.dataset.player = 1;
-                        
+                        event.target.textContent = 'X';
                         misc.checkWinner;
                     }
                     break;
@@ -98,7 +99,7 @@ const game = (() => {
                         turn = 1;
                         round++;
                         event.target.dataset.player = 2;
-                        
+                        event.target.textContent = 'O';
                         misc.checkWinner;
                     }
                     break;

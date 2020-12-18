@@ -32,8 +32,10 @@
     border: tomato solid;
 }
 [data-player = "1"] {
-    background-color: yellowgreen;
+    color: aquamarine;
+    text-align: center;
 }
 [data-player = "2"]{
-    background-color: violet;
+    color: violet;
+    text-align: center;
 }
