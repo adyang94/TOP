@@ -54,20 +54,27 @@ const misc = (() => {
 
     const resetBoard = function () {
         
-        console.log('RESET BOARD CALLED');
+        console.log('RESET BOARD CALLED----------------');
         let gridCell = document.querySelectorAll('.gridCell');
         gridCell.forEach(cell => grid.removeChild(cell));
+        game.setup();
         return;
+
     }
     return {checkwinner, winner, resetBoard, resetBtn};
 })();
 
 const game = (() => {
+    let setupDone;
     let round = 0;
     let turn = 1;
-    let setupDone;
     
-    const setup = function () {
+    function setup () {
+        setupDone;
+        round = 0;
+        turn = 1;
+        winner = '';
+        board = [];
         setupDone = true;
         for(i=0; i < 9; i++) {
             let gridCell = document.createElement('div');
@@ -84,37 +91,44 @@ const game = (() => {
             //push gridCells into board.  This is important to allow us to scan through the board array for a winner.
             board.push(gridCell);
         }
-        return {turn, board};
+        return {turn, board, round, winner};
     }
-    const play = (event, checkWinner) => {
+    const play = (event) => {
         console.log('NEXT ROUND-----------------');
         // console.log('play is running');
-        // console.log(`ROUND IS: ${round}`);
+        console.log(`ROUND IS: ${round}`);
         // console.log(`TURN: ${turn}`);
 
         
         if(setupDone){
-            switch(turn) {
-                case 1:
-                    if(event.target.dataset.player !== '1' && event.target.dataset.player !== '2') {
-                        turn = 2;
-                        round++;
-                        //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
-                        event.target.dataset.player = 1;
-                        event.target.textContent = 'X';
-                        misc.checkwinner();
-                        
-                    }
-                    break;
-                case 2:
-                    if(event.target.dataset.player != 1 && event.target.dataset.player != 2) {
-                        turn = 1;
-                        round++;
-                        event.target.dataset.player = 2;
-                        event.target.textContent = 'O';
-                        misc.checkwinner();
-                    }
-                    break;
+            if(round < 9) {
+                switch(turn) {
+                    case 1:
+                        if(event.target.dataset.player !== '1' && event.target.dataset.player !== '2') {
+                            turn = 2;
+                            round++;
+                            //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
+                            event.target.dataset.player = 1;
+                            event.target.textContent = 'X';
+                            if(misc.checkwinner()) {
+                                let winner = 1;
+                                round = 9;
+                                console.log('HELLO1')
+                                return {winner, turn}
+                            }
+                            
+                        }
+                        break;
+                    case 2:
+                        if(event.target.dataset.player != 1 && event.target.dataset.player != 2) {
+                            turn = 1;
+                            round++;
+                            event.target.dataset.player = 2;
+                            event.target.textContent = 'O';
+                            misc.checkwinner();
+                        }
+                        break;
+                }
             }
             console.log(`Event.target.dataset.player: ${event.target.dataset.player}`);
         }
