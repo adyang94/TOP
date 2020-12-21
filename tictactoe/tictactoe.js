@@ -62,7 +62,7 @@ const misc = (() => {
 
     }
     return {checkwinner, winner, resetBoard, resetBtn};
-})();
+})();  /*IMPORANT:  This is an IIFE (Immediately Invoked Function Expressions).  Data privacy is the primary reason for IIFE's.  The function is immediately ran and initialized.*/
 
 const game = (() => {
     let setupDone;
@@ -85,8 +85,8 @@ const game = (() => {
             console.log(`${gridCell.id}`);
             gridCell.addEventListener('click', game.play);
 
-            // next line allows us to store extra data in the HTML file.
-            //We are saying that the player data set for each div is undefined;
+            // IMPORTANT:  '.dataset' references the "data-" attribute and allows us to store extra data in the HTML file.
+            //We are saying that the player data set for each div is undefined.
             gridCell.dataset.player = '';
             //push gridCells into board.  This is important to allow us to scan through the board array for a winner.
             board.push(gridCell);
@@ -98,8 +98,6 @@ const game = (() => {
         // console.log('play is running');
         console.log(`ROUND IS: ${round}`);
         // console.log(`TURN: ${turn}`);
-
-        
         if(setupDone){
             if(round < 9) {
                 switch(turn) {
@@ -116,7 +114,6 @@ const game = (() => {
                                 console.log('HELLO1')
                                 return {winner, turn}
                             }
-                            
                         }
                         break;
                     case 2:
@@ -132,7 +129,6 @@ const game = (() => {
             }
             console.log(`Event.target.dataset.player: ${event.target.dataset.player}`);
         }
-
         return;
     }
     
