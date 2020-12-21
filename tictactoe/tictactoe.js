@@ -60,7 +60,7 @@ const misc = (() => {
         return;
 
     }
-    return {checkwinner, resetBoard, resetBtn};
+    return {checkwinner, resetBoard, resetBtn, score1, score2};
 })();  /*IMPORANT:  This is an IIFE (Immediately Invoked Function Expressions).  Data privacy is the primary reason for IIFE's.  The function is immediately ran and initialized.*/
 
 const game = (() => {
@@ -68,6 +68,8 @@ const game = (() => {
     let round = 0;
     let turn = 1;
     let winner = '';
+    let score1 = 0;
+    let score2 = 0;
     
     function setup () {
         console.log('HELLO3');
@@ -76,7 +78,9 @@ const game = (() => {
         turn = 1;
         board = [];
         winner = '';
+
         setupDone = true;
+        displayScore();
         for(i=0; i < 9; i++) {
             let gridCell = document.createElement('div');
             grid.appendChild(gridCell);
@@ -99,6 +103,7 @@ const game = (() => {
         // console.log('play is running');
         console.log(`ROUND IS: ${round}`);
         console.log(`winner is : ${winner}`);
+        displayScore();
         // console.log(`TURN: ${turn}`);
         if(setupDone){
             if(round < 9) {
@@ -113,6 +118,8 @@ const game = (() => {
                             if(misc.checkwinner(winner, round)) {
                                 winner = 1;
                                 round = 9;
+                                score1++;
+                                displayScore();
                                 alert('PLAYER 1 WINS!');
                                 return {winner, turn}
                             }
@@ -128,6 +135,8 @@ const game = (() => {
                             if(misc.checkwinner(winner, round)) {
                                 winner = 2;
                                 round = 9;
+                                score2++;
+                                displayScore();
                                 alert('PLAYER 2 WINS!');
                                 return {winner, turn}
                             }
@@ -137,8 +146,14 @@ const game = (() => {
             }
             console.log(`Event.target.dataset.player: ${event.target.dataset.player}`);
         }
-
+        displayScore()
         return;
+    }
+    function displayScore () {
+        score1Display = document.querySelector('#score1');
+        score2Display = document.querySelector('#score2');
+        score1Display.textContent = `${score1}`;
+        score2Display.textContent = score2;
     }
     
     return {
