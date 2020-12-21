@@ -7,7 +7,7 @@ let board = [];
 //FUNCTIONS-------------------------------------------
 const misc = (() => {
     let winner = '';
-    const checkwinner = () => {
+    function checkwinner() {
         console.log('Checkwinner running');
         //check column
         for(i = 0; i < 3; i++) {
