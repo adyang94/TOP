@@ -6,17 +6,13 @@ let board = [];
 
 //FUNCTIONS-------------------------------------------
 const misc = (() => {
-    let winner = '';
-    function checkwinner() {
-        console.log('Checkwinner running');
+    function checkwinner(winner, round) {
         //check column
         for(i = 0; i < 3; i++) {
             if(board[i].dataset.player != "") {
                 if((board[i].dataset.player === board[i+3].dataset.player)
                     && (board[i].dataset.player === board[i+6].dataset.player)){
                         winner = board[i].dataset.player;
-                        console.log(`HELLO1`);
-                        console.log(`winner is : ${winner}`);
                         return {winner};
                 }
             }
@@ -49,6 +45,9 @@ const misc = (() => {
                 return winner;
             }
         }
+        if(round === 9 && winner =='') {
+            alert('IT\'S A TIE!');
+        }
         return;
     }
 
@@ -61,20 +60,22 @@ const misc = (() => {
         return;
 
     }
-    return {checkwinner, winner, resetBoard, resetBtn};
+    return {checkwinner, resetBoard, resetBtn};
 })();  /*IMPORANT:  This is an IIFE (Immediately Invoked Function Expressions).  Data privacy is the primary reason for IIFE's.  The function is immediately ran and initialized.*/
 
 const game = (() => {
     let setupDone;
     let round = 0;
     let turn = 1;
+    let winner = '';
     
     function setup () {
+        console.log('HELLO3');
         setupDone;
         round = 0;
         turn = 1;
-        winner = '';
         board = [];
+        winner = '';
         setupDone = true;
         for(i=0; i < 9; i++) {
             let gridCell = document.createElement('div');
@@ -91,12 +92,13 @@ const game = (() => {
             //push gridCells into board.  This is important to allow us to scan through the board array for a winner.
             board.push(gridCell);
         }
-        return {turn, board, round, winner};
+        return {turn, board, round};
     }
     const play = (event) => {
         console.log('NEXT ROUND-----------------');
         // console.log('play is running');
         console.log(`ROUND IS: ${round}`);
+        console.log(`winner is : ${winner}`);
         // console.log(`TURN: ${turn}`);
         if(setupDone){
             if(round < 9) {
@@ -108,12 +110,13 @@ const game = (() => {
                             //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
                             event.target.dataset.player = 1;
                             event.target.textContent = 'X';
-                            if(misc.checkwinner()) {
-                                let winner = 1;
+                            if(misc.checkwinner(winner, round)) {
+                                winner = 1;
                                 round = 9;
-                                console.log('HELLO1')
+                                alert('PLAYER 1 WINS!');
                                 return {winner, turn}
                             }
+                            
                         }
                         break;
                     case 2:
@@ -122,13 +125,19 @@ const game = (() => {
                             round++;
                             event.target.dataset.player = 2;
                             event.target.textContent = 'O';
-                            misc.checkwinner();
+                            if(misc.checkwinner(winner, round)) {
+                                winner = 2;
+                                round = 9;
+                                alert('PLAYER 2 WINS!');
+                                return {winner, turn}
+                            }
                         }
                         break;
                 }
             }
             console.log(`Event.target.dataset.player: ${event.target.dataset.player}`);
         }
+
         return;
     }
     
