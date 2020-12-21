@@ -11,32 +11,45 @@ const misc = (() => {
         console.log('Checkwinner running');
         //check column
         for(i = 0; i < 3; i++) {
-            if((board[i].dataset.player === board[i+3].dataset.player)
-                && (board[i].dataset.player === board[i+6].dataset.player)){
-                    winner = board[i].dataset.player;
-                    return {winner};
+            if(board[i].dataset.player != "") {
+                if((board[i].dataset.player === board[i+3].dataset.player)
+                    && (board[i].dataset.player === board[i+6].dataset.player)){
+                        winner = board[i].dataset.player;
+                        console.log(`HELLO1`);
+                        console.log(`winner is : ${winner}`);
+                        return {winner};
+                }
             }
         }
         // check rows
         for(i=0; i < 9; i = i + 3) {
-            if ((board[i].dataset.player === board[i+1].dataset.player) &&
-               (board[i+1].dataset.player === board[i+2].dataset.player)) {
-                winner = board[i].dataset.player;
-                return {winner};
+            if(board[i].dataset.player != "") {
+                if ((board[i].dataset.player === board[i+1].dataset.player) &&
+                (board[i+1].dataset.player === board[i+2].dataset.player)) {
+                    winner = board[i].dataset.player;
+                    console.log(`winner is : ${winner}`);
+                    return {winner};
+                }
             }
         }
         // check diagonals
-        if((board[0].dataset.player === board[4].dataset.player) && 
-           (board[4].dataset.player === board[8].dataset.player)){
-            winner = board[0].dataset.player;
-            return winner;
-           }
-        if((board[2].dataset.player === board[4].dataset.player) && 
-           (board[4].dataset.player === board[6].dataset.player)){
-            winner = board[4].dataset.player;
-            return winner;
+        if(board[0].dataset.player != "") {
+            if((board[0].dataset.player === board[4].dataset.player) && 
+            (board[4].dataset.player === board[8].dataset.player)){
+                winner = board[0].dataset.player;
+                console.log(`winner is : ${winner}`);
+                return winner;
+            }
         }
-        return {winner};
+        if(board[2].dataset.player != "") {
+            if((board[2].dataset.player === board[4].dataset.player) && 
+            (board[4].dataset.player === board[6].dataset.player)){
+                winner = board[4].dataset.player;
+                console.log(`winner is : ${winner}`);
+                return winner;
+            }
+        }
+        return;
     }
 
     const resetBoard = function () {
@@ -75,9 +88,11 @@ const game = (() => {
     }
     const play = (event, checkWinner) => {
         console.log('NEXT ROUND-----------------');
-        console.log('play is running');
-        console.log(`ROUND IS: ${round}`);
-        console.log(`TURN: ${turn}`);
+        // console.log('play is running');
+        // console.log(`ROUND IS: ${round}`);
+        // console.log(`TURN: ${turn}`);
+
+        
         if(setupDone){
             switch(turn) {
                 case 1:
@@ -87,7 +102,8 @@ const game = (() => {
                         //Next line selects the element targeted and sets the dataset-player to PLAYER 1.  Likewise for player 2 below.
                         event.target.dataset.player = 1;
                         event.target.textContent = 'X';
-                        misc.checkWinner;
+                        misc.checkwinner();
+                        
                     }
                     break;
                 case 2:
@@ -96,7 +112,7 @@ const game = (() => {
                         round++;
                         event.target.dataset.player = 2;
                         event.target.textContent = 'O';
-                        misc.checkWinner;
+                        misc.checkwinner();
                     }
                     break;
             }
