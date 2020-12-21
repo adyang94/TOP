@@ -14,9 +14,8 @@
 }
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 5.1875rem);
+    grid-template-rows: repeat(3, 5.1875rem);
     padding: 3rem;
     width: 100%;
     height: 100%;
@@ -26,16 +25,52 @@
 .gridCell {
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     background-color: teal;
     border: tomato solid;
 }
+#grid0 {
+    border-top: none;
+    border-left: none;
+}
+#grid1 {
+    border-top: none;
+}
+#grid2 {
+    border-top: none;
+    border-right: none;
+}
+#grid3 {
+    border-left: none;
+}
+#grid4 {
+
+}
+#grid5 {
+    border-right: none;
+}
+#grid6 {
+    border-left:none;
+    border-bottom: none;
+}
+#grid7 {
+    border-bottom: none;
+}
+#grid8 {
+    border-bottom: none;
+    border-right: none;
+}
+
 [data-player = "1"] {
     color: aquamarine;
     text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
 }
 [data-player = "2"]{
     color: violet;
     text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
 }

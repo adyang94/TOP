@@ -58,20 +58,16 @@ const game = (() => {
         setupDone = true;
         for(i=0; i < 9; i++) {
             let gridCell = document.createElement('div');
-            let img = document.createElement('img');
-
-            gridCell.appendChild(img);
             grid.appendChild(gridCell);
 
             gridCell.classList.add('gridCell');
-            gridCell.id = `${i}`;
+            gridCell.id = `grid${i}`;
             console.log(`${gridCell.id}`);
             gridCell.addEventListener('click', game.play);
 
             // next line allows us to store extra data in the HTML file.
             //We are saying that the player data set for each div is undefined;
             gridCell.dataset.player = '';
-
             //push gridCells into board.  This is important to allow us to scan through the board array for a winner.
             board.push(gridCell);
         }
