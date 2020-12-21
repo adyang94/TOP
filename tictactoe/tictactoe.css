@@ -1,7 +1,8 @@
 :root {
     display: flex;
     background-color: black;
-    color: white
+    color: white;
+    flex-direction: column;
 }
 .title {
     display: flex;
@@ -12,8 +13,17 @@
     align-content: center;
     color: white;
 }
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gridContainer {
+    display: flex;
+}
 .grid {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(3, 5.1875rem);
     grid-template-rows: repeat(3, 5.1875rem);
     padding: 3rem;

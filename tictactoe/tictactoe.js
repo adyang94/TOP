@@ -152,8 +152,8 @@ const game = (() => {
     function displayScore () {
         score1Display = document.querySelector('#score1');
         score2Display = document.querySelector('#score2');
-        score1Display.textContent = `${score1}`;
-        score2Display.textContent = score2;
+        score1Display.textContent = `Player 1: ${score1}`;
+        score2Display.textContent = `Player 2: ${score2}`;
     }
     
     return {
