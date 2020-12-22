@@ -13,20 +13,20 @@ const formNumberOfPages = document.querySelector('#formNumberOfPages');
 const formTitle = document.querySelector('#formTitle');
 
 //FUNCTIONS-------------------------------------------------------
-function book (title, author, numberOfPages) {
+class book {
     //the object constructor
-    this.title = title.value;
-    this.author = author.value;
-    this.numberOfPages = numberOfPages.value;
-    
+    constructor(title, author, numberOfPages) {
+        this.title = title.value;
+        this.author = author.value;
+        this.numberOfPages = numberOfPages.value;
+    }
     //send info to the displayBooks function to be displayed.
 };
 function addNewBook () {
     event.preventDefault();
-    //Get info from input and send to book constructor.
+    //Get info from input and send to book CONSTRUCTOR.
     newBook = new book(formTitle, formAuthor, formNumberOfPages);
-    myLibrary.push(newBook);
-    //Send book constructor and library array to displayBooks function
+    myLibrary.push(newBook); /*Adds new book object to the array.*/
 
     //author, title, number of pages, whether it's been read.
     console.log('FUNCTION CALLED: addNewBook');
