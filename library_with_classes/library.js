@@ -22,18 +22,11 @@ class book {
     }
     //send info to the displayBooks function to be displayed.
 };
-function addNewBook () {
+function addNewBook (event) {
     event.preventDefault();
     //Get info from input and send to book CONSTRUCTOR.
     newBook = new book(formTitle, formAuthor, formNumberOfPages);
     myLibrary.push(newBook); /*Adds new book object to the array.*/
-
-    //author, title, number of pages, whether it's been read.
-    console.log('FUNCTION CALLED: addNewBook');
-    console.log(`this.title: ${myLibrary[1].title}`);
-    console.log(`this.author: ${myLibrary[1].author}`);
-    console.log(`this.numberOfPages: ${myLibrary[1].numberOfPages}`);
-
     displayBooks();
 };
 function displayBooks () {
