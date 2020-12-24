@@ -2,7 +2,7 @@
 let content = document.querySelector('#content');
 let htmlHead = document.querySelector('#head');
 
-
+import homepageFramework from './modules/homepage'
 //FUNCTIONS------------------------------------------------------
 const framework = (() => {
     let title = document.createElement('title');
@@ -16,6 +16,7 @@ const framework = (() => {
     function renderHomepage () {
         //function to erase content and call homepage module
         reset();
+        homepageFramework
         //import homepage module
 
     }
