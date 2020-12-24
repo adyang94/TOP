@@ -1,12 +1,4 @@
-const homepageFramework = () => {
-    console.log('HOMEPAGE MODULE RUNNING');
-
-}
-function hello( ) {
-    console.log('hello');
+export function homepageFramework () {
+    console.log('HOMEPAGE MODULE RUNNING ');
 }
 
-export default{
-    homepageFramework,
-    hello()
-};
