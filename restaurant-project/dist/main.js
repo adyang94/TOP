@@ -1,0 +1,1 @@
+(()=>{let e=document.querySelector("#content"),t=document.querySelector("#head");(()=>{let c=document.createElement("title");c.innerHTML="Eat Moo Chicken Foo",t.appendChild(c);let n=document.createElement("img");n.src="../pictures/Chick-fil-A-logo.jpeg",e.appendChild(n)})()})();
