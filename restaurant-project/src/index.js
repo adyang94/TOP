@@ -2,6 +2,7 @@
 let content = document.querySelector('#content');
 let htmlHead = document.querySelector('#head');
 
+
 //FUNCTIONS------------------------------------------------------
 const framework = (() => {
     let title = document.createElement('title');
@@ -11,6 +12,17 @@ const framework = (() => {
     let img = document.createElement('img');
     img.src = "../pictures/Chick-fil-A-logo.jpeg";
     content.appendChild(img);
- 
+    
+    function renderHomepage () {
+        //function to erase content and call homepage module
+        reset();
+        //import homepage module
+
+    }
+
+    function reset() {
+        //function to erase page current page.
+    }
 })()
+
 //SCRIPT---------------------------------------------------------
