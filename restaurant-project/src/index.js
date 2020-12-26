@@ -14,19 +14,20 @@ const framework = (() => {
     let img = document.createElement('img');
     img.src = "../pictures/Chick-fil-A-logo.jpeg";
     content.appendChild(img);
-    renderHomepage();
-    homepageFramework();
     console.log('1');
     
     function renderHomepage () {
         //function to erase content and call homepage module
         //import homepage module
-        
+        homepageFramework();
     }
     
     function reset() {
         //function to erase page current page.
     }
+
+    //Tabs
+    
 })()
 
 //SCRIPT---------------------------------------------------------
