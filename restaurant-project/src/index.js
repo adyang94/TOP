@@ -24,7 +24,7 @@ const framework = (() => {
     htmlHead.appendChild(title);
     
     let img = document.createElement('img');
-    img.src = "../pictures/Chick-fil-A-logo.jpeg";
+    img.src = "../pictures/pho.jpg";
     content.appendChild(img);
     console.log('1');
     tabs.renderHomepage();
@@ -43,5 +43,5 @@ const framework = (() => {
     /*
     IMPORTANT: check 'webpack.config.js'.  Make sure to include source map to help with debugging webpack optimized code <devtool: 'source-map',> .
 
-    
+
     */

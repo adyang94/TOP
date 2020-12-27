@@ -1,13 +1,18 @@
+:root {
+    background-color: black;
+}
 .navButtonList {
     padding: none;
 }
 .navLine {
-    background-color: black;
+    background-color: white;
     margin: 5px;
+    padding: 2px;
     width: 30px;
     height: 3px;
 }
-.navLine:nth-child(1) {
+.navLine:nth-child(1) { 
+    /* IMPORTANT: This selector references the nth child of the navButtonList */
     margin-top: none;
 }
 #content {
