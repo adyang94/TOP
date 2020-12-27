@@ -2,21 +2,25 @@
     margin: 0;
     padding: 0;
     background-image: url(../../pictures/pho1.jpg);
-    background-size: cover;
+    background-size:cover;
     background-repeat: no-repeat;
     height: 100vh;
+    width: 100vw;
 }
 html {
     margin: 0;
     padding: 0;
 }
-
+.title {
+    color: white;
+    text-align: center;
+}
 .navButtonList {
     padding: 20px;
     cursor: pointer;
 }
 .navLine {
-    background: red;
+    background: white;
     margin: 5px;
     padding: 2px;
     width: 30px;
@@ -28,4 +32,15 @@ html {
 }
 #content {
     background-color: black;
+}
+.navLinks {
+    list-style-type: none;
+}
+.navSliderPage {
+    background: rgb(0,0,0,0.6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
