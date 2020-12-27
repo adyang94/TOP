@@ -38,3 +38,10 @@ const framework = (() => {
 })()
 
 //SCRIPT---------------------------------------------------------
+
+//NOTES----------------------------------------------------------
+    /*
+    IMPORTANT: check 'webpack.config.js'.  Make sure to include source map to help with debugging webpack optimized code <devtool: 'source-map',> .
+
+    
+    */
