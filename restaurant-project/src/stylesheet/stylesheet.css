@@ -1,16 +1,14 @@
-.navButtonContainer {
-    
-}
 .navButtonList {
     padding: none;
-    margin: none;
 }
 .navLine {
     background-color: black;
-    padding: 15px;
     margin: 5px;
     width: 30px;
     height: 3px;
+}
+.navLine:nth-child(1) {
+    margin-top: none;
 }
 #content {
     background-color: black;
