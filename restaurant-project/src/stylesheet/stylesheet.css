@@ -72,7 +72,7 @@ html {
     animation: openNav 0.5s forwards;
 }
 .closeNav {
-
+    animation: closeNav 0.5s forwards;
 }
 @keyframes openNav {
     100% {

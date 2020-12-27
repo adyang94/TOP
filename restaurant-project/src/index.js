@@ -22,6 +22,14 @@ const framework = (() => {
     let title = document.createElement('title');
     title.innerHTML = "Eat Moo Chicken Foo!";
     htmlHead.appendChild(title);
+
+    //toggle navigation tabs page
+    let navButtonContainer = document.querySelector('.navButtonContainer');
+    let navSliderPage = document.querySelector('.navSliderPage');
+    navButtonContainer.addEventListener('click', () => {
+        console.log('open');
+        navSliderPage.classList.add('openNav');
+    })
     
     console.log('1');
     tabs.renderHomepage();
