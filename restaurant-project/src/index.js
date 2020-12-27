@@ -1,9 +1,19 @@
 //CONST AND VARIABLES--------------------------------------------
-import {homepageFramework} from './modules/homepage' 
+import {homepageModule} from './modules/homepage';
+import {menuModule} from './modules/menu';
+import {contactModule} from './modules/contact';
+import {aboutUsModule} from './modules/aboutUs' ;
     /**IMPORTANT: curly braces around import necessary*/
 
 let content = document.querySelector('#content');
 let htmlHead = document.querySelector('#head');
+let navButtonContainer = document.querySelector('.navButtonContainer');
+let navSliderPage = document.querySelector('.navSliderPage');
+let closeNavPage = document.querySelector('#closeNavPage');
+let homepageTab = document.querySelector('#homepageTab');
+let menuTab = document.querySelector('#menuTab');
+let contactTab = document.querySelector('#contactTab');
+let aboutUsTab = document.querySelector('#aboutUsTab');
 
 //FUNCTIONS------------------------------------------------------
 const tabs = (() => {
@@ -23,23 +33,27 @@ const framework = (() => {
     title.innerHTML = "Eat Moo Chicken Foo!";
     htmlHead.appendChild(title);
 
-    //toggle navigation tabs page
-    let navButtonContainer = document.querySelector('.navButtonContainer');
-    let navSliderPage = document.querySelector('.navSliderPage');
+    //toggle navigation page
     navButtonContainer.addEventListener('click', () => {
-        console.log('open');
+        navSliderPage.classList.remove('closeNav');
         navSliderPage.classList.add('openNav');
-    })
+    });
+    closeNavPage.addEventListener('click', () => {
+        navSliderPage.classList.remove('openNav');
+        navSliderPage.classList.add('closeNav');
+    });
+    //tabs event listeners
+    homepageTab.addEventListener('click',homepageModule());
+    menuTab.addEventListener('click', menuModule());
+    contactTab.addEventListener('click', contactModule());
+    aboutUsTab.addEventListener('click',aboutUsModule());
+
     
-    console.log('1');
-    tabs.renderHomepage();
+    // tabs.renderHomepage();
     
     function reset() {
         /*function to erase page current page. Is this done by removeChild?  How to select the different elements in  the content container?*/
     }
-    
-    //Tabs
-    
 })()
 
 //SCRIPT---------------------------------------------------------
