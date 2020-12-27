@@ -1,11 +1,22 @@
-:root {
-    background-color: black;
+#landingPage {
+    margin: 0;
+    padding: 0;
+    background-image: url(../../pictures/pho1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
+html {
+    margin: 0;
+    padding: 0;
+}
+
 .navButtonList {
-    padding: none;
+    padding: 20px;
+    cursor: pointer;
 }
 .navLine {
-    background-color: white;
+    background: red;
     margin: 5px;
     padding: 2px;
     width: 30px;
@@ -13,7 +24,7 @@
 }
 .navLine:nth-child(1) { 
     /* IMPORTANT: This selector references the nth child of the navButtonList */
-    margin-top: none;
+    margin-top: 0px;
 }
 #content {
     background-color: black;

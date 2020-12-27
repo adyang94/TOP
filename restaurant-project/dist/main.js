@@ -1,2 +1,2 @@
-(()=>{"use strict";let e=document.querySelector("#content"),o=document.querySelector("#head");const t=function(){console.log("HOMEPAGE MODULE RUNNING "),console.log("HELLO2")};(()=>{let n=document.createElement("title");n.innerHTML="Eat Moo Chicken Foo!",o.appendChild(n);let c=document.createElement("img");c.src="../pictures/pho.jpg",e.appendChild(c),console.log("1"),t()})()})();
+(()=>{"use strict";document.querySelector("#content");let e=document.querySelector("#head");const o=function(){console.log("HOMEPAGE MODULE RUNNING "),console.log("HELLO2")};(()=>{let t=document.createElement("title");t.innerHTML="Eat Moo Chicken Foo!",e.appendChild(t),console.log("1"),o()})()})();
 //# sourceMappingURL=main.js.map

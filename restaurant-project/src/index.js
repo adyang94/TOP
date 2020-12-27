@@ -23,14 +23,11 @@ const framework = (() => {
     title.innerHTML = "Eat Moo Chicken Foo!";
     htmlHead.appendChild(title);
     
-    let img = document.createElement('img');
-    img.src = "../pictures/pho.jpg";
-    content.appendChild(img);
     console.log('1');
     tabs.renderHomepage();
     
     function reset() {
-        //function to erase page current page.
+        /*function to erase page current page. Is this done by removeChild?  How to select the different elements in  the content container?*/
     }
     
     //Tabs
