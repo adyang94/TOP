@@ -6,6 +6,18 @@ let content = document.querySelector('#content');
 let htmlHead = document.querySelector('#head');
 
 //FUNCTIONS------------------------------------------------------
+const tabs = (() => {
+    //IMPORTANT:  Need to declare tab call functions before using them further down the script when using classes.
+    function renderHomepage () {
+        //function to erase content and call homepage module
+        //import homepage module
+        homepageFramework();
+        console.log('HELLO2');
+    }
+    return {
+        renderHomepage
+    }
+})()
 const framework = (() => {
     let title = document.createElement('title');
     title.innerHTML = "Eat Moo Chicken Foo!";
@@ -23,17 +35,6 @@ const framework = (() => {
     
     //Tabs
     
-})()
-const tabs = (() => {
-    function renderHomepage () {
-        //function to erase content and call homepage module
-        //import homepage module
-        homepageFramework();
-        console.log('HELLO2');
-    }
-    return {
-        renderHomepage
-    }
 })()
 
 //SCRIPT---------------------------------------------------------
