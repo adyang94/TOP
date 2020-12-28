@@ -1,5 +1,5 @@
 //CONST AND VARIABLES--------------------------------------------
-import {homepageModule} from './modules/homepage';
+import {homepageFramework} from './modules/homepage';
 import {menuModule} from './modules/menu';
 import {contactModule} from './modules/contact';
 import {aboutUsModule} from './modules/aboutUs' ;
@@ -30,7 +30,7 @@ const tabs = (() => {
 })()
 const framework = (() => {
     let title = document.createElement('title');
-    title.innerHTML = "Eat Moo Chicken Foo!";
+    title.innerHTML = "Eat Moo Chicken FooL!";
     htmlHead.appendChild(title);
 
     //toggle navigation page
@@ -43,10 +43,11 @@ const framework = (() => {
         navSliderPage.classList.add('closeNav');
     });
     //tabs event listeners
-    homepageTab.addEventListener('click',homepageModule());
-    menuTab.addEventListener('click', menuModule());
-    contactTab.addEventListener('click', contactModule());
-    aboutUsTab.addEventListener('click',aboutUsModule());
+    homepageTab.addEventListener('click',tabs.renderHomepage());
+    console.log('1');
+    // menuTab.addEventListener('click', );
+    // contactTab.addEventListener('click', );
+    // aboutUsTab.addEventListener('click',);
 
     
     // tabs.renderHomepage();

@@ -1,7 +1,7 @@
 #landingPage {
     margin: 0;
     padding: 0;
-    background-image: url(../../pictures/pho1.jpg);
+    background-image: url(./pictures/pho1.jpg);
     background-size:cover;
     background-repeat: no-repeat;
     height: 100vh;

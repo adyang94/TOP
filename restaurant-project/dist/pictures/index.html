@@ -2,8 +2,7 @@
 
 <html>
     <head id="head">
-        <link rel="resetStyleSheet" href="./reset.css">
-        <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+        <link rel="stylesheet" href="../src/stylesheet/stylesheet.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -38,10 +37,30 @@
                 </li>
             </ul>
         </div>
-        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
 
-       
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
 
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBgmd7sPPDWXsde-y-xPj37BOJofPQ1JOM",
+    authDomain: "thai-thani-restaurant-project.firebaseapp.com",
+    databaseURL: "https://thai-thani-restaurant-project-default-rtdb.firebaseio.com",
+    projectId: "thai-thani-restaurant-project",
+    storageBucket: "thai-thani-restaurant-project.appspot.com",
+    messagingSenderId: "559756814875",
+    appId: "1:559756814875:web:47559b579957a1f1ac66be",
+    measurementId: "G-L8KN2P78LW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
         <script src="./main.js"></script>
     </body>
 </html>
