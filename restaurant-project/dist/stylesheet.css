@@ -17,6 +17,8 @@ html {
 }
 #content {
     color:white;
+    display:flex;
+    flex-direction: column;
 }
 .navButtonList {
     padding: 20px;
@@ -34,7 +36,7 @@ html {
     margin-top: 0px;
 }
 #content {
-    background-color: black;
+    background-color: rgb(0,0,0,0.6);
 }
 .navSliderPage {
     background: rgb(0,0,0,0.6); /*last part determines transparency from 0 to 1 */
@@ -94,5 +96,12 @@ html {
 
 /* HOMEPAGE CSS HOMEPAGE CSS HOMEPAGE CSS HOMEPAGE CSS HOMEPAGE CSS HOMEPAGE CSS HOMEPAGE CSS HOMEPAGE CSS HOMEPAGE CSS HOMEPAGE CSS */
 .homepageIntroduction {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+    
+}
+.homepageQuote {
     text-align: center;
 }

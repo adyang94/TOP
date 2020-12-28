@@ -42,7 +42,7 @@ const framework = (() => {
         navSliderPage.classList.add('closeNav');
     });
     //tabs event listeners
-    homepageTab.addEventListener('click',homepageFramework);
+    homepageTab.addEventListener('click', homepageFramework);
     // menuTab.addEventListener('click', );
     // contactTab.addEventListener('click', );
     // aboutUsTab.addEventListener('click',);
@@ -52,6 +52,7 @@ const framework = (() => {
     
     function reset() {
         /*function to erase page current page. Is this done by removeChild?  How to select the different elements in  the content container?*/
+        content.removeChild;
     }
 })()
 
