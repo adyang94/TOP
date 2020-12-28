@@ -21,7 +21,6 @@ const tabs = (() => {
     function renderHomepage () {
         //function to erase content and call homepage module
         //import homepage module
-        homepageFramework();
         console.log('HELLO2');
     }
     return {
@@ -30,7 +29,7 @@ const tabs = (() => {
 })()
 const framework = (() => {
     let title = document.createElement('title');
-    title.innerHTML = "Eat Moo Chicken FooL!";
+    title.innerHTML = "Good Pho You!";
     htmlHead.appendChild(title);
 
     //toggle navigation page
@@ -43,8 +42,7 @@ const framework = (() => {
         navSliderPage.classList.add('closeNav');
     });
     //tabs event listeners
-    homepageTab.addEventListener('click',tabs.renderHomepage());
-    console.log('1');
+    homepageTab.addEventListener('click',homepageFramework);
     // menuTab.addEventListener('click', );
     // contactTab.addEventListener('click', );
     // aboutUsTab.addEventListener('click',);
@@ -58,7 +56,7 @@ const framework = (() => {
 })()
 
 //SCRIPT---------------------------------------------------------
-
+export {content};
 //NOTES----------------------------------------------------------
     /*
     IMPORTANT: check 'webpack.config.js'.  Make sure to include source map to help with debugging webpack optimized code <devtool: 'source-map',> .

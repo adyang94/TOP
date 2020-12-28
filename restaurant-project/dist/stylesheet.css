@@ -15,6 +15,9 @@ html {
     color: white;
     text-align: center;
 }
+#content {
+    color:white;
+}
 .navButtonList {
     padding: 20px;
     cursor: pointer;
@@ -67,6 +70,7 @@ html {
     text-decoration: none;
     color: white;
     font-size: 1.5em;
+    cursor: pointer;
 }
 .openNav {
     animation: openNav 0.5s forwards;
