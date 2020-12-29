@@ -27,22 +27,46 @@ const tabs = (() => {
         renderHomepage
     }
 })()
+const navSlider = (() => {
+    //toggle navigation page
+    function close () {
+        navButtonContainer.addEventListener('click', () => {
+            navSliderPage.classList.remove('closeNav');
+            navSliderPage.classList.add('openNav');
+        });
+    };
+    function open () {
+        closeNavPage.addEventListener('click', () => {
+            navSliderPage.classList.remove('openNav');
+            navSliderPage.classList.add('closeNav');
+        });
+    };
+    open();
+    close();
+    return {
+        close,
+        open
+    };
+})()
 const framework = (() => {
+    let frameworkContent;
     let title = document.createElement('title');
     title.innerHTML = "Good Pho You!";
     htmlHead.appendChild(title);
 
-    //toggle navigation page
-    navButtonContainer.addEventListener('click', () => {
-        navSliderPage.classList.remove('closeNav');
-        navSliderPage.classList.add('openNav');
-    });
-    closeNavPage.addEventListener('click', () => {
-        navSliderPage.classList.remove('openNav');
-        navSliderPage.classList.add('closeNav');
-    });
     //tabs event listeners
-    homepageTab.addEventListener('click', homepageFramework);
+    homepageTab.addEventListener('click', () => {
+        console.log('1');
+        console.log({frameworkContent});
+        if(frameworkContent != 'homepage') {
+            console.log('2');
+            frameworkContent = 'homepage';
+            reset();
+            navSlider.close();
+            homepageFramework(); 
+
+        }
+    });
     // menuTab.addEventListener('click', );
     // contactTab.addEventListener('click', );
     // aboutUsTab.addEventListener('click',);
@@ -52,7 +76,9 @@ const framework = (() => {
     
     function reset() {
         /*function to erase page current page. Is this done by removeChild?  How to select the different elements in  the content container?*/
-        content.removeChild;
+        while(content.firstChild) {
+            content.removeChild(content.firstChild);
+        }
     }
 })()
 
