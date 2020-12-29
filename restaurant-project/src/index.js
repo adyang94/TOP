@@ -1,6 +1,6 @@
 //CONST AND VARIABLES--------------------------------------------
 import {homepageFramework} from './modules/homepage';
-import {menuModule} from './modules/menu';
+import {menuFramework} from './modules/menu';
 import {contactModule} from './modules/contact';
 import {aboutUsModule} from './modules/aboutUs' ;
     /**IMPORTANT: curly braces around import necessary*/
@@ -61,29 +61,28 @@ const framework = (() => {
         console.log('renderselectedpage working');
         clickedPage = event.srcElement.innerHTML;
         if(clickedPage != currentPage) {
-            console.log(`element html: ${event.srcElement.innerHTML}`);
+            reset();
+            navSlider.close();
             switch(clickedPage) {
                 case 'Homepage':
+                    currentPage = 'Homepage';
+                    homepageFramework()
                     break;
                 case 'Menu':
+                    currentPage = 'Menu';
+                    menuFramework();
                     break;
                 case 'Contact':
+                    currentPage = 'Contact';
                     break;
                 case 'About Us':
+                    currentPage = 'About Us';
                     break;
             }
         }
     }
 
     //tabs event listeners
-    homepageTab.addEventListener('click', () => {
-        if(frameworkContent != 'homepage') {
-            frameworkContent = 'homepage';
-            reset();
-            homepageFramework(); 
-        }
-        navSlider.close(title);
-    });
     // menuTab.addEventListener('click', );
     // contactTab.addEventListener('click', );
     // aboutUsTab.addEventListener('click',);

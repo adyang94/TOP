@@ -1,4 +1,4 @@
 import {content} from '../index';
-export function menu() {
+export function menuFramework() {
     console.log('menu module working');
 }
