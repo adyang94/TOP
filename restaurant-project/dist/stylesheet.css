@@ -8,6 +8,10 @@
     width: 100vw;
 }
 html {
+    margin: 0px;
+    padding: 0px;
+}
+body {
     margin: 0;
     padding: 0;
 }
@@ -16,6 +20,7 @@ html {
     text-align: center;
 }
 #content {
+    background-color: rgb(0,0,0,0.6);
     color:white;
     display:flex;
     flex-direction: column;
@@ -34,9 +39,6 @@ html {
 .navLine:nth-child(1) { 
     /* IMPORTANT: This selector references the nth child of the navButtonList */
     margin-top: 0px;
-}
-#content {
-    background-color: rgb(0,0,0,0.6);
 }
 .navSliderPage {
     background: rgb(0,0,0,0.6); /*last part determines transparency from 0 to 1 */
