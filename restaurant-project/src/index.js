@@ -29,20 +29,16 @@ const tabs = (() => {
 })()
 const navSlider = (() => {
     //toggle navigation page
-    function close () {
-        navButtonContainer.addEventListener('click', () => {
-            navSliderPage.classList.remove('closeNav');
-            navSliderPage.classList.add('openNav');
-        });
-    };
     function open () {
-        closeNavPage.addEventListener('click', () => {
-            navSliderPage.classList.remove('openNav');
-            navSliderPage.classList.add('closeNav');
-        });
+        navSliderPage.classList.remove('closeNav');
+        navSliderPage.classList.add('openNav');
     };
-    open();
-    close();
+    function close () {
+        navSliderPage.classList.remove('openNav');
+        navSliderPage.classList.add('closeNav');
+    };
+    navButtonContainer.addEventListener('click', open);
+    closeNavPage.addEventListener('click', close);
     return {
         close,
         open
@@ -59,13 +55,11 @@ const framework = (() => {
         console.log('1');
         console.log({frameworkContent});
         if(frameworkContent != 'homepage') {
-            console.log('2');
             frameworkContent = 'homepage';
             reset();
-            navSlider.close();
             homepageFramework(); 
-
         }
+        navSlider.close(title);
     });
     // menuTab.addEventListener('click', );
     // contactTab.addEventListener('click', );
