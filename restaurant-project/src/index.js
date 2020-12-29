@@ -14,6 +14,7 @@ let homepageTab = document.querySelector('#homepageTab');
 let menuTab = document.querySelector('#menuTab');
 let contactTab = document.querySelector('#contactTab');
 let aboutUsTab = document.querySelector('#aboutUsTab');
+let navLinks = document.querySelectorAll('.navLinks');
 
 //FUNCTIONS------------------------------------------------------
 const tabs = (() => {
@@ -50,10 +51,32 @@ const framework = (() => {
     title.innerHTML = "Good Pho You!";
     htmlHead.appendChild(title);
 
+    let clickedPage;
+    let currentPage;
+
+    navLinks.forEach((links) => {links.addEventListener('click',renderSelectedPage)});
+
+    function renderSelectedPage(event, srcElement) {
+        //switch case for the navLinks
+        console.log('renderselectedpage working');
+        clickedPage = event.srcElement.innerHTML;
+        if(clickedPage != currentPage) {
+            console.log(`element html: ${event.srcElement.innerHTML}`);
+            switch(clickedPage) {
+                case 'Homepage':
+                    break;
+                case 'Menu':
+                    break;
+                case 'Contact':
+                    break;
+                case 'About Us':
+                    break;
+            }
+        }
+    }
+
     //tabs event listeners
     homepageTab.addEventListener('click', () => {
-        console.log('1');
-        console.log({frameworkContent});
         if(frameworkContent != 'homepage') {
             frameworkContent = 'homepage';
             reset();
