@@ -69,7 +69,7 @@ const framework = (() => {
     // tabs.renderHomepage();
     
     function reset() {
-        /*function to erase page current page. Is this done by removeChild?  How to select the different elements in  the content container?*/
+        /*function to erase content*/
         while(content.firstChild) {
             content.removeChild(content.firstChild);
         }
