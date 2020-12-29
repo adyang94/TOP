@@ -1,6 +1,6 @@
 import {content} from '../index';
-console.log('HOMEPAGE MODULE RUNNING');
 export function homepageFramework () {
+    console.log('HOMEPAGE MODULE RUNNING');
     //Introduction
     let Introduction = document.createElement('h3');
     Introduction.classList.add('homepageIntroduction');

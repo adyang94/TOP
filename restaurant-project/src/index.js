@@ -1,8 +1,8 @@
 //CONST AND VARIABLES--------------------------------------------
 import {homepageFramework} from './modules/homepage';
 import {menuFramework} from './modules/menu';
-import {contactModule} from './modules/contact';
-import {aboutUsModule} from './modules/aboutUs' ;
+import {contactFramework} from './modules/contact';
+import {aboutUsFramework} from './modules/aboutUs' ;
     /**IMPORTANT: curly braces around import necessary*/
 
 let content = document.querySelector('#content');
@@ -60,9 +60,9 @@ const framework = (() => {
         //switch case for the navLinks
         console.log('renderselectedpage working');
         clickedPage = event.srcElement.innerHTML;
+        navSlider.close();
         if(clickedPage != currentPage) {
             reset();
-            navSlider.close();
             switch(clickedPage) {
                 case 'Homepage':
                     currentPage = 'Homepage';
@@ -74,9 +74,11 @@ const framework = (() => {
                     break;
                 case 'Contact':
                     currentPage = 'Contact';
+                    contactFramework();
                     break;
                 case 'About Us':
                     currentPage = 'About Us';
+                    aboutUsFramework();
                     break;
             }
         }
