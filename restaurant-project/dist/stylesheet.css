@@ -4,7 +4,8 @@
     background-image: url(./pictures/pho2.jpg);
     background-size:cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: auto;
     width: 100vw;
 }
 html {
@@ -119,6 +120,15 @@ body {
     text-align: center;
 }
 .meals{
+    font-size: 1em;
+    text-align: center;
+}
+.moduleTitle {
+    font-weight: bold;
+    font-size: 1.25em;
+    text-align: center;
+}
+.moduleInfo {
     font-size: 1em;
     text-align: center;
 }
