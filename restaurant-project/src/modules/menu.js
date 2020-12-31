@@ -1,6 +1,7 @@
 import {content} from '../index';
 export function menuFramework() {
     console.log('menu module working!');
+   
     //appetizers
     let appetizersTitle = document.createElement('h3');
     appetizersTitle.classList.add('menuTitle');
