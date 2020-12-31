@@ -33,7 +33,7 @@ body {
     color:white;
     display:flex;
     flex-direction: column;
-    width: fit-content;
+    justify-content: center;
     align-items: center;
 }
 .navButtonList {
@@ -115,10 +115,10 @@ body {
 /* MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS MENU CSS */
 .menuTitle {
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.25em;
     text-align: center;
 }
 .meals{
-    font-size: 0.75em;
+    font-size: 1em;
     text-align: center;
 }

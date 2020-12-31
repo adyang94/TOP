@@ -35,7 +35,15 @@ export function menuFramework() {
     content.appendChild(noodles);
     
     //stir fry
+    let stirFryTitle = document.createElement('h3');
+    stirFryTitle.classList.add('menuTitle');
+    stirFryTitle.innerHTML = 'Stir Fry';
+    content.appendChild(stirFryTitle);
 
+    let stirFry = document.createElement('p');
+    stirFry.classList.add('meals');
+    stirFry.innerHTML = 'Chicken with Broccoli <br> Beef with Broccoli <br> Basil Stir-Fry <br> Beef Pepper Steak <br> Garlic Pepper Stir-Fry <br> Sweet and Sour Chicken <br> Lava Chicken';
+    content.appendChild(stirFry);
     // fried rice
     // salad 
     // deserts 
