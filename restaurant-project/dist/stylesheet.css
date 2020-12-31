@@ -34,7 +34,7 @@ body {
     display:flex;
     flex-direction: column;
     width: fit-content;
-    text-align: center;
+    align-items: center;
 }
 .navButtonList {
     padding: 20px;
@@ -116,7 +116,9 @@ body {
 .menuTitle {
     font-weight: bold;
     font-size: 1em;
+    text-align: center;
 }
-.appetizers{
+.meals{
     font-size: 0.75em;
+    text-align: center;
 }

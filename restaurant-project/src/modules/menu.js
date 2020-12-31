@@ -8,7 +8,7 @@ export function menuFramework() {
     content.appendChild(appetizersTitle);
 
     let appetizers = document.createElement('p');
-    appetizers.classList.add('appetizers');
+    appetizers.classList.add('meals');
     appetizers.innerHTML = 'Chicken Satay <br> Thai Spring Rolls <br> Pot Stickers';
     content.appendChild(appetizers);
 
@@ -17,7 +17,15 @@ export function menuFramework() {
     lunchSpecialsTitle.classList.add('menuTitle');
     lunchSpecialsTitle.innerHTML = 'Lunch Specials';
     content.appendChild(lunchSpecialsTitle); 
+
+    let lunchSpecials = document.createElement('p');
+    lunchSpecials.classList.add('meals');
+    lunchSpecials.innerHTML = 'Cashew Chicken <br> Mongolian Beef <br> Garlic Stir Fry <br> Pad Thai <br> Green Curry <br> Red Curry <br> Fried Rice <br> Tom Yum Chicken Soup';
+    content.appendChild(lunchSpecials);
+
+
     //noodles
+
     //stir fry
     // fried rice
     // salad 
