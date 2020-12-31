@@ -23,10 +23,19 @@ export function menuFramework() {
     lunchSpecials.innerHTML = 'Cashew Chicken <br> Mongolian Beef <br> Garlic Stir Fry <br> Pad Thai <br> Green Curry <br> Red Curry <br> Fried Rice <br> Tom Yum Chicken Soup';
     content.appendChild(lunchSpecials);
 
-
     //noodles
+    let noodlesTitle = document.createElement('h3');
+    noodlesTitle.classList.add('menuTitle');
+    noodlesTitle.innerHTML = 'Noodles';
+    content.appendChild(noodlesTitle);
 
+    let noodles = document.createElement('p');
+    noodles.classList.add('meals');
+    noodles.innerHTML = 'Drunken Noodles <br> Lo Mein <br> Pad Kee Mao <br> Pad Thai <br> Pad Woon Sen <br> Pho Special Noodle Soup <br> Udon Noodle Soup <br> Seafood Pho';
+    content.appendChild(noodles);
+    
     //stir fry
+
     // fried rice
     // salad 
     // deserts 
