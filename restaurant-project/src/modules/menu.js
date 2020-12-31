@@ -45,7 +45,24 @@ export function menuFramework() {
     stirFry.innerHTML = 'Chicken with Broccoli <br> Beef with Broccoli <br> Basil Stir-Fry <br> Beef Pepper Steak <br> Garlic Pepper Stir-Fry <br> Sweet and Sour Chicken <br> Lava Chicken';
     content.appendChild(stirFry);
     // fried rice
-    // salad 
-    // deserts 
+    let friedRiceTitle = document.createElement('h3');
+    friedRiceTitle.classList.add('menuTitle');
+    friedRiceTitle.innerHTML = 'Fried Rice';
+    content.appendChild(friedRiceTitle);
+
+    let friedRice = document.createElement('p');
+    friedRice.classList.add('meals');
+    friedRice.innerHTML = 'Combo Fried Rice <br> Chicken Fried Rice <br> Beef Fried Rice <br> Pineapple Fried Rice <br> Fried Rice with Basil <br> Vegetable Fried Rice';
+    content.appendChild(friedRice);
+
     // drinks 
+    let drinksTitle = document.createElement('h3');
+    drinksTitle.classList.add('menuTitle');
+    drinksTitle.innerHTML = 'Drinks';
+    content.appendChild(drinksTitle);
+
+    let drinks = document.createElement('p');
+    drinks.classList.add('meals');
+    drinks.innerHTML = 'Thai Iced Tea <br> Thai Iced Coffee <br> Fountain Drinks <br> Hot Tea <br> Bottled Water';
+    content.appendChild(drinks);
 }
