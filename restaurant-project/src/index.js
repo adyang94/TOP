@@ -2,7 +2,6 @@
 import {homepageFramework} from './modules/homepage';
 import {menuFramework} from './modules/menu';
 import {contactFramework} from './modules/contact';
-import {aboutUsFramework} from './modules/aboutUs' ;
     /**IMPORTANT: curly braces around import necessary*/
 
 let content = document.querySelector('#content');
@@ -10,24 +9,9 @@ let htmlHead = document.querySelector('#head');
 let navButtonContainer = document.querySelector('.navButtonContainer');
 let navSliderPage = document.querySelector('.navSliderPage');
 let closeNavPage = document.querySelector('#closeNavPage');
-let homepageTab = document.querySelector('#homepageTab');
-let menuTab = document.querySelector('#menuTab');
-let contactTab = document.querySelector('#contactTab');
-let aboutUsTab = document.querySelector('#aboutUsTab');
 let navLinks = document.querySelectorAll('.navLinks');
 
 //FUNCTIONS------------------------------------------------------
-const tabs = (() => {
-    //IMPORTANT:  Need to declare tab call functions before using them further down the script when using classes.
-    function renderHomepage () {
-        //function to erase content and call homepage module
-        //import homepage module
-        console.log('HELLO2');
-    }
-    return {
-        renderHomepage
-    }
-})()
 const navSlider = (() => {
     //toggle navigation page
     function open () {
@@ -76,21 +60,10 @@ const framework = (() => {
                     currentPage = 'Contact';
                     contactFramework();
                     break;
-                case 'About Us':
-                    currentPage = 'About Us';
-                    aboutUsFramework();
-                    break;
+                
             }
         }
     }
-
-    //tabs event listeners
-    // menuTab.addEventListener('click', );
-    // contactTab.addEventListener('click', );
-    // aboutUsTab.addEventListener('click',);
-
-    
-    // tabs.renderHomepage();
     
     function reset() {
         /*function to erase content*/

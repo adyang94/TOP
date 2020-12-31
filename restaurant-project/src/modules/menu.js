@@ -1,6 +1,6 @@
 import {content} from '../index';
-export function aboutUsFramework() {
-    console.log('aboutUs module working!');
+export function menuFramework() {
+    console.log('menu module working!');
     
     let tabs = document.createElement('div');
     tabs.classList.add('tabs');
@@ -11,9 +11,6 @@ export function aboutUsFramework() {
         appetizersTab.name = 'tabs';
         appetizersTab.id = 'appetizersTab';
         appetizersTab.checked = 'checked';
-        // appetizersTab.setAttribute = ("name", "tabs");
-        // appetizersTab.setAttribute = ('id', 'appetizersTab');
-        // appetizersTab.setAttribute = ('checked', 'checked');
         tabs.appendChild(appetizersTab);
         
         let appetizersTabLabel = document.createElement('label');
