@@ -33,7 +33,6 @@ export function menuFramework() {
         entreesTab.type = 'radio';
         entreesTab.name = 'tabs';
         entreesTab.id = 'entreesTab';
-        entreesTab.checked = 'checked';
         tabs.appendChild(entreesTab);
         
         let entreesTabLabel = document.createElement('label');
@@ -54,10 +53,10 @@ export function menuFramework() {
         
         // Setting up drinks tab
         let drinksTab = document.createElement('input');
-        drinksTab.type = 'radio';
-        drinksTab.name = 'tabs';
-        drinksTab.id = 'drinksTab';
-        drinksTab.checked = 'checked';
+        // drinksTab.type = 'radio';
+        drinksTab.setAttribute('type', 'radio');
+        drinksTab.setAttribute('name', 'tabs');
+        drinksTab.setAttribute('id', 'drinksTab');
         tabs.appendChild(drinksTab);
         
         let drinksTabLabel = document.createElement('label');
