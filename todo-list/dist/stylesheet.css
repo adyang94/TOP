@@ -1,7 +1,26 @@
 body {
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 10% 80% 10%;
 }
 h1 {
     text-align: center;
+}
+.titleContainer {
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+.sidbar {
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+.main {
+    grid-row: 2/3;
+    grid-column: 2/4;
+}
+.footer {
+    grid-column: 1/4;
+    grid-row: 3/4;
 }
