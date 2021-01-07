@@ -7,7 +7,7 @@ const sidebarSetup = (() => {
     let addTaskButton = document.querySelector('.addTaskBtn');
     let popOutForm = document.querySelector('#popOutForm');
 
-    submit;
+    submit;  //submit button 
 
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');
