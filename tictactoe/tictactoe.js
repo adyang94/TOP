@@ -146,7 +146,7 @@ const game = (() => {
             }
             console.log(`Event.target.dataset.player: ${event.target.dataset.player}`);
         }
-        displayScore()
+        displayScore();
         return;
     }
     function displayScore () {

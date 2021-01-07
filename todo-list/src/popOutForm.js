@@ -1,10 +1,16 @@
 //CONST AND VARIABLES--------------------------------------------
-let popOutForm = document.querySelector('.popOutForm');
 
 //FUNCTIONS------------------------------------------------------
-const openPopOut = (() => {
-    popOutForm.classList.remove('popOutFormOff');
-    popOutForm.classList.add('popOutFormOn');
-})()
-//SCRIPT---------------------------------------------------------
+const submit = (() => {
+    console.log('submit module working');
+    let popOutForm = document.querySelector('#popOutForm');
+    let submitBtn = document.querySelector('.submitBtn');
 
+    submitBtn.addEventListener('click', () => {
+        popOutForm.classList.remove('popOutFormOn');
+        popOutForm.classList.add('popOutFormOff');
+    });
+
+})();
+//SCRIPT---------------------------------------------------------
+export {submit}

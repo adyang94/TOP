@@ -1,8 +1,18 @@
 //CONST AND VARIABLES--------------------------------------------
+import {submit} from './popOutForm';
 //FUNCTIONS------------------------------------------------------
-const setup = (() => {
-    let addTaskButton = document.querySelector('.addTaskBtn');
+const sidebarSetup = (() => {
+    console.log('sidebar module working');
 
-    addTaskButton.addEventListener('click', () => {console.log('add Task clicked')});
+    let addTaskButton = document.querySelector('.addTaskBtn');
+    let popOutForm = document.querySelector('#popOutForm');
+
+    submit;
+
+    addTaskButton.addEventListener('click', () => {
+        popOutForm.classList.remove('popOutFormOff');
+        popOutForm.classList.add('popOutFormOn');
+    });
 })();
 //SCRIPT---------------------------------------------------------
+export {sidebarSetup};
