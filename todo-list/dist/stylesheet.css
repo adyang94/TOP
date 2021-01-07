@@ -28,6 +28,10 @@ h1 {
     grid-column: 1/4;
     grid-row: 3/4;
 }
-.popOutForm {
+.popOutFormOn {
     display: flex;
+}
+.popOutFormOff {
+    display: none;
+    
 }
