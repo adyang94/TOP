@@ -23,6 +23,19 @@ h1 {
     grid-column: 1/4;
     grid-row: 1/2;
 }
+.toggleContainer {
+    cursor: pointer;
+}
+.closeSidebarBtn {
+    float: right;
+    border:none;
+    outline: none;
+    background-color: rgb(41, 41, 41);  
+    color: rgb(87, 123, 223);
+    font-weight:bold;
+    font-size: large;
+
+}
 .navLine {
     background: white;
     margin: 5px;
@@ -38,6 +51,25 @@ h1 {
     top: 0;
     left: 0;
     transform: translateX(-100%);
+}
+.openNav {
+    animation: openNav 0.5s forwards;
+}
+.closeNav {
+    animation: closeNav 0.5s forwards;
+}
+@keyframes openNav {
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes closeNav {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 .main {
     grid-row: 2/3;
