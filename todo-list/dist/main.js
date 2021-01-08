@@ -215,6 +215,8 @@ const sidebarSetup = (() => {
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');
         popOutForm.classList.add('popOutFormOn');
+        sidebar.classList.remove('openNav');
+        sidebar.classList.add('closeNav');
     });
 })();
 //SCRIPT---------------------------------------------------------
