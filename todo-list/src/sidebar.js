@@ -10,8 +10,9 @@ const sidebarSetup = (() => {
     let sidebar = document.querySelector('.sidebar');
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
 
-    submit;  //submit button 
-
+    submit;  //submit button function for storing new tasks
+    
+    //toggle sidebar functions
     closeSidebarBtn.addEventListener('click', () => {
         sidebar.classList.remove('openNav');
         sidebar.classList.add('closeNav');
@@ -21,12 +22,10 @@ const sidebarSetup = (() => {
         sidebar.classList.remove('closeNav');
         sidebar.classList.add('openNav');
     })
-
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');
         popOutForm.classList.add('popOutFormOn');
     });
-
 })();
 //SCRIPT---------------------------------------------------------
 export {sidebarSetup};
