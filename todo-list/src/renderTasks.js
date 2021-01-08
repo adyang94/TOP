@@ -18,30 +18,16 @@ function renderTasks () {
         //task container
         let taskContainer = document.createElement('div');
         taskContainer.classList.add('taskContainer');
-        
-        //title
-        let titleContainer = document.createElement('div');
-        let title = document.createElement('div');
-        title.classList.add('title');
-        title.innerHTML = task.title;
-        titleContainer.appendChild(title);
-        taskContainer.appendChild(titleContainer);
+        let taskText = document.createElement('p');
+        taskText.innerHTML = 
+            `
+            <span class = "title">Title: ${task.title}</span><br>
 
-        //description
-        let descriptionContainer = document.createElement('div');
-        let description = document.createElement('div');
-        description.classList.add('description');
-        description.innerHTML = task.description;
-        descriptionContainer.appendChild(description);
-        taskContainer.appendChild(descriptionContainer);
+            <span class = "description">Description: ${task.description}</span> <br>
 
-        //due date
-        let dueDateContainer = document.createElement('div');
-        let dueDate = document.createElement('div');
-        dueDate.classList.add('dueDate');
-        dueDate.innerHTML = task.dueDate;
-        dueDateContainer.appendChild(dueDate);
-        taskContainer.appendChild(dueDateContainer);
+            <span class = "dueDate">Due: ${task.dueDate}</span><br>`
+        taskContainer.appendChild(taskText);
+
         
         //remove button
         let removeBtn = document.createElement('button');
@@ -52,7 +38,35 @@ function renderTasks () {
         //append all elements
         main.appendChild(taskContainer);
     })
-
+    
 }
 //SCRIPT---------------------------------------------------------
 export {renderTasks};
+
+
+
+
+
+// //title
+// let titleContainer = document.createElement('div');
+// let title = document.createElement('div');
+// title.classList.add('title');
+// title.innerHTML = `Title: ${task.title} <br> `;
+// titleContainer.appendChild(title);
+// taskContainer.appendChild(titleContainer);
+
+// //description
+// let descriptionContainer = document.createElement('div');
+// let description = document.createElement('div');
+// description.classList.add('description');
+// description.innerHTML = `Description: ${task.description}`;
+// descriptionContainer.appendChild(description);
+// taskContainer.appendChild(descriptionContainer);
+
+// //due date
+// let dueDateContainer = document.createElement('div');
+// let dueDate = document.createElement('div');
+// dueDate.classList.add('dueDate');
+// dueDate.innerHTML = `Due: ${task.dueDate}`;
+// dueDateContainer.appendChild(dueDate);
+// taskContainer.appendChild(dueDateContainer);
