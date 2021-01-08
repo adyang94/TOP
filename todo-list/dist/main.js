@@ -18,6 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //set up side bar
+
 _sidebar__WEBPACK_IMPORTED_MODULE_0__.sidebarSetup;
 
 //create new tasks
@@ -131,7 +132,7 @@ function renderTasks () {
         removeBtn.dataset.task = i;
         removeBtn.innerHTML = 'X';
         console.log(`dataset btn: ${removeBtn.dataset.task}`);
-        removeBtn.addEventListener('click', (event) => {
+        removeBtn.addEventListener('click', (event, srcElement) => {
             console.log(`dataset btn1: ${removeBtn.dataset.task}`);
             _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks.splice(event.srcElement.dataset.task, 1);
             renderTasks();
@@ -195,9 +196,15 @@ const sidebarSetup = (() => {
 
     let addTaskButton = document.querySelector('.addTaskBtn');
     let popOutForm = document.querySelector('#popOutForm');
+    let toggleContainer = document.querySelector('.toggleContainer');
 
     _popOutForm__WEBPACK_IMPORTED_MODULE_0__.submit;  //submit button 
 
+    toggleContainer.addEventListener('click', () => {
+        toggleContainer.classList.remove('closeNav');
+        toggleContainer.classList.add('openNav');
+
+    })
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');
         popOutForm.classList.add('popOutFormOn');

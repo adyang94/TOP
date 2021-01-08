@@ -6,6 +6,7 @@ import {sidebarSetup} from "./sidebar";
 
 
 //set up side bar
+
 sidebarSetup;
 
 //create new tasks

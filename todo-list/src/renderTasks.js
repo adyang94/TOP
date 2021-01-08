@@ -35,7 +35,7 @@ function renderTasks () {
         removeBtn.dataset.task = i;
         removeBtn.innerHTML = 'X';
         console.log(`dataset btn: ${removeBtn.dataset.task}`);
-        removeBtn.addEventListener('click', (event) => {
+        removeBtn.addEventListener('click', (event, srcElement) => {
             console.log(`dataset btn1: ${removeBtn.dataset.task}`);
             tasks.splice(event.srcElement.dataset.task, 1);
             renderTasks();
