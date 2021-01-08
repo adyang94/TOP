@@ -8,7 +8,8 @@ let groups = [];
 const addNewGroup = (() => {
     let newGroupBtn = document.querySelector('.newGroupBtn');
     let newGroupInputContainer = document.querySelector('.newGroupInputContainer');
-    let newGroupTitle = document.querySelector('.newGroupTitle');
+    let newGroupTitle = document.querySelector('.newGroupTitle'); 
+        //group title input
     let submitNewGroupBtn = document.querySelector('.submitNewGroupBtn');
     
     newGroupBtn.addEventListener('click', () => {
@@ -25,19 +26,40 @@ const addNewGroup = (() => {
     
 })();
 function renderGroups() {
-    let groupContainer = document.querySelector('.groupContainer');
-    while(groupContainer.firstChild) {
-        groupContainer.removeChild(groupContainer.firstChild);
+    let groupsContainer = document.querySelector('.groupsContainer');
+    //remove all groups and render again.
+    while(groupsContainer.firstChild) {
+        groupsContainer.removeChild(groupsContainer.firstChild);
     };
-    console.log(`${groups.length}`);
+    //rendering groups
     for (let i = 0; i < groups.length; i++) {
         const name = groups[i];
-        let newGroup = document.createElement('div');
-        newGroup.innerHTML = `${name}`;
-        newGroup.classList.add('groups');
-        groupContainer.appendChild(newGroup);
+        let groupContainer = document.createElement('div');
+            groupContainer.classList.add('groupContainer');
+        
+            let groupTitle = document.createElement('div');
+                groupTitle.innerHTML = `${name}`;
+                groupTitle.classList.add('groupTitle');
+                groupTitle.dataset.group = `${i}`;
+                //functionality to select the group to display
+                groupTitle.addEventListener('click', () => {
+                    let groupSelected = groupTitle.dataset.group;
+                    
+                });
+                groupContainer.appendChild(groupTitle);
+
+            let groupRemoveBtn = document.createElement('button');
+                groupRemoveBtn.innerHTML = 'X';
+                groupRemoveBtn.classList.add('groupRemoveBtn');
+                groupRemoveBtn.dataset.group = `${i}`;
+                //remove group button
+                groupRemoveBtn.addEventListener('click', (event, srcElement) => {
+                    groups.splice(event.srcElement.dataset.group, 1)
+                    renderGroups();
+                })
+                groupContainer.appendChild(groupRemoveBtn);
+        groupsContainer.appendChild(groupContainer);
     }
-    
 }
 const toggleSidebar = (() => {
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
