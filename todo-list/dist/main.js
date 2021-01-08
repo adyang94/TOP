@@ -10,16 +10,20 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sidebar */ "./src/sidebar.js");
+/* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
 //CONST AND VARIABLES--------------------------------------------
+
 
 //FUNCTIONS------------------------------------------------------
 
 //get old info
 
 
-//set up side bar
 
-_sidebar__WEBPACK_IMPORTED_MODULE_0__.sidebarSetup;
+
+_sidebar__WEBPACK_IMPORTED_MODULE_0__.sidebarSetup; //set up side bar
+
+_popOutForm__WEBPACK_IMPORTED_MODULE_1__.popOutSetup;  //SET UP POP OUT FOR NEW TASKS
 
 //create new tasks
 
@@ -36,7 +40,7 @@ console.log('JS working');
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "submit": () => /* binding */ submit,
+/* harmony export */   "popOutSetup": () => /* binding */ popOutSetup,
 /* harmony export */   "tasks": () => /* binding */ tasks
 /* harmony export */ });
 /* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
@@ -44,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 let tasks = [];
 
 //FUNCTIONS------------------------------------------------------
-const submit = (() => {
+const popOutSetup = (() => {
     console.log('submit module working');
     let popOutForm = document.querySelector('#popOutForm');
     let submitBtn = document.querySelector('.submitBtn');
@@ -187,20 +191,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "sidebarSetup": () => /* binding */ sidebarSetup
 /* harmony export */ });
 /* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
+// ***Start with sidebarSetup***
+
 //CONST AND VARIABLES--------------------------------------------
 
 //FUNCTIONS------------------------------------------------------
-const sidebarSetup = (() => {
-    console.log('sidebar module working');
 
+
+const addNewGroup = (() => {
+    let newGroupBtn = document.querySelector('.newGroupBtn');
+    let groupContainer = document.querySelector('.groupContainer');
+    let newGroupInputContainer = document.querySelector('.newGroupInputContainer');
+    let newGroupTitle = document.querySelector('.newGroupTitle');
+    let submitNewGroupBtn = document.querySelector('.submitNewGroupBtn');
     
+    newGroupBtn.addEventListener('click', () => {
+        //the code below will display the container to add new groups (current display is set to none in the HTML file.)
+        newGroupInputContainer.setAttribute('style', 'display: initial');
+        
+        submitNewGroupBtn.addEventListener('click', () => {
+            
+        })
+    })
+    
+})();
+const toggleSidebar = (() => {
+    let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
     let toggleContainer = document.querySelector('.toggleContainer');
     let sidebar = document.querySelector('.sidebar');
-    let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
-
-    _popOutForm__WEBPACK_IMPORTED_MODULE_0__.submit;  //submit button function for storing new tasks
     
-    //toggle sidebar functions
     closeSidebarBtn.addEventListener('click', () => {
         sidebar.classList.remove('openNav');
         sidebar.classList.add('closeNav');
@@ -210,7 +229,15 @@ const sidebarSetup = (() => {
         sidebar.classList.remove('closeNav');
         sidebar.classList.add('openNav');
     })
+})();
+const sidebarSetup = (() => {
+    console.log('sidebar module working');
     
+    //add new group for tasks
+    addNewGroup;
+    //toggle open/close sidebar
+    toggleSidebar;
+    //render sidebar
 })();
 //SCRIPT---------------------------------------------------------
 

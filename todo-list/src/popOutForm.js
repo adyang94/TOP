@@ -2,7 +2,7 @@
 let tasks = [];
 import {renderTasks} from './renderTasks';
 //FUNCTIONS------------------------------------------------------
-const submit = (() => {
+const popOutSetup = (() => {
     console.log('submit module working');
     let popOutForm = document.querySelector('#popOutForm');
     let submitBtn = document.querySelector('.submitBtn');
@@ -37,6 +37,6 @@ function addNewTask(title, description, dueDate) {
 }
 //SCRIPT---------------------------------------------------------
 export {
-    submit,
+    popOutSetup,
     tasks
 }
