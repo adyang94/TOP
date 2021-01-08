@@ -80,23 +80,34 @@ h1 {
 .main {
     grid-row: 2/3;
     grid-column: 2/4;
+    
 }
 .taskContainer {
     display: flex;
 }
+main p {
+    /* overflow-wrap:break-word ; */
+    max-width: 90vw;
+    display:inline-block;
+
+    /* word-wrap:inheri; */
+}
 .title {
     font-size: large;
     font-weight: bold;
+    overflow-wrap: break-word;
 }
 .description {
     font-size: smaller;
+    word-wrap:break-word;
 }
 .dueDate {
     font-size: smaller;
+    word-wrap:break-word;
 }
 .removeBtn {
-    display: flex;
-    
+    align-self:flex-start;
+    justify-content: flex-end;
 }
 .footer {
     grid-column: 2/3;
