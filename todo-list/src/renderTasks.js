@@ -14,30 +14,38 @@ function renderTasks () {
         main.removeChild(main.firstChild);
     }
         
-    tasks.forEach((task) => {
+    for(let i=0; i < tasks.length; i++){
         //task container
         let taskContainer = document.createElement('div');
         taskContainer.classList.add('taskContainer');
+        taskContainer.dataset.task = i;
         let taskText = document.createElement('p');
         taskText.innerHTML = 
             `
-            <span class = "title">Title: ${task.title}</span><br>
+            <span class = "title">Title: ${tasks[i].title}</span><br>
 
-            <span class = "description">Description: ${task.description}</span> <br>
+            <span class = "description">Description: ${tasks[i].description}</span> <br>
 
-            <span class = "dueDate">Due: ${task.dueDate}</span><br>`
+            <span class = "dueDate">Due: ${tasks[i].dueDate}</span><br>`
         taskContainer.appendChild(taskText);
 
         
         //remove button
         let removeBtn = document.createElement('button');
         removeBtn.classList.add('removeBtn');
+        removeBtn.dataset.task = i;
         removeBtn.innerHTML = 'X';
+        console.log(`dataset btn: ${removeBtn.dataset.task}`);
+        removeBtn.addEventListener('click', (event) => {
+            console.log(`dataset btn1: ${removeBtn.dataset.task}`);
+            tasks.splice(event.srcElement.id, 1);
+            renderTasks();
+        })
         taskContainer.appendChild(removeBtn);
         
         //append all elements
         main.appendChild(taskContainer);
-    })
+    }
     
 }
 //SCRIPT---------------------------------------------------------

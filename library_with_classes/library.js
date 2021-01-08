@@ -65,7 +65,7 @@ function displayBooks () {
         authorDiv.textContent = myLibrary[i].author;
         numberOfPagesDiv.textContent = myLibrary[i].numberOfPages;
         removeButton.textContent = "Remove";
-        cardCheckboxLabel.textContent = "Read??"
+        cardCheckboxLabel.textContent = "Read??";
         //add classes to card divs for CSS
         bookDiv.classList.add('cards');
         titleDiv.classList.add('title');
