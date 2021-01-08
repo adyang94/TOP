@@ -6,14 +6,14 @@ body {
     background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
-    overflow: auto;
+    overflow:auto;
 }
 .landingPage {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 5% 85% 10%;
+    grid-template-columns: 5% 85% 10%;
+    grid-template-rows: 10% 80% 10%;
     background-color: rgba(255, 255, 255, 0.5);
 }
 h1 {
@@ -79,18 +79,17 @@ h1 {
 }
 .main {
     grid-row: 2/3;
-    grid-column: 2/4;
-    
+    grid-column: 1/4;
 }
 .taskContainer {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: black solid 1px;
+    margin-bottom: 1%;
 }
 main p {
-    /* overflow-wrap:break-word ; */
-    max-width: 90vw;
-    display:inline-block;
-
-    /* word-wrap:inheri; */
+    max-width: 90%;
 }
 .title {
     font-size: large;
@@ -106,8 +105,9 @@ main p {
     word-wrap:break-word;
 }
 .removeBtn {
-    align-self:flex-start;
-    justify-content: flex-end;
+    position: absolute;
+    margin-left: 90%;
+    margin-top: 4%;
 }
 .footer {
     grid-column: 2/3;

@@ -10,6 +10,7 @@ const submit = (() => {
     let popOutDescription = document.querySelector('.popOutDescription');
     let popOutDueDate = document.querySelector('.popOutDueDate');
     let newTask;
+    let addTaskButton = document.querySelector('.addTaskBtn');
 
 
     submitBtn.addEventListener('click', () => {
@@ -19,15 +20,13 @@ const submit = (() => {
         newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate);
         tasks.push(newTask);
 
-        
-        renderTasks();
-        
         console.log([tasks]);
-        
-        
-
+        renderTasks();
     });
-
+    addTaskButton.addEventListener('click', () => {
+        popOutForm.classList.remove('popOutFormOff');
+        popOutForm.classList.add('popOutFormOn');
+    });
 })();
 
 function addNewTask(title, description, dueDate) {

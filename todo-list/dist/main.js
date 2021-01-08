@@ -52,6 +52,7 @@ const submit = (() => {
     let popOutDescription = document.querySelector('.popOutDescription');
     let popOutDueDate = document.querySelector('.popOutDueDate');
     let newTask;
+    let addTaskButton = document.querySelector('.addTaskBtn');
 
 
     submitBtn.addEventListener('click', () => {
@@ -61,15 +62,13 @@ const submit = (() => {
         newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate);
         tasks.push(newTask);
 
-        
-        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_0__.renderTasks)();
-        
         console.log([tasks]);
-        
-        
-
+        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_0__.renderTasks)();
     });
-
+    addTaskButton.addEventListener('click', () => {
+        popOutForm.classList.remove('popOutFormOff');
+        popOutForm.classList.add('popOutFormOn');
+    });
 })();
 
 function addNewTask(title, description, dueDate) {
@@ -194,8 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 const sidebarSetup = (() => {
     console.log('sidebar module working');
 
-    let addTaskButton = document.querySelector('.addTaskBtn');
-    let popOutForm = document.querySelector('#popOutForm');
+    
     let toggleContainer = document.querySelector('.toggleContainer');
     let sidebar = document.querySelector('.sidebar');
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
@@ -212,12 +210,7 @@ const sidebarSetup = (() => {
         sidebar.classList.remove('closeNav');
         sidebar.classList.add('openNav');
     })
-    addTaskButton.addEventListener('click', () => {
-        popOutForm.classList.remove('popOutFormOff');
-        popOutForm.classList.add('popOutFormOn');
-        sidebar.classList.remove('openNav');
-        sidebar.classList.add('closeNav');
-    });
+    
 })();
 //SCRIPT---------------------------------------------------------
 

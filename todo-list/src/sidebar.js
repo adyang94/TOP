@@ -4,8 +4,7 @@ import {submit} from './popOutForm';
 const sidebarSetup = (() => {
     console.log('sidebar module working');
 
-    let addTaskButton = document.querySelector('.addTaskBtn');
-    let popOutForm = document.querySelector('#popOutForm');
+    
     let toggleContainer = document.querySelector('.toggleContainer');
     let sidebar = document.querySelector('.sidebar');
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
@@ -22,12 +21,7 @@ const sidebarSetup = (() => {
         sidebar.classList.remove('closeNav');
         sidebar.classList.add('openNav');
     })
-    addTaskButton.addEventListener('click', () => {
-        popOutForm.classList.remove('popOutFormOff');
-        popOutForm.classList.add('popOutFormOn');
-        sidebar.classList.remove('openNav');
-        sidebar.classList.add('closeNav');
-    });
+    
 })();
 //SCRIPT---------------------------------------------------------
 export {sidebarSetup};
