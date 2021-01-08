@@ -1,3 +1,6 @@
+html {
+    background-color: black;
+}
 body {
     margin: 0;
     padding: 0;
@@ -12,12 +15,12 @@ body {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 5% 85% 10%;
+    grid-template-columns: 2% 96% 2%;
     grid-template-rows: 10% 80% 10%;
-    background-color: rgba(255, 255, 255, 0.5);
 }
 h1 {
     text-align: center;
+    color: white;
 }
 .titleContainer {
     grid-column: 2/3;
@@ -40,7 +43,7 @@ h1 {
     color: rgb(87, 185, 223);
     font-weight:bold;
     font-size: large;
-
+    
 }
 .navLine {
     background: white;
@@ -78,10 +81,12 @@ h1 {
     }
 }
 .main {
+    
     grid-row: 2/3;
-    grid-column: 1/4;
+    grid-column: 2/3;
 }
 .taskContainer {
+    background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -106,7 +111,7 @@ main p {
 }
 .removeBtn {
     position: absolute;
-    margin-left: 90%;
+    margin-left: 85%;
     margin-top: 4%;
 }
 .footer {
