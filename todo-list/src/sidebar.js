@@ -1,27 +1,44 @@
 // ***Start with sidebarSetup***
 
 //CONST AND VARIABLES--------------------------------------------
-import {submit} from './popOutForm';
+let groups = [];
 //FUNCTIONS------------------------------------------------------
 
 
 const addNewGroup = (() => {
     let newGroupBtn = document.querySelector('.newGroupBtn');
-    let groupContainer = document.querySelector('.groupContainer');
     let newGroupInputContainer = document.querySelector('.newGroupInputContainer');
     let newGroupTitle = document.querySelector('.newGroupTitle');
     let submitNewGroupBtn = document.querySelector('.submitNewGroupBtn');
     
     newGroupBtn.addEventListener('click', () => {
-        //the code below will display the container to add new groups (current display is set to none in the HTML file.)
+        //the code below will display the input to add new groups (current display is set to none in the HTML file.)
         newGroupInputContainer.setAttribute('style', 'display: initial');
-        
-        submitNewGroupBtn.addEventListener('click', () => {
-            
-        })
+    })
+
+    submitNewGroupBtn.addEventListener('click', () => {
+        groups.push(newGroupTitle.value);
+        newGroupInputContainer.setAttribute('style', 'display: none');
+        console.log([groups]);
+        renderGroups();
     })
     
 })();
+function renderGroups() {
+    let groupContainer = document.querySelector('.groupContainer');
+    while(groupContainer.firstChild) {
+        groupContainer.removeChild(groupContainer.firstChild);
+    };
+    console.log(`${groups.length}`);
+    for (let i = 0; i < groups.length; i++) {
+        const name = groups[i];
+        let newGroup = document.createElement('div');
+        newGroup.innerHTML = `${name}`;
+        newGroup.classList.add('groups');
+        groupContainer.appendChild(newGroup);
+    }
+    
+}
 const toggleSidebar = (() => {
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
     let toggleContainer = document.querySelector('.toggleContainer');
