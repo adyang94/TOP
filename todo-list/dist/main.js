@@ -125,7 +125,6 @@ function renderTasks () {
             <span class = "dueDate">Due: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].dueDate}</span><br>`
         taskContainer.appendChild(taskText);
 
-        
         //remove button
         let removeBtn = document.createElement('button');
         removeBtn.classList.add('removeBtn');
@@ -134,7 +133,7 @@ function renderTasks () {
         console.log(`dataset btn: ${removeBtn.dataset.task}`);
         removeBtn.addEventListener('click', (event) => {
             console.log(`dataset btn1: ${removeBtn.dataset.task}`);
-            _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks.splice(event.srcElement.id, 1);
+            _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks.splice(event.srcElement.dataset.task, 1);
             renderTasks();
         })
         taskContainer.appendChild(removeBtn);

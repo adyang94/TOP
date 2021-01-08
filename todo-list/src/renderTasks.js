@@ -29,7 +29,6 @@ function renderTasks () {
             <span class = "dueDate">Due: ${tasks[i].dueDate}</span><br>`
         taskContainer.appendChild(taskText);
 
-        
         //remove button
         let removeBtn = document.createElement('button');
         removeBtn.classList.add('removeBtn');
@@ -38,7 +37,7 @@ function renderTasks () {
         console.log(`dataset btn: ${removeBtn.dataset.task}`);
         removeBtn.addEventListener('click', (event) => {
             console.log(`dataset btn1: ${removeBtn.dataset.task}`);
-            tasks.splice(event.srcElement.id, 1);
+            tasks.splice(event.srcElement.dataset.task, 1);
             renderTasks();
         })
         taskContainer.appendChild(removeBtn);
