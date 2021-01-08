@@ -35,10 +35,13 @@ console.log('JS working');
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "submit": () => /* binding */ submit
+/* harmony export */   "submit": () => /* binding */ submit,
+/* harmony export */   "tasks": () => /* binding */ tasks
 /* harmony export */ });
+/* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
 //CONST AND VARIABLES--------------------------------------------
 let tasks = [];
+
 //FUNCTIONS------------------------------------------------------
 const submit = (() => {
     console.log('submit module working');
@@ -55,9 +58,13 @@ const submit = (() => {
         popOutForm.classList.add('popOutFormOff');
         
         newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate);
-        console.log(`title1: ${newTask.title}`);
-        console.log(`description: ${newTask.description}`);
         tasks.push(newTask);
+
+        
+        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_0__.renderTasks)();
+        
+        console.log([tasks]);
+        
         
 
     });
@@ -72,6 +79,33 @@ function addNewTask(title, description, dueDate) {
 }
 //SCRIPT---------------------------------------------------------
 
+
+
+/***/ }),
+
+/***/ "./src/renderTasks.js":
+/*!****************************!*\
+  !*** ./src/renderTasks.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderTasks": () => /* binding */ renderTasks
+/* harmony export */ });
+/* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
+//CONST AND VARIABLES--------------------------------------------
+
+
+//FUNCTIONS------------------------------------------------------
+
+function renderTasks () {
+    console.log([_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks]);
+    console.log('render tasks module working');
+    
+    
+}
+//SCRIPT---------------------------------------------------------
 
 
 /***/ }),

@@ -1,5 +1,6 @@
 //CONST AND VARIABLES--------------------------------------------
 let tasks = [];
+import {renderTasks} from './renderTasks';
 //FUNCTIONS------------------------------------------------------
 const submit = (() => {
     console.log('submit module working');
@@ -16,9 +17,13 @@ const submit = (() => {
         popOutForm.classList.add('popOutFormOff');
         
         newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate);
-        console.log(`title1: ${newTask.title}`);
-        console.log(`description: ${newTask.description}`);
         tasks.push(newTask);
+
+        
+        renderTasks();
+        
+        console.log([tasks]);
+        
         
 
     });
@@ -32,4 +37,7 @@ function addNewTask(title, description, dueDate) {
 
 }
 //SCRIPT---------------------------------------------------------
-export {submit}
+export {
+    submit,
+    tasks
+}
