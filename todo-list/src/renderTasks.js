@@ -26,7 +26,8 @@ function renderTasks () {
 
             <span class = "description">Description: ${tasks[i].description}</span> <br>
 
-            <span class = "dueDate">Due: ${tasks[i].dueDate}</span><br>`
+            <span class = "dueDate">Due: ${tasks[i].dueDate}</span><br>
+            <span class = "taskGroup">Group: ${tasks[i].taskGroup}</span><br>`;
         taskContainer.appendChild(taskText);
 
         //remove button

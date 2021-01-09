@@ -1,9 +1,17 @@
 //CONST AND VARIABLES--------------------------------------------
-let tasks = [];
 import {renderTasks} from './renderTasks';
+let tasks = [];
 //FUNCTIONS------------------------------------------------------
 const popOutSetup = (() => {
     console.log('submit module working');
+    tasks[0] = {
+        'title': 'test title',
+        'description': 'test description',
+        'dueDate': '1/1/01',
+        'taskGroup': 'test group'
+    };
+
+    
     let popOutForm = document.querySelector('#popOutForm');
     let submitBtn = document.querySelector('.submitBtn');
     let popOutTitle = document.querySelector('.popOutTitle');
@@ -27,12 +35,14 @@ const popOutSetup = (() => {
         popOutForm.classList.remove('popOutFormOff');
         popOutForm.classList.add('popOutFormOn');
     });
+    renderTasks();
 })();
 
 function addNewTask(title, description, dueDate) {
     this.title = title.value;
     this.description = description.value;
     this.dueDate = dueDate.value;
+    this.taskGroup = 'test group';
 
 }
 //SCRIPT---------------------------------------------------------

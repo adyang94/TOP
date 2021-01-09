@@ -45,11 +45,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
 //CONST AND VARIABLES--------------------------------------------
-let tasks = [];
 
+let tasks = [];
 //FUNCTIONS------------------------------------------------------
 const popOutSetup = (() => {
     console.log('submit module working');
+    tasks[0] = {
+        'title': 'test title',
+        'description': 'test description',
+        'dueDate': '1/1/01',
+        'taskGroup': 'test group'
+    };
+
+    
     let popOutForm = document.querySelector('#popOutForm');
     let submitBtn = document.querySelector('.submitBtn');
     let popOutTitle = document.querySelector('.popOutTitle');
@@ -73,12 +81,14 @@ const popOutSetup = (() => {
         popOutForm.classList.remove('popOutFormOff');
         popOutForm.classList.add('popOutFormOn');
     });
+    (0,_renderTasks__WEBPACK_IMPORTED_MODULE_0__.renderTasks)();
 })();
 
 function addNewTask(title, description, dueDate) {
     this.title = title.value;
     this.description = description.value;
     this.dueDate = dueDate.value;
+    this.taskGroup = 'test group';
 
 }
 //SCRIPT---------------------------------------------------------
@@ -126,7 +136,8 @@ function renderTasks () {
 
             <span class = "description">Description: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].description}</span> <br>
 
-            <span class = "dueDate">Due: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].dueDate}</span><br>`
+            <span class = "dueDate">Due: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].dueDate}</span><br>
+            <span class = "taskGroup">Group: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].taskGroup}</span><br>`;
         taskContainer.appendChild(taskText);
 
         //remove button
@@ -191,10 +202,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "sidebarSetup": () => /* binding */ sidebarSetup,
 /* harmony export */   "groupSelected": () => /* binding */ groupSelected
 /* harmony export */ });
+/* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
 // ***Start with sidebarSetup***
+
+
 
 //CONST AND VARIABLES--------------------------------------------
 let groups = [];
+
 let groupSelected;
 //FUNCTIONS------------------------------------------------------
 
@@ -213,11 +228,15 @@ const addNewGroup = (() => {
     })
 
     submitNewGroupBtn.addEventListener('click', () => {
-        groups.push(newGroupTitle.value);
+        //SUBMIT AND CREATE NEW GROUP
+        let newGroup = new createGroup(newGroupTitle.value, _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks);
+        console.log(`group title: ${newGroupTitle.value}`);
+        groups.push(newGroup);
         newGroupInputContainer.setAttribute('style', 'display: none');
         console.log([groups]);
         renderGroups();
     })
+    
     
 })();
 function renderGroups() {
@@ -228,14 +247,17 @@ function renderGroups() {
     };
     //rendering groups
     for (let i = 0; i < groups.length; i++) {
-        const name = groups[i];
+        const name = groups[i].groupName;
         let groupContainer = document.createElement('div');
             groupContainer.classList.add('groupContainer');
-            //functionality to select the group to display
+            
+            //functionality to click on the group name
             groupContainer.addEventListener('click', () => {
                 groupSelected = groupTitle.dataset.group;
-                console.log([groupSelected])
-                console.log(`group selected: ${groups[groupSelected]}`);
+                console.log(`group selected: ${name}`);
+                
+                
+                console.log([groups]);
             });
         
             let groupTitle = document.createElement('div');
@@ -257,6 +279,11 @@ function renderGroups() {
         groupsContainer.appendChild(groupContainer);
     }
 }
+function createGroup(title, associatedTasks) {
+    this.groupName = title;
+    this.associatedTasks = associatedTasks;
+}
+
 const toggleSidebar = (() => {
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
     let toggleContainer = document.querySelector('.toggleContainer');
@@ -274,7 +301,16 @@ const toggleSidebar = (() => {
 })();
 const sidebarSetup = (() => {
     console.log('sidebar module working');
-    
+    //render existing groups
+    groups[0] = {
+        'groupName': "test group",
+        'groupTasks': _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks
+    };
+    groups[1] = {
+        'groupName': 'test chores',
+        'groupTasks': []
+    };
+    renderGroups();
     //add new group for tasks
     addNewGroup;
     //toggle open/close sidebar

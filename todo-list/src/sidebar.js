@@ -1,7 +1,10 @@
 // ***Start with sidebarSetup***
 
+import { tasks } from "./popOutForm";
+
 //CONST AND VARIABLES--------------------------------------------
 let groups = [];
+
 let groupSelected;
 //FUNCTIONS------------------------------------------------------
 
@@ -20,11 +23,15 @@ const addNewGroup = (() => {
     })
 
     submitNewGroupBtn.addEventListener('click', () => {
-        groups.push(newGroupTitle.value);
+        //SUBMIT AND CREATE NEW GROUP
+        let newGroup = new createGroup(newGroupTitle.value, tasks);
+        console.log(`group title: ${newGroupTitle.value}`);
+        groups.push(newGroup);
         newGroupInputContainer.setAttribute('style', 'display: none');
         console.log([groups]);
         renderGroups();
     })
+    
     
 })();
 function renderGroups() {
@@ -35,14 +42,17 @@ function renderGroups() {
     };
     //rendering groups
     for (let i = 0; i < groups.length; i++) {
-        const name = groups[i];
+        const name = groups[i].groupName;
         let groupContainer = document.createElement('div');
             groupContainer.classList.add('groupContainer');
-            //functionality to select the group to display
+            
+            //functionality to click on the group name
             groupContainer.addEventListener('click', () => {
                 groupSelected = groupTitle.dataset.group;
-                console.log([groupSelected])
-                console.log(`group selected: ${groups[groupSelected]}`);
+                console.log(`group selected: ${name}`);
+                
+                
+                console.log([groups]);
             });
         
             let groupTitle = document.createElement('div');
@@ -64,6 +74,11 @@ function renderGroups() {
         groupsContainer.appendChild(groupContainer);
     }
 }
+function createGroup(title, associatedTasks) {
+    this.groupName = title;
+    this.associatedTasks = associatedTasks;
+}
+
 const toggleSidebar = (() => {
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
     let toggleContainer = document.querySelector('.toggleContainer');
@@ -81,7 +96,16 @@ const toggleSidebar = (() => {
 })();
 const sidebarSetup = (() => {
     console.log('sidebar module working');
-    
+    //render existing groups
+    groups[0] = {
+        'groupName': "test group",
+        'groupTasks': tasks
+    };
+    groups[1] = {
+        'groupName': 'test chores',
+        'groupTasks': []
+    };
+    renderGroups();
     //add new group for tasks
     addNewGroup;
     //toggle open/close sidebar
