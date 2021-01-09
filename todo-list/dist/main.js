@@ -230,7 +230,6 @@ const addNewGroup = (() => {
     submitNewGroupBtn.addEventListener('click', () => {
         //SUBMIT AND CREATE NEW GROUP
         let newGroup = new createGroup(newGroupTitle.value, _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks);
-        console.log(`group title: ${newGroupTitle.value}`);
         groups.push(newGroup);
         newGroupInputContainer.setAttribute('style', 'display: none');
         console.log([groups]);
