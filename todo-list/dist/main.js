@@ -56,6 +56,12 @@ const popOutSetup = (() => {
         'dueDate': '1/1/01',
         'taskGroup': 'test group'
     };
+    tasks[1] = {
+        'title': 'test chore',
+        'description': 'test description',
+        'dueDate': '1/1/01',
+        'taskGroup': 'test chore'
+    }
 
     
     let popOutForm = document.querySelector('#popOutForm');
@@ -212,8 +218,6 @@ let groups = [];
 
 let groupSelected;
 //FUNCTIONS------------------------------------------------------
-
-
 const addNewGroup = (() => {
     //add new group in the sidebar menu.
     let newGroupBtn = document.querySelector('.newGroupBtn');
@@ -235,8 +239,6 @@ const addNewGroup = (() => {
         console.log([groups]);
         renderGroups();
     })
-    
-    
 })();
 function renderGroups() {
     let groupsContainer = document.querySelector('.groupsContainer');
@@ -254,8 +256,6 @@ function renderGroups() {
             groupContainer.addEventListener('click', () => {
                 groupSelected = groupTitle.dataset.group;
                 console.log(`group selected: ${name}`);
-                
-                
                 console.log([groups]);
             });
         
@@ -280,7 +280,7 @@ function renderGroups() {
 }
 function createGroup(title, associatedTasks) {
     this.groupName = title;
-    this.associatedTasks = associatedTasks;
+    this.groupTasks = associatedTasks;
 }
 
 const toggleSidebar = (() => {

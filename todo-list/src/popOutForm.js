@@ -10,6 +10,12 @@ const popOutSetup = (() => {
         'dueDate': '1/1/01',
         'taskGroup': 'test group'
     };
+    tasks[1] = {
+        'title': 'test chore',
+        'description': 'test description',
+        'dueDate': '1/1/01',
+        'taskGroup': 'test chore'
+    }
 
     
     let popOutForm = document.querySelector('#popOutForm');
