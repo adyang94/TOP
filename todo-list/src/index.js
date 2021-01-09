@@ -1,6 +1,8 @@
 //CONST AND VARIABLES--------------------------------------------
 import {sidebarSetup} from "./sidebar";
 import {popOutSetup} from "./popOutForm";
+
+let groupSelected ='';
 //FUNCTIONS------------------------------------------------------
 
 //get old info
@@ -16,3 +18,4 @@ popOutSetup;  //SET UP POP OUT FOR NEW TASKS
 
 //SCRIPT---------------------------------------------------------
 console.log('JS working');
+export {groupSelected}

@@ -1,5 +1,6 @@
 //CONST AND VARIABLES--------------------------------------------
 import {tasks} from './popOutForm';
+import {groupSelected} from './index';
 
 //FUNCTIONS------------------------------------------------------
 
@@ -20,6 +21,12 @@ function renderTasks () {
         taskContainer.classList.add('taskContainer');
         taskContainer.dataset.task = i;
         let taskText = document.createElement('p');
+
+        if (groupSelected) {
+            if (tasks.taskGroup !== groupSelected) {
+                break;
+            };
+        };
         taskText.innerHTML = 
             `
             <span class = "title">Title: ${tasks[i].title}</span><br>

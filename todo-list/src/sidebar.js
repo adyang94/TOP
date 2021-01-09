@@ -1,11 +1,11 @@
 // ***Start with sidebarSetup***
-
+let groups = [];
+import {groupSelected} from "./index";
 import { tasks } from "./popOutForm";
+import { renderTasks } from "./renderTasks";
 
 //CONST AND VARIABLES--------------------------------------------
-let groups = [];
 
-let groupSelected;
 //FUNCTIONS------------------------------------------------------
 const addNewGroup = (() => {
     //add new group in the sidebar menu.
@@ -44,6 +44,9 @@ function renderGroups() {
             //functionality to click on the group name
             groupContainer.addEventListener('click', () => {
                 groupSelected = groupTitle.dataset.group;
+                
+                renderTasks(groupSelected);
+
                 console.log(`group selected: ${name}`);
                 console.log([groups]);
             });
@@ -90,6 +93,7 @@ const toggleSidebar = (() => {
 const sidebarSetup = (() => {
     console.log('sidebar module working');
     //render existing groups
+    groupSelected = '';
     groups[0] = {
         'groupName': "test group",
         'groupTasks': tasks
@@ -98,7 +102,7 @@ const sidebarSetup = (() => {
         'groupName': 'test chores',
         'groupTasks': []
     };
-    renderGroups();
+    renderGroups(groupSelected);
     //add new group for tasks
     addNewGroup;
     //toggle open/close sidebar
