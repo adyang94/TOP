@@ -2,10 +2,12 @@
 
 //CONST AND VARIABLES--------------------------------------------
 let groups = [];
+let groupSelected;
 //FUNCTIONS------------------------------------------------------
 
 
 const addNewGroup = (() => {
+    //add new group in the sidebar menu.
     let newGroupBtn = document.querySelector('.newGroupBtn');
     let newGroupInputContainer = document.querySelector('.newGroupInputContainer');
     let newGroupTitle = document.querySelector('.newGroupTitle'); 
@@ -36,16 +38,17 @@ function renderGroups() {
         const name = groups[i];
         let groupContainer = document.createElement('div');
             groupContainer.classList.add('groupContainer');
+            //functionality to select the group to display
+            groupContainer.addEventListener('click', () => {
+                groupSelected = groupTitle.dataset.group;
+                console.log([groupSelected])
+                console.log(`group selected: ${groups[groupSelected]}`);
+            });
         
             let groupTitle = document.createElement('div');
                 groupTitle.innerHTML = `${name}`;
                 groupTitle.classList.add('groupTitle');
                 groupTitle.dataset.group = `${i}`;
-                //functionality to select the group to display
-                groupTitle.addEventListener('click', () => {
-                    let groupSelected = groupTitle.dataset.group;
-                    
-                });
                 groupContainer.appendChild(groupTitle);
 
             let groupRemoveBtn = document.createElement('button');
@@ -86,4 +89,4 @@ const sidebarSetup = (() => {
     //render sidebar
 })();
 //SCRIPT---------------------------------------------------------
-export {sidebarSetup};
+export {sidebarSetup, groupSelected};
