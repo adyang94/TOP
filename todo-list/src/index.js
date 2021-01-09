@@ -1,6 +1,5 @@
 //CONST AND VARIABLES--------------------------------------------
 import {sidebarSetup} from "./sidebar";
-import { renderTasks } from "./renderTasks";
 import {popOutSetup} from "./popOutForm";
 
 //FUNCTIONS------------------------------------------------------

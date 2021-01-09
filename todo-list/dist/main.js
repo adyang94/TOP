@@ -10,10 +10,8 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sidebar */ "./src/sidebar.js");
-/* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
-/* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
+/* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
 //CONST AND VARIABLES--------------------------------------------
-
 
 
 
@@ -23,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 console.log('1');
 _sidebar__WEBPACK_IMPORTED_MODULE_0__.sidebarSetup; //set up side bar
 console.log('2');
-_popOutForm__WEBPACK_IMPORTED_MODULE_2__.popOutSetup;  //SET UP POP OUT FOR NEW TASKS
+_popOutForm__WEBPACK_IMPORTED_MODULE_1__.popOutSetup;  //SET UP POP OUT FOR NEW TASKS
 
 
 //create new tasks
