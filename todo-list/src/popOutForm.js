@@ -1,11 +1,12 @@
 //CONST AND VARIABLES--------------------------------------------
 import {renderTasks} from './renderTasks';
-import {groupSelected} from "./index";
 let tasks = [];
+let groupSelected = 'x';
+
 //FUNCTIONS------------------------------------------------------
 const popOutSetup = (() => {
     
-    console.log('submit module working');
+    console.log('popOut setup working');
     tasks[0] = {
         'title': 'test title',
         'description': 'test description',
@@ -36,13 +37,13 @@ const popOutSetup = (() => {
         tasks.push(newTask);
 
         console.log([tasks]);
-        renderTasks(groupSelected);
+        renderTasks();
     });
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');
         popOutForm.classList.add('popOutFormOn');
     });
-    renderTasks(groupSelected);
+    renderTasks();
 })();
 
 function addNewTask(title, description, dueDate) {
@@ -55,5 +56,6 @@ function addNewTask(title, description, dueDate) {
 //SCRIPT---------------------------------------------------------
 export {
     popOutSetup,
-    tasks
+    tasks,
+    groupSelected
 }

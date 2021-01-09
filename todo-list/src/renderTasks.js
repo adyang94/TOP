@@ -1,6 +1,6 @@
 //CONST AND VARIABLES--------------------------------------------
 import {tasks} from './popOutForm';
-import {groupSelected} from './index';
+import {groupSelected} from "./popOutForm";
 
 //FUNCTIONS------------------------------------------------------
 
@@ -22,7 +22,9 @@ function renderTasks () {
         taskContainer.dataset.task = i;
         let taskText = document.createElement('p');
 
+        console.log(`group selected: ${groupSelected}`);
         if (groupSelected) {
+
             if (tasks.taskGroup !== groupSelected) {
                 break;
             };

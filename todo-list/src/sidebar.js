@@ -1,8 +1,8 @@
 // ***Start with sidebarSetup***
 let groups = [];
-import {groupSelected} from "./index";
 import { tasks } from "./popOutForm";
 import { renderTasks } from "./renderTasks";
+import {groupSelected} from "./popOutForm";
 
 //CONST AND VARIABLES--------------------------------------------
 
@@ -91,9 +91,8 @@ const toggleSidebar = (() => {
     })
 })();
 const sidebarSetup = (() => {
-    console.log('sidebar module working');
+    console.log('sidebar setup working');
     //render existing groups
-    groupSelected = '';
     groups[0] = {
         'groupName': "test group",
         'groupTasks': tasks
@@ -110,4 +109,4 @@ const sidebarSetup = (() => {
     //render sidebar
 })();
 //SCRIPT---------------------------------------------------------
-export {sidebarSetup, groupSelected};
+export {sidebarSetup};
