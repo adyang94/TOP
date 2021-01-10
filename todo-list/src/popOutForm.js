@@ -1,10 +1,11 @@
 //CONST AND VARIABLES--------------------------------------------
 import {renderTasks} from './renderTasks';
-let tasks = [];
-let groupSelected = 'x';
 
+let tasks = [];
 //FUNCTIONS------------------------------------------------------
+
 const popOutSetup = (() => {
+    let groupSelected = 'x';
     
     console.log('popOut setup working');
     tasks[0] = {
@@ -17,10 +18,9 @@ const popOutSetup = (() => {
         'title': 'test chore',
         'description': 'test description',
         'dueDate': '1/1/01',
-        'taskGroup': 'test chore'
-    }
-
-    
+        'taskGroup': 'test chores'
+    };
+    tasks[2] = 
     let popOutForm = document.querySelector('#popOutForm');
     let submitBtn = document.querySelector('.submitBtn');
     let popOutTitle = document.querySelector('.popOutTitle');
@@ -37,13 +37,16 @@ const popOutSetup = (() => {
         tasks.push(newTask);
 
         console.log([tasks]);
-        renderTasks();
+        renderTasks(groupSelected, tasks);
     });
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');
         popOutForm.classList.add('popOutFormOn');
     });
-    renderTasks();
+    renderTasks(groupSelected, tasks);
+    return {
+        tasks
+    };
 })();
 
 function addNewTask(title, description, dueDate) {
@@ -56,6 +59,5 @@ function addNewTask(title, description, dueDate) {
 //SCRIPT---------------------------------------------------------
 export {
     popOutSetup,
-    tasks,
-    groupSelected
+    tasks
 }

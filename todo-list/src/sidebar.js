@@ -26,7 +26,7 @@ const addNewGroup = (() => {
         groups.push(newGroup);
         newGroupInputContainer.setAttribute('style', 'display: none');
         console.log([groups]);
-        renderGroups();
+        renderGroups(groupSelected, tasks);
     })
 })();
 function renderGroups() {
@@ -37,24 +37,24 @@ function renderGroups() {
     };
     //rendering groups
     for (let i = 0; i < groups.length; i++) {
-        const name = groups[i].groupName;
+        const name = groups[i];
         let groupContainer = document.createElement('div');
             groupContainer.classList.add('groupContainer');
             
             //functionality to click on the group name
             groupContainer.addEventListener('click', () => {
                 groupSelected = groupTitle.dataset.group;
-                
-                renderTasks(groupSelected);
+                console.log(`hello1`);
+                renderTasks(groupSelected, tasks);
 
-                console.log(`group selected: ${name}`);
+                console.log(`group selected: ${groupSelected}`);
                 console.log([groups]);
             });
         
             let groupTitle = document.createElement('div');
                 groupTitle.innerHTML = `${name}`;
                 groupTitle.classList.add('groupTitle');
-                groupTitle.dataset.group = `${i}`;
+                groupTitle.dataset.group = `${name}`;
                 groupContainer.appendChild(groupTitle);
 
             let groupRemoveBtn = document.createElement('button');
@@ -93,14 +93,8 @@ const toggleSidebar = (() => {
 const sidebarSetup = (() => {
     console.log('sidebar setup working');
     //render existing groups
-    groups[0] = {
-        'groupName': "test group",
-        'groupTasks': tasks
-    };
-    groups[1] = {
-        'groupName': 'test chores',
-        'groupTasks': []
-    };
+    groups[0] = "test group";
+    groups[1] = 'test chores';
     renderGroups(groupSelected);
     //add new group for tasks
     addNewGroup;

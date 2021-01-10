@@ -1,11 +1,10 @@
 //CONST AND VARIABLES--------------------------------------------
 import {tasks} from './popOutForm';
-import {groupSelected} from "./popOutForm";
 
 //FUNCTIONS------------------------------------------------------
 
-function renderTasks () {
-    console.log('render tasks module working');
+function renderTasks (groupSelected, tasks) {
+    console.log('render tasks module working---------------------');
     console.log([tasks]);
     
     let main = document.querySelector('.main');
@@ -21,12 +20,14 @@ function renderTasks () {
         taskContainer.classList.add('taskContainer');
         taskContainer.dataset.task = i;
         let taskText = document.createElement('p');
+        console.log(`tasks.length: ${tasks.length}`);
+        console.log(`i: ${i}`);
+        console.log(`task group1: ${tasks[i].taskGroup}`);
+        console.log(`group selected in render tasks: ${groupSelected}`);
 
-        console.log(`group selected: ${groupSelected}`);
         if (groupSelected) {
-
-            if (tasks.taskGroup !== groupSelected) {
-                break;
+            if (tasks[i].taskGroup !== groupSelected) {
+                continue;
             };
         };
         taskText.innerHTML = 

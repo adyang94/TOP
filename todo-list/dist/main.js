@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/index.js":
@@ -8,6 +7,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sidebar */ "./src/sidebar.js");
 /* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
@@ -35,73 +35,9 @@ console.log('JS working');
 /*!***************************!*\
   !*** ./src/popOutForm.js ***!
   \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "popOutSetup": () => /* binding */ popOutSetup,
-/* harmony export */   "tasks": () => /* binding */ tasks,
-/* harmony export */   "groupSelected": () => /* binding */ groupSelected
-/* harmony export */ });
-/* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
-//CONST AND VARIABLES--------------------------------------------
-
-let tasks = [];
-let groupSelected = 'x';
-
-//FUNCTIONS------------------------------------------------------
-const popOutSetup = (() => {
-    
-    console.log('popOut setup working');
-    tasks[0] = {
-        'title': 'test title',
-        'description': 'test description',
-        'dueDate': '1/1/01',
-        'taskGroup': 'test group'
-    };
-    tasks[1] = {
-        'title': 'test chore',
-        'description': 'test description',
-        'dueDate': '1/1/01',
-        'taskGroup': 'test chore'
-    }
-
-    
-    let popOutForm = document.querySelector('#popOutForm');
-    let submitBtn = document.querySelector('.submitBtn');
-    let popOutTitle = document.querySelector('.popOutTitle');
-    let popOutDescription = document.querySelector('.popOutDescription');
-    let popOutDueDate = document.querySelector('.popOutDueDate');
-    let newTask;
-    let addTaskButton = document.querySelector('.addTaskBtn');
-
-    submitBtn.addEventListener('click', () => {
-        popOutForm.classList.remove('popOutFormOn');
-        popOutForm.classList.add('popOutFormOff');
-        
-        newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate);
-        tasks.push(newTask);
-
-        console.log([tasks]);
-        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_0__.renderTasks)();
-    });
-    addTaskButton.addEventListener('click', () => {
-        popOutForm.classList.remove('popOutFormOff');
-        popOutForm.classList.add('popOutFormOn');
-    });
-    (0,_renderTasks__WEBPACK_IMPORTED_MODULE_0__.renderTasks)();
-})();
-
-function addNewTask(title, description, dueDate) {
-    this.title = title.value;
-    this.description = description.value;
-    this.dueDate = dueDate.value;
-    this.taskGroup = 'test group';
-
-}
-//SCRIPT---------------------------------------------------------
-
-
+throw new Error("Module parse failed: The keyword 'let' is reserved (24:4)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     };\n|     tasks[2] = \n>     let popOutForm = document.querySelector('#popOutForm');\n|     let submitBtn = document.querySelector('.submitBtn');\n|     let popOutTitle = document.querySelector('.popOutTitle');");
 
 /***/ }),
 
@@ -111,6 +47,7 @@ function addNewTask(title, description, dueDate) {
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "renderTasks": () => /* binding */ renderTasks
@@ -119,12 +56,11 @@ __webpack_require__.r(__webpack_exports__);
 //CONST AND VARIABLES--------------------------------------------
 
 
-
 //FUNCTIONS------------------------------------------------------
 
-function renderTasks () {
-    console.log('render tasks module working');
-    console.log([_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks]);
+function renderTasks (groupSelected, tasks) {
+    console.log('render tasks module working---------------------');
+    console.log([tasks]);
     
     let main = document.querySelector('.main');
 
@@ -133,28 +69,30 @@ function renderTasks () {
         main.removeChild(main.firstChild);
     }
         
-    for(let i=0; i < _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks.length; i++){
+    for(let i=0; i < tasks.length; i++){
         //task container
         let taskContainer = document.createElement('div');
         taskContainer.classList.add('taskContainer');
         taskContainer.dataset.task = i;
         let taskText = document.createElement('p');
+        console.log(`tasks.length: ${tasks.length}`);
+        console.log(`i: ${i}`);
+        console.log(`task group1: ${tasks[i].taskGroup}`);
+        console.log(`group selected in render tasks: ${groupSelected}`);
 
-        console.log(`group selected: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected}`);
-        if (_popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected) {
-
-            if (_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks.taskGroup !== _popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected) {
-                break;
+        if (groupSelected) {
+            if (tasks[i].taskGroup !== groupSelected) {
+                continue;
             };
         };
         taskText.innerHTML = 
             `
-            <span class = "title">Title: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].title}</span><br>
+            <span class = "title">Title: ${tasks[i].title}</span><br>
 
-            <span class = "description">Description: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].description}</span> <br>
+            <span class = "description">Description: ${tasks[i].description}</span> <br>
 
-            <span class = "dueDate">Due: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].dueDate}</span><br>
-            <span class = "taskGroup">Group: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks[i].taskGroup}</span><br>`;
+            <span class = "dueDate">Due: ${tasks[i].dueDate}</span><br>
+            <span class = "taskGroup">Group: ${tasks[i].taskGroup}</span><br>`;
         taskContainer.appendChild(taskText);
 
         //remove button
@@ -165,7 +103,7 @@ function renderTasks () {
         console.log(`dataset btn: ${removeBtn.dataset.task}`);
         removeBtn.addEventListener('click', (event, srcElement) => {
             console.log(`dataset btn1: ${removeBtn.dataset.task}`);
-            _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks.splice(event.srcElement.dataset.task, 1);
+            tasks.splice(event.srcElement.dataset.task, 1);
             renderTasks();
         })
         taskContainer.appendChild(removeBtn);
@@ -214,6 +152,7 @@ function renderTasks () {
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "sidebarSetup": () => /* binding */ sidebarSetup
@@ -248,7 +187,7 @@ const addNewGroup = (() => {
         groups.push(newGroup);
         newGroupInputContainer.setAttribute('style', 'display: none');
         console.log([groups]);
-        renderGroups();
+        renderGroups(_popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected, _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks);
     })
 })();
 function renderGroups() {
@@ -259,24 +198,24 @@ function renderGroups() {
     };
     //rendering groups
     for (let i = 0; i < groups.length; i++) {
-        const name = groups[i].groupName;
+        const name = groups[i];
         let groupContainer = document.createElement('div');
             groupContainer.classList.add('groupContainer');
             
             //functionality to click on the group name
             groupContainer.addEventListener('click', () => {
                 _popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected = groupTitle.dataset.group;
-                
-                (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(_popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected);
+                console.log(`hello1`);
+                (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(_popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected, _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks);
 
-                console.log(`group selected: ${name}`);
+                console.log(`group selected: ${_popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected}`);
                 console.log([groups]);
             });
         
             let groupTitle = document.createElement('div');
                 groupTitle.innerHTML = `${name}`;
                 groupTitle.classList.add('groupTitle');
-                groupTitle.dataset.group = `${i}`;
+                groupTitle.dataset.group = `${name}`;
                 groupContainer.appendChild(groupTitle);
 
             let groupRemoveBtn = document.createElement('button');
@@ -315,14 +254,8 @@ const toggleSidebar = (() => {
 const sidebarSetup = (() => {
     console.log('sidebar setup working');
     //render existing groups
-    groups[0] = {
-        'groupName': "test group",
-        'groupTasks': _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks
-    };
-    groups[1] = {
-        'groupName': 'test chores',
-        'groupTasks': []
-    };
+    groups[0] = "test group";
+    groups[1] = 'test chores';
     renderGroups(_popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected);
     //add new group for tasks
     addNewGroup;
