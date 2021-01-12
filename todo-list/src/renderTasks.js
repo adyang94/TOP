@@ -5,7 +5,7 @@ import {tasks} from './popOutForm';
 
 function renderTasks (groupSelected, tasks) {
     console.log('render tasks module working---------------------');
-    console.log([tasks]);
+    
     
     let main = document.querySelector('.main');
 
@@ -14,16 +14,16 @@ function renderTasks (groupSelected, tasks) {
         main.removeChild(main.firstChild);
     }
         
+    console.log(`tasks.length: ${tasks.length}`);
+    console.log(`group selected in render tasks: ${groupSelected}`);
     for(let i=0; i < tasks.length; i++){
         //task container
         let taskContainer = document.createElement('div');
         taskContainer.classList.add('taskContainer');
         taskContainer.dataset.task = i;
         let taskText = document.createElement('p');
-        console.log(`tasks.length: ${tasks.length}`);
-        console.log(`i: ${i}`);
+        console.log(`i: ${i}-----------`);
         console.log(`task group1: ${tasks[i].taskGroup}`);
-        console.log(`group selected in render tasks: ${groupSelected}`);
 
         if (groupSelected) {
             if (tasks[i].taskGroup !== groupSelected) {

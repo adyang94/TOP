@@ -103,4 +103,4 @@ const sidebarSetup = (() => {
     //render sidebar
 })();
 //SCRIPT---------------------------------------------------------
-export {sidebarSetup};
+export {sidebarSetup, groups};
