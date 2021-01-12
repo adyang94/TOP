@@ -14,6 +14,7 @@ const localStorageModule = (() => {
         console.log('hello12');
         // localStorage.setItem("tasks", tasks)
     };
+    return {getTasks, getGroups, storeTasksAndGroups};
 })();
 //SCRIPT---------------------------------------------------------
 export {

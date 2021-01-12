@@ -1,5 +1,5 @@
 //CONST AND VARIABLES--------------------------------------------
-import {localStorageModule} from './localStorage';
+import {localStorageModule} from "./localStorage";
 import {renderTasks} from './renderTasks';
 
 let tasks = [];
