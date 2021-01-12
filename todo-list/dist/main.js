@@ -216,7 +216,7 @@ function renderTasks (groupSelected, tasks) {
         removeBtn.addEventListener('click', (event, srcElement) => {
             console.log(`dataset btn1: ${removeBtn.dataset.task}`);
             tasks.splice(event.srcElement.dataset.task, 1);
-            renderTasks();
+            renderTasks(groupSelected, tasks);
         })
         taskContainer.appendChild(removeBtn);
         
@@ -231,30 +231,6 @@ function renderTasks (groupSelected, tasks) {
 
 
 
-
-// //title
-// let titleContainer = document.createElement('div');
-// let title = document.createElement('div');
-// title.classList.add('title');
-// title.innerHTML = `Title: ${task.title} <br> `;
-// titleContainer.appendChild(title);
-// taskContainer.appendChild(titleContainer);
-
-// //description
-// let descriptionContainer = document.createElement('div');
-// let description = document.createElement('div');
-// description.classList.add('description');
-// description.innerHTML = `Description: ${task.description}`;
-// descriptionContainer.appendChild(description);
-// taskContainer.appendChild(descriptionContainer);
-
-// //due date
-// let dueDateContainer = document.createElement('div');
-// let dueDate = document.createElement('div');
-// dueDate.classList.add('dueDate');
-// dueDate.innerHTML = `Due: ${task.dueDate}`;
-// dueDateContainer.appendChild(dueDate);
-// taskContainer.appendChild(dueDateContainer);
 
 /***/ }),
 
