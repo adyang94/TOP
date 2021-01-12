@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/index.js":
@@ -7,7 +8,6 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sidebar */ "./src/sidebar.js");
 /* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
@@ -31,13 +31,125 @@ console.log('JS working');
 
 /***/ }),
 
+/***/ "./src/localStorage.js":
+/*!*****************************!*\
+  !*** ./src/localStorage.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "localStorageModule": () => /* binding */ localStorageModule
+/* harmony export */ });
+//CONST AND VARIABLES--------------------------------------------
+
+
+//FUNCTIONS------------------------------------------------------
+const localStorageModule = (() => {
+    
+    function getTasks() {
+        
+    };
+    function getGroups() {
+        
+    };
+    function storeTasksAndGroups() {
+        console.log('hello12');
+        // localStorage.setItem("tasks", tasks)
+    };
+})();
+//SCRIPT---------------------------------------------------------
+
+
+/***/ }),
+
 /***/ "./src/popOutForm.js":
 /*!***************************!*\
   !*** ./src/popOutForm.js ***!
   \***************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module parse failed: The keyword 'let' is reserved (24:4)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     };\n|     tasks[2] = \n>     let popOutForm = document.querySelector('#popOutForm');\n|     let submitBtn = document.querySelector('.submitBtn');\n|     let popOutTitle = document.querySelector('.popOutTitle');");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "popOutSetup": () => /* binding */ popOutSetup,
+/* harmony export */   "tasks": () => /* binding */ tasks
+/* harmony export */ });
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage */ "./src/localStorage.js");
+/* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
+//CONST AND VARIABLES--------------------------------------------
+
+
+
+let tasks = [];
+let groupSelected;
+//FUNCTIONS------------------------------------------------------
+
+const popOutSetup = (() => {
+    
+    console.log('popOut setup working---------------------------');
+    tasks[0] = {
+        'title': 'test title',
+        'description': 'test description',
+        'dueDate': '1/1/01',
+        'taskGroup': 'test group'
+    };
+    tasks[1] = {
+        'title': 'test chore',
+        'description': 'test description',
+        'dueDate': '1/1/01',
+        'taskGroup': 'test chores'
+    };
+    tasks[2] = {
+        'title': 'test chore1',
+        'description': 'test description',
+        'dueDate': '1/1/2021',
+        'taskGroup': 'test chores'
+    }
+    let popOutForm = document.querySelector('#popOutForm');
+    let submitBtn = document.querySelector('.submitBtn');
+    let popOutTitle = document.querySelector('.popOutTitle');
+    let popOutDescription = document.querySelector('.popOutDescription');
+    let popOutDueDate = document.querySelector('.popOutDueDate');
+    let newTask;
+    let addTaskButton = document.querySelector('.addTaskBtn');
+    let popOutGroup = document.querySelector('.popOutGroup');
+
+    submitBtn.addEventListener('click', () => {
+        popOutForm.classList.remove('popOutFormOn');
+        popOutForm.classList.add('popOutFormOff');
+
+        console.log(`POPOUT GROUP: ${popOutGroup}`);
+
+        
+        newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate, popOutGroup);
+        tasks.push(newTask);
+
+        console.log(`LOCAL STORAGE`);
+
+        _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.storeTasksAndGroups();
+        
+        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(groupSelected, tasks);
+    });
+    addTaskButton.addEventListener('click', () => {
+        popOutForm.classList.remove('popOutFormOff');
+        popOutForm.classList.add('popOutFormOn');
+    });
+    (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(groupSelected, tasks);
+    return {
+        tasks
+    };
+})();
+
+function addNewTask(title, description, dueDate, group) {
+    this.title = title.value;
+    this.description = description.value;
+    this.dueDate = dueDate.value;
+    this.taskGroup = group.value;
+
+}
+//SCRIPT---------------------------------------------------------
+
+
 
 /***/ }),
 
@@ -47,7 +159,6 @@ throw new Error("Module parse failed: The keyword 'let' is reserved (24:4)\nYou 
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "renderTasks": () => /* binding */ renderTasks
@@ -152,7 +263,6 @@ function renderTasks (groupSelected, tasks) {
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "sidebarSetup": () => /* binding */ sidebarSetup

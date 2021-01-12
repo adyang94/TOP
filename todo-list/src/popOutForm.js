@@ -1,13 +1,14 @@
 //CONST AND VARIABLES--------------------------------------------
+import {localStorageModule} from './localStorage';
 import {renderTasks} from './renderTasks';
 
 let tasks = [];
+let groupSelected;
 //FUNCTIONS------------------------------------------------------
 
 const popOutSetup = (() => {
-    let groupSelected = 'x';
     
-    console.log('popOut setup working');
+    console.log('popOut setup working---------------------------');
     tasks[0] = {
         'title': 'test title',
         'description': 'test description',
@@ -20,7 +21,12 @@ const popOutSetup = (() => {
         'dueDate': '1/1/01',
         'taskGroup': 'test chores'
     };
-    tasks[2] = 
+    tasks[2] = {
+        'title': 'test chore1',
+        'description': 'test description',
+        'dueDate': '1/1/2021',
+        'taskGroup': 'test chores'
+    }
     let popOutForm = document.querySelector('#popOutForm');
     let submitBtn = document.querySelector('.submitBtn');
     let popOutTitle = document.querySelector('.popOutTitle');
@@ -28,15 +34,22 @@ const popOutSetup = (() => {
     let popOutDueDate = document.querySelector('.popOutDueDate');
     let newTask;
     let addTaskButton = document.querySelector('.addTaskBtn');
+    let popOutGroup = document.querySelector('.popOutGroup');
 
     submitBtn.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOn');
         popOutForm.classList.add('popOutFormOff');
+
+        console.log(`POPOUT GROUP: ${popOutGroup}`);
+
         
-        newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate);
+        newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate, popOutGroup);
         tasks.push(newTask);
 
-        console.log([tasks]);
+        console.log(`LOCAL STORAGE`);
+
+        localStorageModule.storeTasksAndGroups();
+        
         renderTasks(groupSelected, tasks);
     });
     addTaskButton.addEventListener('click', () => {
@@ -49,11 +62,11 @@ const popOutSetup = (() => {
     };
 })();
 
-function addNewTask(title, description, dueDate) {
+function addNewTask(title, description, dueDate, group) {
     this.title = title.value;
     this.description = description.value;
     this.dueDate = dueDate.value;
-    this.taskGroup = 'test group';
+    this.taskGroup = group.value;
 
 }
 //SCRIPT---------------------------------------------------------
