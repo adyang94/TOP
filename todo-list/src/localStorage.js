@@ -1,6 +1,7 @@
 //CONST AND VARIABLES--------------------------------------------
 
 import { renderTasks } from "./renderTasks";
+import {renderGroups} from "./sidebar";
 
 
 //FUNCTIONS------------------------------------------------------
@@ -12,11 +13,11 @@ const localStorageModule = (() => {
         tasks = JSON.parse(localStorage.getItem('tasks'));
         console.log([tasks]);
         renderTasks( '',tasks);
-        
     };
     function getGroups() {
+        groups = JSON.parse(localStorage.getItem('groups'));
         console.log([groups]);
-        
+        renderGroups();
     };
     function storeTasksAndGroups(tasks, groups) {
         console.log('store tasks and groups-------------');

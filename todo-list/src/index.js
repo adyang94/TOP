@@ -7,6 +7,7 @@ import {localStorageModule} from "./localStorage";
 
 //get old info
 localStorageModule.getTasks();
+localStorageModule.getGroups();
 console.log('1');
 sidebarSetup; //set up side bar
 console.log('2');

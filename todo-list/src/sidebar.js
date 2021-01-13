@@ -3,6 +3,7 @@ let groups = [];
 import { tasks } from "./popOutForm";
 import { renderTasks } from "./renderTasks";
 import {groupSelected} from "./popOutForm";
+import { localStorageModule } from "./localStorage";
 
 //CONST AND VARIABLES--------------------------------------------
 
@@ -26,6 +27,7 @@ const addNewGroup = (() => {
         groups.push(newGroup);
         newGroupInputContainer.setAttribute('style', 'display: none');
         console.log([groups]);
+        localStorageModule.storeTasksAndGroups(groups, tasks);
         renderGroups(groupSelected, tasks);
     })
 })();
@@ -103,4 +105,4 @@ const sidebarSetup = (() => {
     //render sidebar
 })();
 //SCRIPT---------------------------------------------------------
-export {sidebarSetup, groups};
+export {sidebarSetup, groups, renderGroups};

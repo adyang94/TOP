@@ -1,5 +1,6 @@
 //CONST AND VARIABLES--------------------------------------------
-import {tasks} from './popOutForm';
+import {localStorageModule} from './localStorage';
+import { groups } from './sidebar';
 
 //FUNCTIONS------------------------------------------------------
 
@@ -47,8 +48,9 @@ function renderTasks (groupSelected, tasks) {
         removeBtn.innerHTML = 'X';
         console.log(`dataset btn: ${removeBtn.dataset.task}`);
         removeBtn.addEventListener('click', (event, srcElement) => {
-            console.log(`dataset btn1: ${removeBtn.dataset.task}`);
+            console.log(`remove dataset btn1: ${removeBtn.dataset.task}`);
             tasks.splice(event.srcElement.dataset.task, 1);
+            localStorageModule.storeTasksAndGroups(tasks, groups);
             renderTasks(groupSelected, tasks);
         })
         taskContainer.appendChild(removeBtn);

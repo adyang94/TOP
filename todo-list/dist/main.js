@@ -21,6 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 //get old info
 _localStorage__WEBPACK_IMPORTED_MODULE_2__.localStorageModule.getTasks();
+_localStorage__WEBPACK_IMPORTED_MODULE_2__.localStorageModule.getGroups();
 console.log('1');
 _sidebar__WEBPACK_IMPORTED_MODULE_0__.sidebarSetup; //set up side bar
 console.log('2');
@@ -45,7 +46,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "localStorageModule": () => /* binding */ localStorageModule
 /* harmony export */ });
 /* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
+/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sidebar */ "./src/sidebar.js");
 //CONST AND VARIABLES--------------------------------------------
+
 
 
 
@@ -59,11 +62,11 @@ const localStorageModule = (() => {
         tasks = JSON.parse(localStorage.getItem('tasks'));
         console.log([tasks]);
         (0,_renderTasks__WEBPACK_IMPORTED_MODULE_0__.renderTasks)( '',tasks);
-        
     };
     function getGroups() {
+        groups = JSON.parse(localStorage.getItem('groups'));
         console.log([groups]);
-        
+        (0,_sidebar__WEBPACK_IMPORTED_MODULE_1__.renderGroups)();
     };
     function storeTasksAndGroups(tasks, groups) {
         console.log('store tasks and groups-------------');
@@ -175,8 +178,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "renderTasks": () => /* binding */ renderTasks
 /* harmony export */ });
-/* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage */ "./src/localStorage.js");
+/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sidebar */ "./src/sidebar.js");
 //CONST AND VARIABLES--------------------------------------------
+
 
 
 //FUNCTIONS------------------------------------------------------
@@ -225,8 +230,9 @@ function renderTasks (groupSelected, tasks) {
         removeBtn.innerHTML = 'X';
         console.log(`dataset btn: ${removeBtn.dataset.task}`);
         removeBtn.addEventListener('click', (event, srcElement) => {
-            console.log(`dataset btn1: ${removeBtn.dataset.task}`);
+            console.log(`remove dataset btn1: ${removeBtn.dataset.task}`);
             tasks.splice(event.srcElement.dataset.task, 1);
+            _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.storeTasksAndGroups(tasks, _sidebar__WEBPACK_IMPORTED_MODULE_1__.groups);
             renderTasks(groupSelected, tasks);
         })
         taskContainer.appendChild(removeBtn);
@@ -254,12 +260,15 @@ function renderTasks (groupSelected, tasks) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "sidebarSetup": () => /* binding */ sidebarSetup,
-/* harmony export */   "groups": () => /* binding */ groups
+/* harmony export */   "groups": () => /* binding */ groups,
+/* harmony export */   "renderGroups": () => /* binding */ renderGroups
 /* harmony export */ });
 /* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
 /* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./localStorage */ "./src/localStorage.js");
 // ***Start with sidebarSetup***
 let groups = [];
+
 
 
 
@@ -286,6 +295,7 @@ const addNewGroup = (() => {
         groups.push(newGroup);
         newGroupInputContainer.setAttribute('style', 'display: none');
         console.log([groups]);
+        _localStorage__WEBPACK_IMPORTED_MODULE_2__.localStorageModule.storeTasksAndGroups(groups, _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks);
         renderGroups(_popOutForm__WEBPACK_IMPORTED_MODULE_0__.groupSelected, _popOutForm__WEBPACK_IMPORTED_MODULE_0__.tasks);
     })
 })();
