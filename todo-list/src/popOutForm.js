@@ -1,32 +1,13 @@
 //CONST AND VARIABLES--------------------------------------------
-import {localStorageModule} from "./localStorage";
+import {groups, groupSelected, localStorageModule, tasks} from "./localStorage";
 import {renderTasks} from './renderTasks';
-import { groups } from "./sidebar";
 
-let tasks = [];
-let groupSelected;
+
 //FUNCTIONS------------------------------------------------------
 
 const popOutSetup = (() => {
     console.log('popOut setup working---------------------------');
-    tasks[0] = {
-        'title': 'test title',
-        'description': 'test description',
-        'dueDate': '1/1/01',
-        'taskGroup': 'test group'
-    };
-    tasks[1] = {
-        'title': 'test chore',
-        'description': 'test description',
-        'dueDate': '1/1/01',
-        'taskGroup': 'test chores'
-    };
-    tasks[2] = {
-        'title': 'test chore1',
-        'description': 'test description',
-        'dueDate': '1/1/2021',
-        'taskGroup': 'test chores'
-    }
+    
     let popOutForm = document.querySelector('#popOutForm');
     let submitBtn = document.querySelector('.submitBtn');
     let popOutTitle = document.querySelector('.popOutTitle');
@@ -53,9 +34,6 @@ const popOutSetup = (() => {
         popOutForm.classList.add('popOutFormOn');
     });
     renderTasks(groupSelected, tasks);
-    return {
-        tasks
-    };
 })();
 
 function addNewTask(title, description, dueDate, group) {
@@ -68,5 +46,4 @@ function addNewTask(title, description, dueDate, group) {
 //SCRIPT---------------------------------------------------------
 export {
     popOutSetup,
-    tasks
 }

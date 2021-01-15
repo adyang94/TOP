@@ -1,6 +1,5 @@
 //CONST AND VARIABLES--------------------------------------------
-import {localStorageModule} from './localStorage';
-import { groups } from './sidebar';
+import {groups, localStorageModule} from "./localStorage";
 
 //FUNCTIONS------------------------------------------------------
 
