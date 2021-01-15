@@ -33,9 +33,12 @@ const addNewGroup = (() => {
 function renderGroups() {
     let groupsContainer = document.querySelector('.groupsContainer');
     //remove all groups and render again.
+    console.log('REMOVE ALL GROUPS');
     while(groupsContainer.firstChild) {
         groupsContainer.removeChild(groupsContainer.firstChild);
+        // console.log(`RENDER: ${groups}`)
     };
+    console.log('REMOVE ALL GROUPS');
     //rendering groups
     for (let i = 0; i < groups.length; i++) {
         console.log('hello********************');
@@ -55,9 +58,11 @@ function renderGroups() {
                 console.log([groups]);
             });
             let groupTitle = document.createElement('div');
+                
                 console.log([name]);
                 groupTitle.innerHTML = `${name}`;
-                console.log(`${groupTitle.innerHTML}`);
+
+                console.log(`GROUP TITLE: ${groupTitle.innerHTML}`);
                 groupTitle.classList.add('groupTitle');
                 groupTitle.dataset.group = `${name}`;
                 groupContainer.appendChild(groupTitle);
@@ -70,11 +75,11 @@ function renderGroups() {
                 groupRemoveBtn.addEventListener('click', (event, srcElement) => {
                     groups.splice(event.srcElement.dataset.group, 1)
                     renderGroups();
-                })
+                });
                 groupContainer.appendChild(groupRemoveBtn);
         groupsContainer.appendChild(groupContainer);
-    }
-}
+    };
+};
 
 const toggleSidebar = (() => {
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
@@ -94,9 +99,9 @@ const toggleSidebar = (() => {
 const sidebarSetup = (() => {
     console.log('sidebar setup working');
     //render existing groups
-    // groups[0] = "test group";
-    // groups[1] = 'test chores';
-    renderGroups(groupSelected);
+    groups[0] = "test group";
+    groups[1] = 'test chores';
+    renderGroups();
     //add new group for tasks
     addNewGroup;
     //toggle open/close sidebar

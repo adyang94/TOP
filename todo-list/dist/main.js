@@ -12,7 +12,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sidebar */ "./src/sidebar.js");
 /* harmony import */ var _popOutForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./popOutForm */ "./src/popOutForm.js");
 /* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./localStorage */ "./src/localStorage.js");
+/* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
 //CONST AND VARIABLES--------------------------------------------
+
 
 
 
@@ -20,13 +22,11 @@ __webpack_require__.r(__webpack_exports__);
 //FUNCTIONS------------------------------------------------------
 
 //get old info
-_localStorage__WEBPACK_IMPORTED_MODULE_2__.localStorageModule.getTasks();
-_localStorage__WEBPACK_IMPORTED_MODULE_2__.localStorageModule.getGroups();
 console.log('1');
-_sidebar__WEBPACK_IMPORTED_MODULE_0__.sidebarSetup; //set up side bar
-console.log('2');
-_popOutForm__WEBPACK_IMPORTED_MODULE_1__.popOutSetup;  //SET UP POP OUT FOR NEW TASKS
+(0,_renderTasks__WEBPACK_IMPORTED_MODULE_3__.renderTasks)('', _localStorage__WEBPACK_IMPORTED_MODULE_2__.localStorageModule.getTasks());
 
+console.log('2');
+(0,_sidebar__WEBPACK_IMPORTED_MODULE_0__.renderGroups)(_localStorage__WEBPACK_IMPORTED_MODULE_2__.localStorageModule.getGroups());
 
 //create new tasks
 
@@ -48,16 +48,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "tasks": () => /* binding */ tasks,
 /* harmony export */   "groupSelected": () => /* binding */ groupSelected
 /* harmony export */ });
-/* harmony import */ var _renderTasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTasks */ "./src/renderTasks.js");
-/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sidebar */ "./src/sidebar.js");
 //CONST AND VARIABLES--------------------------------------------
-
-
-
-
 let groups = [];
-groups[0] = 'hi';
-groups[1] = 'hello';
 let tasks = [];
 let groupSelected;
 //FUNCTIONS------------------------------------------------------
@@ -69,17 +61,22 @@ const localStorageModule = (() => {
         console.log(`GET TASKS FUNCTION WORKING -------------`);
         
         tasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks[0] = {
+            "title": "hi"
+        };
         console.log([tasks]);
-        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_0__.renderTasks)( '',tasks);
+        return tasks;
     };
     function getGroups() {
         groups = JSON.parse(localStorage.getItem('groups'));
+        groups[0] = 'hi';
+        groups[1] = 'helloooo';
         console.log(`getGroups ${groups}`);
-        (0,_sidebar__WEBPACK_IMPORTED_MODULE_1__.renderGroups)(groups);
+        return groups;
     };
     function storeTasksAndGroups(tasks, groups) {
-        localStorage.setItem("tasks", JSON.stringify(tasks))
-        localStorage.setItem("groups", groups)
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        localStorage.setItem("groups", JSON.stringify(groups));
         console.log([localStorage]);
     };
     function addNewInfo(newTask, newGroup) {
@@ -134,12 +131,12 @@ const popOutSetup = (() => {
         popOutForm.classList.add('popOutFormOff');
 
         newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate, popOutGroup);
-        _localStorage__WEBPACK_IMPORTED_MODULE_0__.tasks.push(newTask);
+        _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.storeTasksAndGroups(newTask, '');
     
         console.log([_localStorage__WEBPACK_IMPORTED_MODULE_0__.tasks]);
         _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.storeTasksAndGroups(_localStorage__WEBPACK_IMPORTED_MODULE_0__.tasks, _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups);
         
-        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(_localStorage__WEBPACK_IMPORTED_MODULE_0__.groupSelected, _localStorage__WEBPACK_IMPORTED_MODULE_0__.tasks);
+        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(_localStorage__WEBPACK_IMPORTED_MODULE_0__.groupSelected, _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.getTasks);
     });
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');
@@ -290,9 +287,12 @@ const addNewGroup = (() => {
 function renderGroups() {
     let groupsContainer = document.querySelector('.groupsContainer');
     //remove all groups and render again.
+    console.log('REMOVE ALL GROUPS');
     while(groupsContainer.firstChild) {
         groupsContainer.removeChild(groupsContainer.firstChild);
+        // console.log(`RENDER: ${groups}`)
     };
+    console.log('REMOVE ALL GROUPS');
     //rendering groups
     for (let i = 0; i < _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups.length; i++) {
         console.log('hello********************');
@@ -312,9 +312,11 @@ function renderGroups() {
                 console.log([_localStorage__WEBPACK_IMPORTED_MODULE_0__.groups]);
             });
             let groupTitle = document.createElement('div');
+                
                 console.log([name]);
                 groupTitle.innerHTML = `${name}`;
-                console.log(`${groupTitle.innerHTML}`);
+
+                console.log(`GROUP TITLE: ${groupTitle.innerHTML}`);
                 groupTitle.classList.add('groupTitle');
                 groupTitle.dataset.group = `${name}`;
                 groupContainer.appendChild(groupTitle);
@@ -327,11 +329,11 @@ function renderGroups() {
                 groupRemoveBtn.addEventListener('click', (event, srcElement) => {
                     _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups.splice(event.srcElement.dataset.group, 1)
                     renderGroups();
-                })
+                });
                 groupContainer.appendChild(groupRemoveBtn);
         groupsContainer.appendChild(groupContainer);
-    }
-}
+    };
+};
 
 const toggleSidebar = (() => {
     let closeSidebarBtn = document.querySelector('.closeSidebarBtn');
@@ -351,9 +353,9 @@ const toggleSidebar = (() => {
 const sidebarSetup = (() => {
     console.log('sidebar setup working');
     //render existing groups
-    // groups[0] = "test group";
-    // groups[1] = 'test chores';
-    renderGroups(_localStorage__WEBPACK_IMPORTED_MODULE_0__.groupSelected);
+    _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups[0] = "test group";
+    _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups[1] = 'test chores';
+    renderGroups();
     //add new group for tasks
     addNewGroup;
     //toggle open/close sidebar

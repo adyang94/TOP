@@ -1,18 +1,17 @@
 //CONST AND VARIABLES--------------------------------------------
-import {sidebarSetup} from "./sidebar";
+import {renderGroups, sidebarSetup} from "./sidebar";
 import {popOutSetup} from "./popOutForm";
-import {localStorageModule} from "./localStorage";
+import {groups, localStorageModule, tasks} from "./localStorage";
+import { renderTasks } from "./renderTasks";
 
 //FUNCTIONS------------------------------------------------------
 
 //get old info
-localStorageModule.getTasks();
-localStorageModule.getGroups();
 console.log('1');
-sidebarSetup; //set up side bar
-console.log('2');
-popOutSetup;  //SET UP POP OUT FOR NEW TASKS
+renderTasks('', localStorageModule.getTasks());
 
+console.log('2');
+renderGroups(localStorageModule.getGroups());
 
 //create new tasks
 

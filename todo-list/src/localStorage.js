@@ -1,11 +1,5 @@
 //CONST AND VARIABLES--------------------------------------------
-
-import { renderTasks } from "./renderTasks";
-import {renderGroups} from "./sidebar";
-
 let groups = [];
-groups[0] = 'hi';
-groups[1] = 'hello';
 let tasks = [];
 let groupSelected;
 //FUNCTIONS------------------------------------------------------
@@ -17,17 +11,22 @@ const localStorageModule = (() => {
         console.log(`GET TASKS FUNCTION WORKING -------------`);
         
         tasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks[0] = {
+            "title": "hi"
+        };
         console.log([tasks]);
-        renderTasks( '',tasks);
+        return tasks;
     };
     function getGroups() {
         groups = JSON.parse(localStorage.getItem('groups'));
+        groups[0] = 'hi';
+        groups[1] = 'helloooo';
         console.log(`getGroups ${groups}`);
-        renderGroups(groups);
+        return groups;
     };
     function storeTasksAndGroups(tasks, groups) {
-        localStorage.setItem("tasks", JSON.stringify(tasks))
-        localStorage.setItem("groups", groups)
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        localStorage.setItem("groups", JSON.stringify(groups));
         console.log([localStorage]);
     };
     function addNewInfo(newTask, newGroup) {
