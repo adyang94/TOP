@@ -54,38 +54,42 @@ let tasks = [];
 let groupSelected;
 //FUNCTIONS------------------------------------------------------
 const localStorageModule = (() => {
-    console.log('store tasks and groups-------------');
+    console.log('store tasks and groups');
     console.log(`array? ${groups} ${Array.isArray(groups)} ${typeof(groups)}`);
     
-    function getTasks(tasks) {
-        console.log(`GET TASKS FUNCTION WORKING -------------`);
+    function name(params) {
         
-        tasks = JSON.parse(localStorage.getItem('tasks'));
-        tasks[0] = {
-            "title": "hi"
-        };
-        console.log([tasks]);
+    }
+    function getTasks() {
+        console.log(`GET TASKS FUNCTION WORKING -------------`);
+        tasks = Object.values(JSON.parse(localStorage.getItem('tasks')))
+        console.log(tasks);
         return tasks;
     };
     function getGroups() {
-        groups = JSON.parse(localStorage.getItem('groups'));
-        groups[0] = 'hi';
-        groups[1] = 'helloooo';
+        groups = Object.values(JSON.parse(localStorage.getItem('groups')));
         console.log(`getGroups ${groups}`);
         return groups;
     };
     function storeTasksAndGroups(tasks, groups) {
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-        localStorage.setItem("groups", JSON.stringify(groups));
+        if (tasks != '') {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+        if (groups != '') {
+            localStorage.setItem("groups", JSON.stringify(groups));
+        }
         console.log([localStorage]);
     };
     function addNewInfo(newTask, newGroup) {
-        if (tasks != '') {
+        if (newTask != '') {
+            console.log(`task is array? ${tasks} ${Array.isArray(tasks)} ${typeof(tasks)}`);
+
             tasks.push(newTask);
         }
         if (newGroup != '') {
             groups.push(newGroup);
         }
+        console.log(tasks);
         storeTasksAndGroups(tasks, groups);
     }
     return {getTasks, getGroups, storeTasksAndGroups, addNewInfo};
@@ -131,12 +135,14 @@ const popOutSetup = (() => {
         popOutForm.classList.add('popOutFormOff');
 
         newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate, popOutGroup);
-        _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.storeTasksAndGroups(newTask, '');
+
+        console.log(newTask);
+
+        _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.addNewInfo(newTask, '');
     
-        console.log([_localStorage__WEBPACK_IMPORTED_MODULE_0__.tasks]);
-        _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.storeTasksAndGroups(_localStorage__WEBPACK_IMPORTED_MODULE_0__.tasks, _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups);
+        console.log(_localStorage__WEBPACK_IMPORTED_MODULE_0__.tasks);
         
-        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(_localStorage__WEBPACK_IMPORTED_MODULE_0__.groupSelected, _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.getTasks);
+        (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(_localStorage__WEBPACK_IMPORTED_MODULE_0__.groupSelected, _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.getTasks());
     });
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');
@@ -176,6 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function renderTasks (groupSelected, tasks) {
     console.log('render tasks module working---------------------');
+    console.log(tasks);
     
     
     let main = document.querySelector('.main');
@@ -184,9 +191,10 @@ function renderTasks (groupSelected, tasks) {
     while(main.firstChild) {
         main.removeChild(main.firstChild);
     }
-        
+    console.log(`task is array? ${tasks} ${Array.isArray(tasks)} ${typeof(tasks)}`);
     console.log(`tasks.length: ${tasks.length}`);
     console.log(`group selected in render tasks: ${groupSelected}`);
+
     for(let i=0; i < tasks.length; i++){
         //task container
         let taskContainer = document.createElement('div');
@@ -220,7 +228,7 @@ function renderTasks (groupSelected, tasks) {
         removeBtn.addEventListener('click', (event, srcElement) => {
             console.log(`remove dataset btn1: ${removeBtn.dataset.task}`);
             tasks.splice(event.srcElement.dataset.task, 1);
-            _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.storeTasksAndGroups(tasks, _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups);
+            _localStorage__WEBPACK_IMPORTED_MODULE_0__.localStorageModule.storeTasksAndGroups(tasks, '');
             renderTasks(groupSelected, tasks);
         })
         taskContainer.appendChild(removeBtn);
@@ -287,7 +295,7 @@ const addNewGroup = (() => {
 function renderGroups() {
     let groupsContainer = document.querySelector('.groupsContainer');
     //remove all groups and render again.
-    console.log('REMOVE ALL GROUPS');
+    // console.log('REMOVE ALL GROUPS');
     while(groupsContainer.firstChild) {
         groupsContainer.removeChild(groupsContainer.firstChild);
         // console.log(`RENDER: ${groups}`)
@@ -295,8 +303,8 @@ function renderGroups() {
     console.log('REMOVE ALL GROUPS');
     //rendering groups
     for (let i = 0; i < _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups.length; i++) {
-        console.log('hello********************');
-        console.log(`Is groups an array? ${Array.isArray(_localStorage__WEBPACK_IMPORTED_MODULE_0__.groups)}`);
+        // console.log('hello********************');
+        // console.log(`Is groups an array? ${Array.isArray(groups)}`);
 
         let name = _localStorage__WEBPACK_IMPORTED_MODULE_0__.groups[i];
         
@@ -308,8 +316,8 @@ function renderGroups() {
                 _localStorage__WEBPACK_IMPORTED_MODULE_0__.groupSelected = groupTitle.dataset.group;
                 (0,_renderTasks__WEBPACK_IMPORTED_MODULE_1__.renderTasks)(_localStorage__WEBPACK_IMPORTED_MODULE_0__.groupSelected, _localStorage__WEBPACK_IMPORTED_MODULE_0__.tasks);
 
-                console.log(`group selected: ${_localStorage__WEBPACK_IMPORTED_MODULE_0__.groupSelected}`);
-                console.log([_localStorage__WEBPACK_IMPORTED_MODULE_0__.groups]);
+                // console.log(`group selected: ${groupSelected}`);
+                // console.log([groups]);
             });
             let groupTitle = document.createElement('div');
                 

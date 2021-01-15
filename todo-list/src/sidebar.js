@@ -33,7 +33,7 @@ const addNewGroup = (() => {
 function renderGroups() {
     let groupsContainer = document.querySelector('.groupsContainer');
     //remove all groups and render again.
-    console.log('REMOVE ALL GROUPS');
+    // console.log('REMOVE ALL GROUPS');
     while(groupsContainer.firstChild) {
         groupsContainer.removeChild(groupsContainer.firstChild);
         // console.log(`RENDER: ${groups}`)
@@ -41,8 +41,8 @@ function renderGroups() {
     console.log('REMOVE ALL GROUPS');
     //rendering groups
     for (let i = 0; i < groups.length; i++) {
-        console.log('hello********************');
-        console.log(`Is groups an array? ${Array.isArray(groups)}`);
+        // console.log('hello********************');
+        // console.log(`Is groups an array? ${Array.isArray(groups)}`);
 
         let name = groups[i];
         
@@ -54,8 +54,8 @@ function renderGroups() {
                 groupSelected = groupTitle.dataset.group;
                 renderTasks(groupSelected, tasks);
 
-                console.log(`group selected: ${groupSelected}`);
-                console.log([groups]);
+                // console.log(`group selected: ${groupSelected}`);
+                // console.log([groups]);
             });
             let groupTitle = document.createElement('div');
                 

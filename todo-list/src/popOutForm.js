@@ -22,12 +22,14 @@ const popOutSetup = (() => {
         popOutForm.classList.add('popOutFormOff');
 
         newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate, popOutGroup);
-        localStorageModule.storeTasksAndGroups(newTask, '');
+
+        console.log(newTask);
+
+        localStorageModule.addNewInfo(newTask, '');
     
-        console.log([tasks]);
-        localStorageModule.storeTasksAndGroups(tasks, groups);
+        console.log(tasks);
         
-        renderTasks(groupSelected, localStorageModule.getTasks);
+        renderTasks(groupSelected, localStorageModule.getTasks());
     });
     addTaskButton.addEventListener('click', () => {
         popOutForm.classList.remove('popOutFormOff');

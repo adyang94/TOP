@@ -5,6 +5,7 @@ import {groups, localStorageModule} from "./localStorage";
 
 function renderTasks (groupSelected, tasks) {
     console.log('render tasks module working---------------------');
+    console.log(tasks);
     
     
     let main = document.querySelector('.main');
@@ -13,9 +14,10 @@ function renderTasks (groupSelected, tasks) {
     while(main.firstChild) {
         main.removeChild(main.firstChild);
     }
-        
+    console.log(`task is array? ${tasks} ${Array.isArray(tasks)} ${typeof(tasks)}`);
     console.log(`tasks.length: ${tasks.length}`);
     console.log(`group selected in render tasks: ${groupSelected}`);
+
     for(let i=0; i < tasks.length; i++){
         //task container
         let taskContainer = document.createElement('div');
@@ -49,7 +51,7 @@ function renderTasks (groupSelected, tasks) {
         removeBtn.addEventListener('click', (event, srcElement) => {
             console.log(`remove dataset btn1: ${removeBtn.dataset.task}`);
             tasks.splice(event.srcElement.dataset.task, 1);
-            localStorageModule.storeTasksAndGroups(tasks, groups);
+            localStorageModule.storeTasksAndGroups(tasks, '');
             renderTasks(groupSelected, tasks);
         })
         taskContainer.appendChild(removeBtn);

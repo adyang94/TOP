@@ -4,38 +4,42 @@ let tasks = [];
 let groupSelected;
 //FUNCTIONS------------------------------------------------------
 const localStorageModule = (() => {
-    console.log('store tasks and groups-------------');
+    console.log('store tasks and groups');
     console.log(`array? ${groups} ${Array.isArray(groups)} ${typeof(groups)}`);
     
-    function getTasks(tasks) {
-        console.log(`GET TASKS FUNCTION WORKING -------------`);
+    function name(params) {
         
-        tasks = JSON.parse(localStorage.getItem('tasks'));
-        tasks[0] = {
-            "title": "hi"
-        };
-        console.log([tasks]);
+    }
+    function getTasks() {
+        console.log(`GET TASKS FUNCTION WORKING -------------`);
+        tasks = Object.values(JSON.parse(localStorage.getItem('tasks')))
+        console.log(tasks);
         return tasks;
     };
     function getGroups() {
-        groups = JSON.parse(localStorage.getItem('groups'));
-        groups[0] = 'hi';
-        groups[1] = 'helloooo';
+        groups = Object.values(JSON.parse(localStorage.getItem('groups')));
         console.log(`getGroups ${groups}`);
         return groups;
     };
     function storeTasksAndGroups(tasks, groups) {
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-        localStorage.setItem("groups", JSON.stringify(groups));
+        if (tasks != '') {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+        if (groups != '') {
+            localStorage.setItem("groups", JSON.stringify(groups));
+        }
         console.log([localStorage]);
     };
     function addNewInfo(newTask, newGroup) {
-        if (tasks != '') {
+        if (newTask != '') {
+            console.log(`task is array? ${tasks} ${Array.isArray(tasks)} ${typeof(tasks)}`);
+
             tasks.push(newTask);
         }
         if (newGroup != '') {
             groups.push(newGroup);
         }
+        console.log(tasks);
         storeTasksAndGroups(tasks, groups);
     }
     return {getTasks, getGroups, storeTasksAndGroups, addNewInfo};
