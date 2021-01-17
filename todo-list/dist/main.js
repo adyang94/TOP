@@ -57,8 +57,15 @@ const localStorageModule = (() => {
     console.log('store tasks and groups');
     console.log(`array? ${groups} ${Array.isArray(groups)} ${typeof(groups)}`);
     
-    function name(params) {
-        
+    function storeGroupSelected(groupSelected) {
+        console.log(`STORE GROUP SELECTED FUNCTION`);
+        if(groupSelected != '') {
+            localStorage.setItem("groupSelected", JSON.stringify(groupSelected));
+        };
+    }
+    function getGroupSelected() {
+        console.log(`GET GROUP SELECTED FUNCTION`);
+        return Object.values(JSON.parse(localStorageModule.getItem('groupSelected')));
     }
     function getTasks() {
         console.log(`GET TASKS FUNCTION WORKING -------------`);
@@ -92,7 +99,7 @@ const localStorageModule = (() => {
         console.log(tasks);
         storeTasksAndGroups(tasks, groups);
     }
-    return {getTasks, getGroups, storeTasksAndGroups, addNewInfo};
+    return {getTasks, getGroups, storeTasksAndGroups, addNewInfo, getGroupSelected,storeGroupSelected};
 })();
 //SCRIPT---------------------------------------------------------
 
