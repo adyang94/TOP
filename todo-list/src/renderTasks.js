@@ -1,47 +1,40 @@
 //CONST AND VARIABLES--------------------------------------------
-import {groups, localStorageModule} from "./localStorage";
+import {localStorageModule} from "./localStorage";
 
 //FUNCTIONS------------------------------------------------------
 
 function renderTasks (groupSelected, tasks) {
-    console.log('render tasks module working---------------------');
-    console.log(tasks);
-    
-    
-    let main = document.querySelector('.main');
+    console.log({tasks});
+    console.log(`group selected in render tasks: ${groupSelected}`);
 
+    let main = document.querySelector('.main');
+    
     //erase current tasks
     while(main.firstChild) {
         main.removeChild(main.firstChild);
     }
-    console.log(`task is array? ${tasks} ${Array.isArray(tasks)} ${typeof(tasks)}`);
-    console.log(`tasks.length: ${tasks.length}`);
-    console.log(`group selected in render tasks: ${groupSelected}`);
-
     for(let i=0; i < tasks.length; i++){
         //task container
         let taskContainer = document.createElement('div');
-        taskContainer.classList.add('taskContainer');
-        taskContainer.dataset.task = i;
+            taskContainer.classList.add('taskContainer');
+            taskContainer.dataset.task = i;
         let taskText = document.createElement('p');
-        console.log(`i: ${i}-----------`);
-        console.log(`task group1: ${tasks[i].taskGroup}`);
-
+        
         if (groupSelected) {
             if (tasks[i].taskGroup !== groupSelected) {
                 continue;
             };
         };
         taskText.innerHTML = 
-            `
-            <span class = "title">Title: ${tasks[i].title}</span><br>
-
-            <span class = "description">Description: ${tasks[i].description}</span> <br>
-
-            <span class = "dueDate">Due: ${tasks[i].dueDate}</span><br>
-            <span class = "taskGroup">Group: ${tasks[i].taskGroup}</span><br>`;
+        `
+        <span class = "title">Title: ${tasks[i].title}</span><br>
+        
+        <span class = "description">Description: ${tasks[i].description}</span> <br>
+        
+        <span class = "dueDate">Due: ${tasks[i].dueDate}</span><br>
+        <span class = "taskGroup">Group: ${tasks[i].taskGroup}</span><br>`;
         taskContainer.appendChild(taskText);
-
+        
         //remove button
         let removeBtn = document.createElement('button');
         removeBtn.classList.add('removeBtn');
@@ -58,6 +51,7 @@ function renderTasks (groupSelected, tasks) {
         
         //append all elements
         main.appendChild(taskContainer);
+        console.log(`task group1: ${tasks[i].taskGroup}`);
     }
     
 }

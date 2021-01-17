@@ -6,8 +6,6 @@ import {renderTasks} from './renderTasks';
 //FUNCTIONS------------------------------------------------------
 
 const popOutSetup = (() => {
-    console.log('popOut setup working---------------------------');
-    
     let popOutForm = document.querySelector('#popOutForm');
     let submitBtn = document.querySelector('.submitBtn');
     let popOutTitle = document.querySelector('.popOutTitle');
@@ -22,13 +20,7 @@ const popOutSetup = (() => {
         popOutForm.classList.add('popOutFormOff');
 
         newTask = new addNewTask(popOutTitle, popOutDescription, popOutDueDate, popOutGroup);
-
-        console.log(newTask);
-
         localStorageModule.addNewInfo(newTask, '');
-    
-        console.log(tasks);
-        
         renderTasks(groupSelected, localStorageModule.getTasks());
     });
     addTaskButton.addEventListener('click', () => {
