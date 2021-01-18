@@ -127,11 +127,14 @@ main p {
     font-size: smaller;
     word-wrap:break-word;
 }
+.taskGroup {
+    font-size: smaller;
+    word-wrap: break-word;
+}
 .removeBtn {
     position: absolute;
     margin-left: 85%;
     margin-top: 4%;
-    
 }
 .footer {
     grid-column: 3/4;
