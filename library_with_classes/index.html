@@ -12,12 +12,14 @@
                 <div class="sidenav">
                     <div class="textInput">
                         <form id="form">
-                            Title:
-                            <input id="formTitle" type="text" placeholder="Type title here"><br>
-                            Author:
-                            <input id="formAuthor" type = "text" placeholder = "Type author here"><br>
-                            Number of Pages:
-                            <input id="formNumberOfPages" type = "text" placeholder = "Type number of pages here"><br>
+                            <label for="formTitle">Title:</label>
+                            <input id="formTitle" type="text" placeholder="Type title here" required>
+                            
+                            <label for="formAuthor">Author:</label>
+                            <input id="formAuthor" type = "text" placeholder = "Type author here" required>
+                            
+                            <label for="formNumberOfPages">Number of Pagess:</label>
+                            <input id="formNumberOfPages" type="number" placeholder = "Type number of pages here" required min="1" max="100000">
                             <div>
                                 <input id="formCheckbox" type="checkbox" name="formCheckbox">
                                 <label for="formCheckbox">Read?</label>
