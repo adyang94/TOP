@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation Test</title>
+  <script defer src="./index.js"></script>
+</head>
+<body>
+  <form id="form">
+    <div id="errorContainer"></div>
+    <label for="email">Email:</label>
+    <input type="email" placeholder="Type email here" id="email">
+    <br>
+    
+    <label for="country">Country</label>
+    <input type="text" id="country" placeholder="Type country here" >
+    <br>
+
+    <label for="zip">Zip Code:</label>
+    <input type="number" id="zip" placeholder="Type zip code here" onfocusout = 'checkForm()'>
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Type password here" >
+    <br>
+
+    <label for="passwordConfirm">Confirm Password:</label>
+    <input type="password" id="passwordConfirm" placeholder="Confirm password here" >
+    
+    <button type="submit" id="submit">Submit</button>
+  
+  </form>
+</body>
+</html>
