@@ -14,18 +14,23 @@
       const response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=Jyb5SbUk7ptSeJ512ZdRe9UcGlCohvLC&s=cats', {mode: 'cors'});
       
       const catData = await response.json();
-      img.src = response.data.images.original.url;
+      img.src = catData.data.images.original.url;
 
-      // fetch('https://api.giphy.com/v1/gifs/translate?api_key=Jyb5SbUk7ptSeJ512ZdRe9UcGlCohvLC&s=cats', {mode: 'cors'})
-      //   .then((response) => {
-      //     return response.json();
-      //   })
-      //   .then((response) => {
-      //     img.src = response.data.images.original.url;
-      //   });
 
+      
     }
+    getCats();
 
+
+
+
+    // fetch('https://api.giphy.com/v1/gifs/translate?api_key=Jyb5SbUk7ptSeJ512ZdRe9UcGlCohvLC&s=cats', {mode: 'cors'})
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((response) => {
+    //     img.src = response.data.images.original.url;
+    //   });
   </script>
 </body>
 </html>
