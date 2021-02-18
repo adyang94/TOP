@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "calculator-cdb15"
+    "default": "calculator-cdb15",
+    "calculator": "calculator-48731"
   }
 }

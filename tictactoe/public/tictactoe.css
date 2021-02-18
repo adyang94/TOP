@@ -1,0 +1,86 @@
+:root {
+    display: flex;
+    background-color: black;
+    color: white;
+    flex-direction: column;
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-self: auto;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    color: white;
+}
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gridContainer {
+    display: flex;
+}
+.grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 5.1875rem);
+    grid-template-rows: repeat(3, 5.1875rem);
+    padding: 3rem;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+}
+.gridCell {
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: teal;
+    border: tomato solid;
+}
+#grid0 {
+    border-top: none;
+    border-left: none;
+}
+#grid1 {
+    border-top: none;
+}
+#grid2 {
+    border-top: none;
+    border-right: none;
+}
+#grid3 {
+    border-left: none;
+}
+#grid4 {
+
+}
+#grid5 {
+    border-right: none;
+}
+#grid6 {
+    border-left:none;
+    border-bottom: none;
+}
+#grid7 {
+    border-bottom: none;
+}
+#grid8 {
+    border-bottom: none;
+    border-right: none;
+}
+
+[data-player = "1"] {
+    color: aquamarine;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+[data-player = "2"]{
+    color: violet;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
